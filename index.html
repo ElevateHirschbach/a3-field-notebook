@@ -497,6 +497,36 @@
     font-weight: 500;
   }
 
+  .contact-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Gilroy', 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+    color: var(--dark);
+    outline: none;
+    padding: 9px 12px;
+    line-height: 1.5;
+  }
+  .contact-input:focus {
+    background: #FFFDF8;
+    box-shadow: inset 0 0 0 1px var(--orange);
+  }
+  .contact-input::placeholder { color: #CCC; font-style: italic; }
+
+  .contact-del-btn {
+    background: none;
+    border: none;
+    color: #CCC;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+  .contact-del-btn:hover { background: var(--red-bg); color: var(--red-border); }
+
   .status-pill {
     display: inline-block;
     padding: 2px 8px;
@@ -1647,17 +1677,66 @@
       <div class="page-subtitle">Know who you're talking to before you walk in</div>
     </div>
   </div>
-  <table class="lane-table">
-    <thead><tr><th>Name</th><th>Role</th><th>Relevance to A3</th></tr></thead>
-    <tbody>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Jason Aller</td><td>Expedited operations manager</td><td>Day-to-day ops; bottleneck; interview carefully</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Lyndi Curry</td><td>Director, Expedited / north lanes</td><td>Overall owner; scorecard; driver leader ranking</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Amye Alvarez</td><td>Director, southern lanes</td><td>CC 147 primary; southern SOP owner</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Nathan Kratz</td><td>Driver support, EXPE1 (CC 148/149)</td><td>Northern lanes daily ops</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">TJ Pressley</td><td>Expedited leadership</td><td>Daily call participant</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Jared Taylor</td><td>Expedited leadership</td><td>Daily call participant</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Richard Stocking</td><td>Senior leadership</td><td>Sets the standard expectation; exec context</td></tr>
-      <tr><td style="font-family:'Gilroy','Trebuchet MS',sans-serif;color:var(--dark);font-size:13px;">Darren Wright</td><td>Sr. leadership / PI sponsor</td><td>Assessment sponsor; strategic framing</td></tr>
+  <table class="lane-table" id="contacts-table">
+    <thead>
+      <tr>
+        <th style="width:22%">Name</th>
+        <th style="width:28%">Role</th>
+        <th style="width:42%">Relevance to A3</th>
+        <th style="width:8%;background:var(--navy);text-align:center;">
+          <button onclick="addContactRow()" title="Add contact" style="background:var(--orange);border:none;color:#fff;font-size:16px;line-height:1;width:24px;height:24px;border-radius:3px;cursor:pointer;font-weight:700;">+</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="contacts-tbody">
+      <tr>
+        <td><input type="text" value="Jason Aller" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Expedited operations manager" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Day-to-day ops; bottleneck; interview carefully" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Lyndi Curry" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Director, Expedited / north lanes" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Overall owner; scorecard; driver leader ranking" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Amye Alvarez" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Director, southern lanes" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="CC 147 primary; southern SOP owner" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Nathan Kratz" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Driver support, EXPE1 (CC 148/149)" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Northern lanes daily ops" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="TJ Pressley" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Expedited leadership" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Daily call participant" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Jared Taylor" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Expedited leadership" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Daily call participant" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Richard Stocking" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Senior leadership" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Sets the standard expectation; exec context" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Darren Wright" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Sr. leadership / PI sponsor" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Assessment sponsor; strategic framing" class="contact-input" placeholder="Relevance to A3"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
     </tbody>
   </table>
   <div class="notes-area" style="margin-top:20px;">
@@ -2752,6 +2831,29 @@
   });
 
   // ==============================================
+  // KEY CONTACTS — ADD / REMOVE
+  // ==============================================
+  function addContactRow() {
+    const tbody = document.getElementById('contacts-tbody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><input type="text" class="contact-input" placeholder="Name"></td>
+      <td><input type="text" class="contact-input" placeholder="Role"></td>
+      <td><input type="text" class="contact-input" placeholder="Relevance to A3"></td>
+      <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>`;
+    tbody.appendChild(tr);
+    tr.querySelector('.contact-input').focus();
+    scheduleSave();
+  }
+
+  function removeContactRow(btn) {
+    const tbody = document.getElementById('contacts-tbody');
+    if (tbody.rows.length <= 1) return; // always keep at least one row
+    btn.closest('tr').remove();
+    scheduleSave();
+  }
+
+  // ==============================================
   // AUTO-SAVE TO LOCALSTORAGE
   // ==============================================
   const SAVE_KEY = 'a3_notebook_v1';
@@ -2802,6 +2904,18 @@
       list.querySelectorAll('li').forEach(item => items.push(item.textContent));
       state['ql_' + li] = JSON.stringify(items);
     });
+
+    // key contacts rows
+    const contactRows = [];
+    document.querySelectorAll('#contacts-tbody tr').forEach(tr => {
+      const inputs = tr.querySelectorAll('.contact-input');
+      contactRows.push({
+        name: inputs[0]?.value || '',
+        role: inputs[1]?.value || '',
+        relevance: inputs[2]?.value || ''
+      });
+    });
+    state['contact_rows'] = JSON.stringify(contactRows);
 
     // opportunity tracker rows
     const oppRows = [];
@@ -2864,6 +2978,26 @@
       el.dataset.saveKey = key;
       if (state['ce_' + key] !== undefined) el.innerHTML = state['ce_' + key];
     });
+
+    // key contacts rows
+    if (state['contact_rows']) {
+      try {
+        const rows = JSON.parse(state['contact_rows']);
+        const tbody = document.getElementById('contacts-tbody');
+        if (tbody && rows.length > 0) {
+          tbody.innerHTML = '';
+          rows.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><input type="text" class="contact-input" placeholder="Name" value="${row.name.replace(/"/g,'&quot;')}"></td>
+              <td><input type="text" class="contact-input" placeholder="Role" value="${row.role.replace(/"/g,'&quot;')}"></td>
+              <td><input type="text" class="contact-input" placeholder="Relevance to A3" value="${row.relevance.replace(/"/g,'&quot;')}"></td>
+              <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>`;
+            tbody.appendChild(tr);
+          });
+        }
+      } catch(e) { console.warn('Could not restore contact rows', e); }
+    }
 
     // opportunity rows
     if (state['opp_rows']) {
