@@ -109,6 +109,38 @@
     text-transform: uppercase;
     color: var(--slate);
     padding: 20px 16px 6px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.15s;
+  }
+
+  .nav-group-label:hover { color: var(--dark); }
+
+  .nav-group-label .nav-chevron {
+    font-size: 10px;
+    color: var(--slate);
+    transition: transform 0.2s ease;
+    margin-right: 2px;
+    flex-shrink: 0;
+  }
+
+  .nav-group-label.collapsed .nav-chevron {
+    transform: rotate(-90deg);
+  }
+
+  .nav-group-links {
+    overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+    max-height: 600px;
+    opacity: 1;
+  }
+
+  .nav-group-links.collapsed {
+    max-height: 0;
+    opacity: 0;
   }
 
   .nav-link {
@@ -1124,9 +1156,9 @@
     resize: none;
   }
   .opp-table td textarea { min-height: 36px; }
-  .opp-table td.priority-cell { width: 72px; text-align: center; }
-  .opp-table td.cat-cell { width: 180px; }
-  .opp-table td.roi-cell { width: 140px; }
+  .opp-table td.priority-cell { width: 220px; }
+  .opp-table td.cat-cell { width: 160px; }
+  .opp-table td.roi-cell { width: 200px; }
   .opp-table td.del-cell { width: 36px; text-align: center; }
   .opp-del-btn {
     background: none;
@@ -1455,45 +1487,53 @@
     <div class="logo-sub">Hirschbach · A3 Field Notebook</div>
   </div>
 
-  <div class="nav-group-label">Overview</div>
-  <a class="nav-link" href="#cover"><span class="num">00</span>Table of Contents</a>
-  <a class="nav-link" href="#background"><span class="num">01</span>Background Brief</a>
-  <a class="nav-link" href="#tension"><span class="num">02</span>Core Tension</a>
-  <a class="nav-link" href="#contacts"><span class="num">03</span>Key Contacts</a>
+  <div class="nav-group-label" onclick="toggleNavGroup(this)">Overview <span class="nav-chevron">▾</span></div>
+  <div class="nav-group-links">
+    <a class="nav-link" href="#background"><span class="num">01</span>Background Brief</a>
+    <a class="nav-link" href="#tension"><span class="num">02</span>Core Tension</a>
+    <a class="nav-link" href="#contacts"><span class="num">03</span>Key Contacts</a>
+  </div>
 
-  <div class="nav-group-label">Prep Questions</div>
-  <a class="nav-link" href="#sales"><span class="num">04</span>Sales</a>
-  <a class="nav-link" href="#fpa"><span class="num">05</span>FP&A</a>
-  <a class="nav-link" href="#ops-overview"><span class="num">06</span>Operational Overview</a>
-  <a class="nav-link" href="#planning"><span class="num">07</span>Planning</a>
-  <a class="nav-link" href="#leadership"><span class="num">08</span>Leadership Interviews</a>
-  <a class="nav-link" href="#recruiting"><span class="num">09</span>Recruiting & Retention</a>
-  <a class="nav-link" href="#comp"><span class="num">10</span>Driver Compensation</a>
-  <a class="nav-link" href="#customer"><span class="num">11</span>Customer Service</a>
-  <a class="nav-link" href="#safety"><span class="num">12</span>Safety & Compliance</a>
-  <a class="nav-link" href="#network"><span class="num">13</span>Network & Lanes</a>
-  <a class="nav-link" href="#equipment"><span class="num">14</span>Equipment</a>
-  <a class="nav-link" href="#freight"><span class="num">15</span>Freight</a>
-  <a class="nav-link" href="#technology"><span class="num">16</span>Technology</a>
-  <a class="nav-link" href="#drivers"><span class="num">17</span>Drivers</a>
-  <a class="nav-link" href="#general"><span class="num">18</span>General / Scaling</a>
+  <div class="nav-group-label" onclick="toggleNavGroup(this)">Prep Questions <span class="nav-chevron">▾</span></div>
+  <div class="nav-group-links">
+    <a class="nav-link" href="#sales"><span class="num">04</span>Sales</a>
+    <a class="nav-link" href="#fpa"><span class="num">05</span>FP&A</a>
+    <a class="nav-link" href="#ops-overview"><span class="num">06</span>Operational Overview</a>
+    <a class="nav-link" href="#planning"><span class="num">07</span>Planning</a>
+    <a class="nav-link" href="#leadership"><span class="num">08</span>Leadership Interviews</a>
+    <a class="nav-link" href="#recruiting"><span class="num">09</span>Recruiting & Retention</a>
+    <a class="nav-link" href="#comp"><span class="num">10</span>Driver Compensation</a>
+    <a class="nav-link" href="#customer"><span class="num">11</span>Customer Service</a>
+    <a class="nav-link" href="#safety"><span class="num">12</span>Safety & Compliance</a>
+    <a class="nav-link" href="#network"><span class="num">13</span>Network & Lanes</a>
+    <a class="nav-link" href="#equipment"><span class="num">14</span>Equipment</a>
+    <a class="nav-link" href="#freight"><span class="num">15</span>Freight</a>
+    <a class="nav-link" href="#technology"><span class="num">16</span>Technology</a>
+    <a class="nav-link" href="#drivers"><span class="num">17</span>Drivers</a>
+    <a class="nav-link" href="#general"><span class="num">18</span>General / Scaling</a>
+    <a class="nav-link" href="#driver-scheduling"><span class="num">19</span>Driver Scheduling</a>
+  </div>
 
-  <div class="nav-group-label">Gemba Walk</div>
-  <a class="nav-link" href="#gemba-scope"><span class="num">G0</span>Scope & Rules</a>
-  <a class="nav-link" href="#day1"><span class="num">G1</span>Day 1 — Observe</a>
-  <a class="nav-link" href="#day2"><span class="num">G2</span>Day 2 — Questions</a>
-  <a class="nav-link" href="#day3"><span class="num">G3</span>Day 3 — Observe</a>
-  <a class="nav-link" href="#day4"><span class="num">G4</span>Day 4 — Questions</a>
-  <a class="nav-link" href="#day5"><span class="num">G5</span>Day 5 — Observe</a>
-  <a class="nav-link" href="#day6"><span class="num">G6</span>Day 6 — Synthesis</a>
+  <div class="nav-group-label" onclick="toggleNavGroup(this)">Gemba Walk <span class="nav-chevron">▾</span></div>
+  <div class="nav-group-links">
+    <a class="nav-link" href="#gemba-scope"><span class="num">G0</span>Scope & Rules</a>
+    <a class="nav-link" href="#day1"><span class="num">G1</span>Day 1 — Observe</a>
+    <a class="nav-link" href="#day2"><span class="num">G2</span>Day 2 — Questions</a>
+    <a class="nav-link" href="#day3"><span class="num">G3</span>Day 3 — Observe</a>
+    <a class="nav-link" href="#day4"><span class="num">G4</span>Day 4 — Questions</a>
+    <a class="nav-link" href="#day5"><span class="num">G5</span>Day 5 — Observe</a>
+    <a class="nav-link" href="#day6"><span class="num">G6</span>Day 6 — Synthesis</a>
+  </div>
 
-  <div class="nav-group-label">Output</div>
-  <a class="nav-link" href="#exec-summary"><span class="num">E1</span>Executive Summary</a>
-  <a class="nav-link" href="#opportunities"><span class="num">E2</span>Opportunity Tracker</a>
-  <a class="nav-link" href="#attachments"><span class="num">E3</span>Attachments</a>
-  <a class="nav-link" href="#patterns"><span class="num">S1</span>Pattern Recognition</a>
-  <a class="nav-link" href="#constraints"><span class="num">S2</span>Constraint Validation</a>
-  <a class="nav-link" href="#artifacts"><span class="num">S3</span>Reference Docs</a>
+  <div class="nav-group-label" onclick="toggleNavGroup(this)">Output <span class="nav-chevron">▾</span></div>
+  <div class="nav-group-links">
+    <a class="nav-link" href="#exec-summary"><span class="num">E1</span>Executive Summary</a>
+    <a class="nav-link" href="#opportunities"><span class="num">E2</span>Opportunity Tracker</a>
+    <a class="nav-link" href="#attachments"><span class="num">E3</span>Attachments</a>
+    <a class="nav-link" href="#patterns"><span class="num">S1</span>Pattern Recognition</a>
+    <a class="nav-link" href="#constraints"><span class="num">S2</span>Constraint Validation</a>
+    <a class="nav-link" href="#artifacts"><span class="num">S3</span>Reference Docs</a>
+  </div>
 </nav>
 
 <!-- MAIN -->
@@ -1513,50 +1553,6 @@
       This document captures the current state, outlines the on-site plan, and provides the background needed before A3 root cause work begins on the Expedited division. It is a starting point — not a conclusion.
     </div>
   </div>
-
-  <div>
-    <div class="toc-grid">
-      <div class="toc-section-break">Background</div>
-      <a class="toc-item" href="#background"><span class="toc-num">01</span>Background Brief — Current State</a>
-      <a class="toc-item" href="#tension"><span class="toc-num">02</span>Core Tension — Sold vs. Built</a>
-      <a class="toc-item" href="#contacts"><span class="toc-num">03</span>Key Contacts</a>
-      <a class="toc-item" href="#background"><span class="toc-num"> </span>Key Documents</a>
-
-      <div class="toc-section-break">Prep Work — Questions by Area</div>
-      <a class="toc-item" href="#sales"><span class="toc-num">04</span>Sales</a>
-      <a class="toc-item" href="#fpa"><span class="toc-num">05</span>FP&A</a>
-      <a class="toc-item" href="#ops-overview"><span class="toc-num">06</span>Operational Overview</a>
-      <a class="toc-item" href="#planning"><span class="toc-num">07</span>Planning</a>
-      <a class="toc-item" href="#leadership"><span class="toc-num">08</span>Leadership Interviews</a>
-      <a class="toc-item" href="#recruiting"><span class="toc-num">09</span>Driver Recruiting & Retention</a>
-      <a class="toc-item" href="#comp"><span class="toc-num">10</span>Driver Compensation</a>
-      <a class="toc-item" href="#customer"><span class="toc-num">11</span>Customer Service</a>
-      <a class="toc-item" href="#safety"><span class="toc-num">12</span>Safety & Compliance</a>
-      <a class="toc-item" href="#network"><span class="toc-num">13</span>Network & Lane Information</a>
-      <a class="toc-item" href="#equipment"><span class="toc-num">14</span>Equipment</a>
-      <a class="toc-item" href="#freight"><span class="toc-num">15</span>Freight</a>
-      <a class="toc-item" href="#technology"><span class="toc-num">16</span>Technology</a>
-      <a class="toc-item" href="#drivers"><span class="toc-num">17</span>Drivers</a>
-      <a class="toc-item" href="#general"><span class="toc-num">18</span>General / Scaling</a>
-
-      <div class="toc-section-break">Gemba Walk — April 13–18</div>
-      <a class="toc-item" href="#gemba-scope"><span class="toc-num">G0</span>Scope, Boundaries & Rules</a>
-      <a class="toc-item" href="#day1"><span class="toc-num">G1</span>Day 1 — Observation Only</a>
-      <a class="toc-item" href="#day2"><span class="toc-num">G2</span>Day 2 — Questions & Flow</a>
-      <a class="toc-item" href="#day3"><span class="toc-num">G3</span>Day 3 — Observation Only</a>
-      <a class="toc-item" href="#day4"><span class="toc-num">G4</span>Day 4 — Questions & Flow</a>
-      <a class="toc-item" href="#day5"><span class="toc-num">G5</span>Day 5 — Observation Only</a>
-      <a class="toc-item" href="#day6"><span class="toc-num">G6</span>Day 6 — Synthesis</a>
-
-      <div class="toc-section-break">Summary & Output</div>
-      <a class="toc-item" href="#exec-summary"><span class="toc-num">E1</span>Executive Summary</a>
-      <a class="toc-item" href="#opportunities"><span class="toc-num">E2</span>Opportunity Tracker</a>
-      <a class="toc-item" href="#attachments"><span class="toc-num">E3</span>Attachments & Links</a>
-      <a class="toc-item" href="#patterns"><span class="toc-num">S1</span>Pattern Recognition</a>
-      <a class="toc-item" href="#constraints"><span class="toc-num">S2</span>Constraint Validation</a>
-      <a class="toc-item" href="#artifacts"><span class="toc-num">S3</span>Artifacts & Working Docs</a>
-    </div>
-  </div>
 </div>
 
 <!-- ══════════════════ BACKGROUND BRIEF ══════════════════ -->
@@ -1572,7 +1568,7 @@
   <div class="content-block">
     <div class="block-label">What Expedited is supposed to be</div>
     <ul class="question-list">
-      <li>A slip-seat relay shuttle — two drivers meet in the middle, swap trailers, and each returns home the same day</li>
+      <li>A slip-seat relay shuttle — two drivers meet in the middle, swap trucks, and each returns home the same day</li>
       <li>Every driver starts and ends at their home yard. No one lives in the truck.</li>
       <li>The truck never stops moving: AM and PM departure waves, two full round trips daily per truck</li>
       <li>Designed to be 100% self-contained — no OTR support, no local truck feeding the shuttle, no borrowed freight</li>
@@ -1582,19 +1578,83 @@
   </div>
 
   <div class="content-block">
-    <div class="block-label">Current Lane Structure — 9 Active / Ramping</div>
-    <table class="lane-table">
-      <thead><tr><th>CC</th><th>Lane</th><th>Direction</th><th>Swap Point</th><th>Team</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>147</td><td>TX to CA</td><td>Aledo TX ↔ San Bernardino CA</td><td>Quartzsite AZ / Tucson AZ</td><td>EXPE3</td><td><span class="status-pill status-near">Near goal</span></td></tr>
-        <tr><td>148</td><td>IN to NC</td><td>Indianapolis ↔ Mount Airy NC</td><td>Jackson, OH</td><td>EXPE1</td><td><span class="status-pill status-near">Near goal</span></td></tr>
-        <tr><td>149</td><td>IN to PA</td><td>Indianapolis ↔ Bedford PA</td><td>Zanesville / Etna OH</td><td>EXPE1</td><td><span class="status-pill status-below">Below goal</span></td></tr>
-        <tr><td>151</td><td>KS to TX</td><td>Kansas City KS ↔ Denton TX</td><td>Sapulpa, OK</td><td>EXPE2</td><td><span class="status-pill status-above">Above goal</span></td></tr>
-        <tr><td>152</td><td>IN to KS</td><td>Indianapolis ↔ Kansas City KS</td><td>Bridgeton, MO</td><td>EXPE2</td><td><span class="status-pill status-above">Above goal</span></td></tr>
-        <tr><td>153</td><td>Driscoll's TX</td><td>Hutchins TX ↔ Laredo TX</td><td>Hutto, TX</td><td>DRI</td><td><span class="status-pill status-sep">Tracked separately</span></td></tr>
-        <tr><td>154</td><td>IN to Carlisle PA</td><td>Indianapolis ↔ Carlisle PA</td><td>Glenmoore PA</td><td>EXPE4</td><td><span class="status-pill status-ramp">Ramping</span></td></tr>
-        <tr><td>155</td><td>OK to TN</td><td>Sapulpa OK ↔ Memphis TN</td><td>Junction City AR</td><td>EXPE5</td><td><span class="status-pill status-ramp">Ramping</span></td></tr>
-        <tr><td>156</td><td>KS to TX (Hutchins)</td><td>Kansas City KS ↔ Hutchins TX</td><td>Sapulpa, OK</td><td>EXPE2</td><td><span class="status-pill status-ramp">Ramping</span></td></tr>
+    <div class="block-label" style="display:flex;align-items:center;justify-content:space-between;">
+      <span>Current Lane Structure</span>
+      <button onclick="addLaneRow()" style="background:var(--orange);border:none;color:#fff;font-size:12px;font-weight:600;padding:5px 12px;border-radius:3px;cursor:pointer;letter-spacing:0.04em;">+ Add Lane</button>
+    </div>
+
+    <datalist id="team-options">
+      <option value="DRI"><option value="EXPE1"><option value="EXPE2">
+      <option value="EXPE3"><option value="EXPE4"><option value="EXPE5">
+      <option value="EXPE6"><option value="EXPE7"><option value="EXPE8">
+      <option value="EXPE9"><option value="EXPE10">
+    </datalist>
+
+    <style>
+      .lane-input {
+        width:100%; border:none; background:transparent;
+        font-family:'Gilroy','Trebuchet MS',sans-serif; font-size:12px;
+        color:var(--dark); outline:none; padding:7px 10px;
+      }
+      .lane-input:focus { background:#FFFDF8; box-shadow:inset 0 0 0 1px var(--orange); }
+      .lane-input::placeholder { color:#CCC; font-style:italic; }
+      .lane-team { font-weight:600; color:var(--navy); }
+      .lane-del-btn {
+        background:none; border:none; color:#CCC; font-size:16px;
+        cursor:pointer; padding:4px 8px; border-radius:3px; transition:all 0.15s;
+      }
+      .lane-del-btn:hover { background:var(--red-bg); color:var(--red-border); }
+      #lane-table th { font-size:11px; }
+      #lane-table td { padding:0; }
+    </style>
+
+    <table class="lane-table" id="lane-table" style="font-size:12px;">
+      <thead>
+        <tr>
+          <th style="width:5%">CC</th>
+          <th style="width:8%">Lane</th>
+          <th style="width:14%">Point Type</th>
+          <th style="width:10%">HML Code</th>
+          <th style="width:22%">Address</th>
+          <th style="width:14%">City</th>
+          <th style="width:5%">State</th>
+          <th style="width:7%">Zip</th>
+          <th style="width:10%">Team</th>
+          <th style="width:5%;text-align:center;">Del</th>
+        </tr>
+      </thead>
+      <tbody id="lane-tbody">
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="JCTSB" placeholder="HML Code"></td><td><input class="lane-input" value="2626 U Street" placeholder="Address"></td><td><input class="lane-input" value="San Bernardino" placeholder="City"></td><td><input class="lane-input" value="CA" placeholder="ST"></td><td><input class="lane-input" value="92408" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="START/SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="A2ZAZ" placeholder="HML Code"></td><td><input class="lane-input" value="1035 West Main St" placeholder="Address"></td><td><input class="lane-input" value="Quartzsite" placeholder="City"></td><td><input class="lane-input" value="AZ" placeholder="ST"></td><td><input class="lane-input" value="85346" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="START/SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="VPTU" placeholder="HML Code"></td><td><input class="lane-input" value="6001 S Wilmot RD" placeholder="Address"></td><td><input class="lane-input" value="Tucson" placeholder="City"></td><td><input class="lane-input" value="AZ" placeholder="ST"></td><td><input class="lane-input" value="85756" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="START/SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="TALCNM" placeholder="HML Code"></td><td><input class="lane-input" value="202 N. Motel Blvd" placeholder="Address"></td><td><input class="lane-input" value="Las Cruces" placeholder="City"></td><td><input class="lane-input" value="NM" placeholder="ST"></td><td><input class="lane-input" value="88005" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="VTTTO" placeholder="HML Code"></td><td><input class="lane-input" value="I20 Service RD." placeholder="Address"></td><td><input class="lane-input" value="Toyah" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="79785" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="START/SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="WESTGO" placeholder="HML Code"></td><td><input class="lane-input" value="600 S. Access RD." placeholder="Address"></td><td><input class="lane-input" value="Tye" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="79563" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="147" placeholder="CC"></td><td><input class="lane-input" value="CA/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="AURAL" placeholder="HML Code"></td><td><input class="lane-input" value="8600 I-20" placeholder="Address"></td><td><input class="lane-input" value="Aledo" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="76008" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="148" placeholder="CC"></td><td><input class="lane-input" value="IN/NC" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HIRIN" placeholder="HML Code"></td><td><input class="lane-input" value="6111 West Hanna Ave" placeholder="Address"></td><td><input class="lane-input" value="Indianapolis" placeholder="City"></td><td><input class="lane-input" value="IN" placeholder="ST"></td><td><input class="lane-input" value="46241" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="148" placeholder="CC"></td><td><input class="lane-input" value="IN/NC" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="AATJA" placeholder="HML Code"></td><td><input class="lane-input" value="80 Dixon Run Rd" placeholder="Address"></td><td><input class="lane-input" value="Jackson" placeholder="City"></td><td><input class="lane-input" value="OH" placeholder="ST"></td><td><input class="lane-input" value="45640" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="148" placeholder="CC"></td><td><input class="lane-input" value="IN/NC" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="MADMT" placeholder="HML Code"></td><td><input class="lane-input" value="153 McKinney Rd" placeholder="Address"></td><td><input class="lane-input" value="Mount Airy" placeholder="City"></td><td><input class="lane-input" value="NC" placeholder="ST"></td><td><input class="lane-input" value="27030" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="149" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HIRIN" placeholder="HML Code"></td><td><input class="lane-input" value="6111 West Hanna Ave" placeholder="Address"></td><td><input class="lane-input" value="Indianapolis" placeholder="City"></td><td><input class="lane-input" value="IN" placeholder="ST"></td><td><input class="lane-input" value="46241" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="149" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="LTZZA" placeholder="HML Code"></td><td><input class="lane-input" value="605 Sonora RD" placeholder="Address"></td><td><input class="lane-input" value="Zanesville" placeholder="City"></td><td><input class="lane-input" value="OH" placeholder="ST"></td><td><input class="lane-input" value="43701" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="149" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="L8ET" placeholder="HML Code"></td><td><input class="lane-input" value="9901 Schuster Way" placeholder="Address"></td><td><input class="lane-input" value="Etna" placeholder="City"></td><td><input class="lane-input" value="OH" placeholder="ST"></td><td><input class="lane-input" value="43018" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="149" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="FEBE3" placeholder="HML Code"></td><td><input class="lane-input" value="179 Country Ridge Rd" placeholder="Address"></td><td><input class="lane-input" value="Bedford" placeholder="City"></td><td><input class="lane-input" value="PA" placeholder="ST"></td><td><input class="lane-input" value="15522" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="151" placeholder="CC"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HMLKC" placeholder="HML Code"></td><td><input class="lane-input" value="2563 S 88TH ST" placeholder="Address"></td><td><input class="lane-input" value="Kansas City" placeholder="City"></td><td><input class="lane-input" value="KS" placeholder="ST"></td><td><input class="lane-input" value="66111" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="151" placeholder="CC"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="JLSA" placeholder="HML Code"></td><td><input class="lane-input" value="19007 W HWY 33" placeholder="Address"></td><td><input class="lane-input" value="Sapulpa" placeholder="City"></td><td><input class="lane-input" value="OK" placeholder="ST"></td><td><input class="lane-input" value="74066" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="151" placeholder="CC"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="GRDE" placeholder="HML Code"></td><td><input class="lane-input" value="7833 Interstate 35" placeholder="Address"></td><td><input class="lane-input" value="Denton" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="76207" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="152" placeholder="CC"></td><td><input class="lane-input" value="IN/KC" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HIRIN" placeholder="HML Code"></td><td><input class="lane-input" value="6111 West Hanna Ave" placeholder="Address"></td><td><input class="lane-input" value="Indianapolis" placeholder="City"></td><td><input class="lane-input" value="IN" placeholder="ST"></td><td><input class="lane-input" value="46241" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="152" placeholder="CC"></td><td><input class="lane-input" value="IN/KC" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="LBBR2" placeholder="HML Code"></td><td><input class="lane-input" value="13945 Missouri Bottom Rd" placeholder="Address"></td><td><input class="lane-input" value="Bridgeton" placeholder="City"></td><td><input class="lane-input" value="MO" placeholder="ST"></td><td><input class="lane-input" value="63044" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="152" placeholder="CC"></td><td><input class="lane-input" value="KS/IN" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HMLKC" placeholder="HML Code"></td><td><input class="lane-input" value="2563 S 88TH ST" placeholder="Address"></td><td><input class="lane-input" value="Kansas City" placeholder="City"></td><td><input class="lane-input" value="KS" placeholder="ST"></td><td><input class="lane-input" value="66111" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="153" placeholder="CC"></td><td><input class="lane-input" value="TX/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="DRIHUT" placeholder="HML Code"></td><td><input class="lane-input" value="TEAMS RUNNING" placeholder="Address"></td><td><input class="lane-input" value="Hutchins" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="75141" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="153" placeholder="CC"></td><td><input class="lane-input" value="TX/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="CCSLA3" placeholder="HML Code"></td><td><input class="lane-input" value="TEAMS RUNNING" placeholder="Address"></td><td><input class="lane-input" value="Laredo" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="78045" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="154" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HIRIN" placeholder="HML Code"></td><td><input class="lane-input" value="6111 West Hanna Ave" placeholder="Address"></td><td><input class="lane-input" value="Indianapolis" placeholder="City"></td><td><input class="lane-input" value="IN" placeholder="ST"></td><td><input class="lane-input" value="46241" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="154" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="GMLCF" placeholder="HML Code"></td><td><input class="lane-input" value="64322 Wintergreen Rd." placeholder="Address"></td><td><input class="lane-input" value="Lore City" placeholder="City"></td><td><input class="lane-input" value="OH" placeholder="ST"></td><td><input class="lane-input" value="43755" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="154" placeholder="CC"></td><td><input class="lane-input" value="IN/PA" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="CEYCA" placeholder="HML Code"></td><td><input class="lane-input" value="100 (75) Logistics Drive" placeholder="Address"></td><td><input class="lane-input" value="Carlisle" placeholder="City"></td><td><input class="lane-input" value="PA" placeholder="ST"></td><td><input class="lane-input" value="17013" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="155" placeholder="CC"></td><td><input class="lane-input" value="OK/TN" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="JLSA" placeholder="HML Code"></td><td><input class="lane-input" value="19007 W HWY 33" placeholder="Address"></td><td><input class="lane-input" value="Sapulpa" placeholder="City"></td><td><input class="lane-input" value="OK" placeholder="ST"></td><td><input class="lane-input" value="74066" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="155" placeholder="CC"></td><td><input class="lane-input" value="OK/TN" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="FJRU" placeholder="HML Code"></td><td><input class="lane-input" value="42 Bradley Cove Rd." placeholder="Address"></td><td><input class="lane-input" value="Russellville" placeholder="City"></td><td><input class="lane-input" value="AR" placeholder="ST"></td><td><input class="lane-input" value="72801" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="155" placeholder="CC"></td><td><input class="lane-input" value="OK/TN" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="MYME" placeholder="HML Code"></td><td><input class="lane-input" value="4071 East Shelby Drive" placeholder="Address"></td><td><input class="lane-input" value="Memphis" placeholder="City"></td><td><input class="lane-input" value="TN" placeholder="ST"></td><td><input class="lane-input" value="38118" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="156" placeholder="CC"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HMLKC" placeholder="HML Code"></td><td><input class="lane-input" value="2563 S 88TH ST" placeholder="Address"></td><td><input class="lane-input" value="Kansas City" placeholder="City"></td><td><input class="lane-input" value="KS" placeholder="ST"></td><td><input class="lane-input" value="66111" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="156" placeholder="CC"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane"></td><td><input class="lane-input" value="SWAP POINT" placeholder="Type"></td><td><input class="lane-input" value="JLSA" placeholder="HML Code"></td><td><input class="lane-input" value="19007 W HWY 33" placeholder="Address"></td><td><input class="lane-input" value="Sapulpa" placeholder="City"></td><td><input class="lane-input" value="OK" placeholder="ST"></td><td><input class="lane-input" value="74066" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
+        <tr><td><input class="lane-input" value="156" placeholder="CC"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane"></td><td><input class="lane-input" value="START POINT" placeholder="Type"></td><td><input class="lane-input" value="HDYHU" placeholder="HML Code"></td><td><input class="lane-input" value="1511 Fulghum Rd." placeholder="Address"></td><td><input class="lane-input" value="Hutchins" placeholder="City"></td><td><input class="lane-input" value="TX" placeholder="ST"></td><td><input class="lane-input" value="75172" placeholder="Zip"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
       </tbody>
     </table>
   </div>
@@ -1642,6 +1702,7 @@
     <div class="vs-col vs-col-green">
       <div class="vs-col-label">What it was supposed to be</div>
       <ul class="vs-list">
+        <li>A slip-seat relay shuttle — two drivers meet in the middle, swap trucks, and each returns home the same day</li>
         <li>Drop-and-hook. Take-or-pay freight.</li>
         <li>100% self-contained — no OTR support</li>
         <li>Consistent volume, both directions, 7 days a week</li>
@@ -1680,9 +1741,10 @@
   <table class="lane-table" id="contacts-table">
     <thead>
       <tr>
-        <th style="width:22%">Name</th>
-        <th style="width:28%">Role</th>
-        <th style="width:42%">Relevance to A3</th>
+        <th style="width:16%">Name</th>
+        <th style="width:22%">Role</th>
+        <th style="width:35%">Relevance to A3</th>
+        <th style="width:19%">Physical Location</th>
         <th style="width:8%;background:var(--navy);text-align:center;">
           <button onclick="addContactRow()" title="Add contact" style="background:var(--orange);border:none;color:#fff;font-size:16px;line-height:1;width:24px;height:24px;border-radius:3px;cursor:pointer;font-weight:700;">+</button>
         </th>
@@ -1690,51 +1752,66 @@
     </thead>
     <tbody id="contacts-tbody">
       <tr>
-        <td><input type="text" value="Jason Aller" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Expedited operations manager" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="Day-to-day ops; bottleneck; interview carefully" class="contact-input" placeholder="Relevance to A3"></td>
-        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
-      </tr>
-      <tr>
-        <td><input type="text" value="Lyndi Curry" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Director, Expedited / north lanes" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="Overall owner; scorecard; driver leader ranking" class="contact-input" placeholder="Relevance to A3"></td>
-        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
-      </tr>
-      <tr>
-        <td><input type="text" value="Amye Alvarez" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Director, southern lanes" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="CC 147 primary; southern SOP owner" class="contact-input" placeholder="Relevance to A3"></td>
-        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
-      </tr>
-      <tr>
-        <td><input type="text" value="Nathan Kratz" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Driver support, EXPE1 (CC 148/149)" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="Northern lanes daily ops" class="contact-input" placeholder="Relevance to A3"></td>
-        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
-      </tr>
-      <tr>
-        <td><input type="text" value="TJ Pressley" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Expedited leadership" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="Daily call participant" class="contact-input" placeholder="Relevance to A3"></td>
-        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
-      </tr>
-      <tr>
-        <td><input type="text" value="Jared Taylor" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Expedited leadership" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="Daily call participant" class="contact-input" placeholder="Relevance to A3"></td>
-        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
-      </tr>
-      <tr>
         <td><input type="text" value="Richard Stocking" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Senior leadership" class="contact-input" placeholder="Role"></td>
-        <td><input type="text" value="Sets the standard expectation; exec context" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="President / CEO" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Provides strategic direction for Expedited" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
         <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
       </tr>
       <tr>
         <td><input type="text" value="Darren Wright" class="contact-input" placeholder="Name"></td>
-        <td><input type="text" value="Sr. leadership / PI sponsor" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Chief Strategy Officer" class="contact-input" placeholder="Role"></td>
         <td><input type="text" value="Assessment sponsor; strategic framing" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="TJ Pressley" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Chief Operating Officer" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Owns Expedited execution, implementation, and results" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Jason Aller" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="SVP, Expedited" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Leading and executing Expedited business segment, driving performance, alignment, and support" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Lyndi Curry" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Director, Expedited (North Lanes)" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Executing Expedited operations, driving day-to-day performance improvement and measurement" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Jon Hessler" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Director, Expedited (South Lanes)" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Executing Expedited operations, driving day-to-day performance improvement and measurement" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Sean Moser" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Director, Autonomous Operations &amp; Regional" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Executing the autonomous lanes and regional fleets" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Nathan Kratz" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Manager, North Lanes" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Manages northern lanes day-to-day operations" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
+        <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Amye Alvarez" class="contact-input" placeholder="Name"></td>
+        <td><input type="text" value="Manager, Southern Lanes" class="contact-input" placeholder="Role"></td>
+        <td><input type="text" value="Manages southern lanes day-to-day operations" class="contact-input" placeholder="Relevance to A3"></td>
+        <td><input type="text" value="" class="contact-input" placeholder="Location"></td>
         <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>
       </tr>
     </tbody>
@@ -1921,6 +1998,7 @@
 </div>
 
 <!-- GENERAL -->
+<!-- GENERAL -->
 <div id="general" class="section-page">
   <div class="page-header"><div class="page-num">18</div><div><div class="page-title">General — Scaling & Targets</div></div></div>
   <ul class="question-list">
@@ -1930,6 +2008,15 @@
     <li>Has anyone modeled what the operation actually looks like at 200 trucks, not just the revenue projection but the operational complexity?</li>
   </ul>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
+</div>
+
+<!-- DRIVER SCHEDULING -->
+<div id="driver-scheduling" class="section-page">
+  <div class="page-header"><div class="page-num">19</div><div><div class="page-title">Driver Scheduling</div><div class="page-subtitle">Prep questions — understand the scheduling process before going on-site</div></div></div>
+  <ul class="question-list">
+    <li>Walk me through what happens with driver scheduling and what takes up the majority of your time?</li>
+  </ul>
+  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="What did you hear? Answers, follow-ups, names..."></textarea></div>
 </div>
 
 <!-- ══════════════════ GEMBA SCOPE ══════════════════ -->
@@ -2386,10 +2473,10 @@
   <!-- Legend + View toggle -->
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
     <div style="display:flex;gap:14px;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p1">P1</span> Immediate — critical</div>
-      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p2">P2</span> 30–60 days</div>
-      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p3">P3</span> 60–90 days</div>
-      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p4">P4</span> Monitor</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p1">P1</span> Mission Critical / Needed Now</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p2">P2</span> High Impact / Need Soon</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p3">P3</span> Important / Not Urgent</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);"><span class="priority-badge p4">P4</span> Nice-to-have / Low Priority</div>
     </div>
     <div style="display:flex;gap:6px;">
       <button id="view-flat" class="view-toggle-btn active" onclick="setOppView('flat')">Flat List</button>
@@ -2624,7 +2711,13 @@
 
   // -- OPPORTUNITY TRACKER --
   const CATEGORIES = ['Sales','Customers','FP&A','Operations','Planning','Safety and Compliance','People','Recruiting','Retention','Customer Service','Network & Lanes','Equipment','Freight','Technology','Drivers','General'];
-  const PRIORITIES = ['','P1','P2','P3','P4'];
+  const PRIORITIES = [
+    { value: '',   label: '—' },
+    { value: 'P1', label: 'P1 — Mission Critical / Needed Now' },
+    { value: 'P2', label: 'P2 — High Impact / Need Soon' },
+    { value: 'P3', label: 'P3 — Important / Not Urgent' },
+    { value: 'P4', label: 'P4 — Nice-to-have / Low Priority' },
+  ];
 
   function createOppRow() {
     const tr = document.createElement('tr');
@@ -2633,8 +2726,8 @@
         ${CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join('')}
       </select></td>
       <td><textarea placeholder="Describe the opportunity..."></textarea></td>
-      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;font-weight:700;text-align:center;outline:none;cursor:pointer;">
-        ${PRIORITIES.map(p => `<option value="${p}" class="${p.toLowerCase()}">${p||'—'}</option>`).join('')}
+      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        ${PRIORITIES.map(p => `<option value="${p.value}">${p.label}</option>`).join('')}
       </select></td>
       <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
       <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td>`;
@@ -2712,9 +2805,10 @@
       grouped[key].push(d);
     });
 
-    const priOrder = { P1: 0, P2: 1, P3: 2, P4: 3, '': 4 };
+    const priOrder  = { P1: 0, P2: 1, P3: 2, P4: 3, '': 4 };
     const priColors = { P1: '#C62828', P2: '#E65100', P3: '#F57F17', P4: '#2E7D32', '': 'var(--muted)' };
-    const priBg    = { P1: '#FFEBEE', P2: '#FFF3E0', P3: '#FFF8E1', P4: '#E8F5E9', '': 'transparent' };
+    const priBg     = { P1: '#FFEBEE', P2: '#FFF3E0', P3: '#FFF8E1', P4: '#E8F5E9', '': 'transparent' };
+    const priLabels = { P1: 'Mission Critical / Needed Now', P2: 'High Impact / Need Soon', P3: 'Important / Not Urgent', P4: 'Nice-to-have / Low Priority', '': '—' };
 
     Object.entries(grouped).forEach(([cat, items]) => {
       if (items.length === 0) return;
@@ -2730,13 +2824,13 @@
         </div>
         <div class="opp-group-body">
           <table>
-            <thead><tr><th style="width:80px">Priority</th><th>Opportunity</th><th style="width:160px">Associated ROI</th></tr></thead>
+            <thead><tr><th style="width:200px">Priority</th><th>Opportunity</th><th style="width:200px">Associated ROI</th></tr></thead>
             <tbody>
               ${items.map(item => `
                 <tr>
-                  <td style="text-align:center;">
+                  <td>
                     ${item.priority
-                      ? `<span style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700;background:${priBg[item.priority]};color:${priColors[item.priority]}">${item.priority}</span>`
+                      ? `<span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;background:${priBg[item.priority]};color:${priColors[item.priority]};margin-right:6px;">${item.priority}</span><span style="font-size:11px;color:${priColors[item.priority]}">${priLabels[item.priority]}</span>`
                       : '<span style="color:#CCC">—</span>'}
                   </td>
                   <td>${item.description.replace(/\n/g,'<br>')}</td>
@@ -2831,6 +2925,59 @@
   });
 
   // ==============================================
+  // LANE TABLE — ADD / REMOVE
+  // ==============================================
+  function addLaneRow() {
+    const tbody = document.getElementById('lane-tbody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><input class="lane-input" placeholder="CC"></td>
+      <td><input class="lane-input" placeholder="Lane"></td>
+      <td><input class="lane-input" placeholder="Type"></td>
+      <td><input class="lane-input" placeholder="HML Code"></td>
+      <td><input class="lane-input" placeholder="Address"></td>
+      <td><input class="lane-input" placeholder="City"></td>
+      <td><input class="lane-input" placeholder="ST"></td>
+      <td><input class="lane-input" placeholder="Zip"></td>
+      <td><input class="lane-input lane-team" list="team-options" placeholder="Team"></td>
+      <td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td>`;
+    tbody.appendChild(tr);
+    tr.querySelector('.lane-input').focus();
+    scheduleSave();
+  }
+
+  function removeLaneRow(btn) {
+    btn.closest('tr').remove();
+    scheduleSave();
+  }
+
+  // ==============================================
+  // COLLAPSIBLE NAV GROUPS
+  // ==============================================
+  function toggleNavGroup(label) {
+    const links = label.nextElementSibling;
+    const isCollapsed = links.classList.toggle('collapsed');
+    label.classList.toggle('collapsed', isCollapsed);
+    // Persist per-group state
+    const groupName = label.textContent.trim().replace(/[▾]/g,'').trim();
+    const navState = JSON.parse(localStorage.getItem('nav_group_state') || '{}');
+    navState[groupName] = isCollapsed;
+    localStorage.setItem('nav_group_state', JSON.stringify(navState));
+  }
+
+  // Restore nav group collapse state on load
+  (function restoreNavGroups() {
+    const navState = JSON.parse(localStorage.getItem('nav_group_state') || '{}');
+    document.querySelectorAll('.nav-group-label').forEach(label => {
+      const groupName = label.textContent.trim().replace(/[▾]/g,'').trim();
+      if (navState[groupName] === true) {
+        label.classList.add('collapsed');
+        label.nextElementSibling.classList.add('collapsed');
+      }
+    });
+  })();
+
+  // ==============================================
   // KEY CONTACTS — ADD / REMOVE
   // ==============================================
   function addContactRow() {
@@ -2840,6 +2987,7 @@
       <td><input type="text" class="contact-input" placeholder="Name"></td>
       <td><input type="text" class="contact-input" placeholder="Role"></td>
       <td><input type="text" class="contact-input" placeholder="Relevance to A3"></td>
+      <td><input type="text" class="contact-input" placeholder="Location"></td>
       <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>`;
     tbody.appendChild(tr);
     tr.querySelector('.contact-input').focus();
@@ -2905,14 +3053,27 @@
       state['ql_' + li] = JSON.stringify(items);
     });
 
+    // lane rows
+    const laneRows = [];
+    document.querySelectorAll('#lane-tbody tr').forEach(tr => {
+      const inputs = tr.querySelectorAll('.lane-input');
+      laneRows.push({
+        cc: inputs[0]?.value||'', lane: inputs[1]?.value||'', type: inputs[2]?.value||'',
+        hml: inputs[3]?.value||'', addr: inputs[4]?.value||'', city: inputs[5]?.value||'',
+        state: inputs[6]?.value||'', zip: inputs[7]?.value||'', team: inputs[8]?.value||''
+      });
+    });
+    state['lane_rows'] = JSON.stringify(laneRows);
+
     // key contacts rows
     const contactRows = [];
     document.querySelectorAll('#contacts-tbody tr').forEach(tr => {
       const inputs = tr.querySelectorAll('.contact-input');
       contactRows.push({
-        name: inputs[0]?.value || '',
-        role: inputs[1]?.value || '',
-        relevance: inputs[2]?.value || ''
+        name:      inputs[0]?.value || '',
+        role:      inputs[1]?.value || '',
+        relevance: inputs[2]?.value || '',
+        location:  inputs[3]?.value || ''
       });
     });
     state['contact_rows'] = JSON.stringify(contactRows);
@@ -2979,6 +3140,33 @@
       if (state['ce_' + key] !== undefined) el.innerHTML = state['ce_' + key];
     });
 
+    // lane rows
+    if (state['lane_rows']) {
+      try {
+        const rows = JSON.parse(state['lane_rows']);
+        const tbody = document.getElementById('lane-tbody');
+        if (tbody && rows.length > 0) {
+          tbody.innerHTML = '';
+          rows.forEach(r => {
+            const tr = document.createElement('tr');
+            const v = (s) => (s||'').replace(/"/g,'&quot;');
+            tr.innerHTML = `
+              <td><input class="lane-input" value="${v(r.cc)}" placeholder="CC"></td>
+              <td><input class="lane-input" value="${v(r.lane)}" placeholder="Lane"></td>
+              <td><input class="lane-input" value="${v(r.type)}" placeholder="Type"></td>
+              <td><input class="lane-input" value="${v(r.hml)}" placeholder="HML Code"></td>
+              <td><input class="lane-input" value="${v(r.addr)}" placeholder="Address"></td>
+              <td><input class="lane-input" value="${v(r.city)}" placeholder="City"></td>
+              <td><input class="lane-input" value="${v(r.state)}" placeholder="ST"></td>
+              <td><input class="lane-input" value="${v(r.zip)}" placeholder="Zip"></td>
+              <td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td>
+              <td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td>`;
+            tbody.appendChild(tr);
+          });
+        }
+      } catch(e) { console.warn('Could not restore lane rows', e); }
+    }
+
     // key contacts rows
     if (state['contact_rows']) {
       try {
@@ -2992,6 +3180,7 @@
               <td><input type="text" class="contact-input" placeholder="Name" value="${row.name.replace(/"/g,'&quot;')}"></td>
               <td><input type="text" class="contact-input" placeholder="Role" value="${row.role.replace(/"/g,'&quot;')}"></td>
               <td><input type="text" class="contact-input" placeholder="Relevance to A3" value="${row.relevance.replace(/"/g,'&quot;')}"></td>
+              <td><input type="text" class="contact-input" placeholder="Location" value="${(row.location||'').replace(/"/g,'&quot;')}"></td>
               <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>`;
             tbody.appendChild(tr);
           });
