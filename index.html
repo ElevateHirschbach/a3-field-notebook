@@ -990,8 +990,9 @@
 
     body { background: #fff !important; font-size: 11pt; }
     #sidebar { display: none !important; }
-    #main { margin-left: 0 !important; }
+    #main { margin-left: 0 !important; padding-top: 0 !important; }
     .print-btn { display: none !important; }
+    #save-bar { display: none !important; }
 
     .add-item-btn, .del-item, .add-opp-btn, .opp-del-btn,
     .attach-del, .attach-drop-zone, .attach-link-row,
@@ -1006,13 +1007,14 @@
       page-break-after: always;
       break-after: page;
       padding: 48px 40px 40px !important;
-      background: var(--orange) !important;
-      color: #fff !important;
+      background: #fff !important;
+      color: var(--dark) !important;
+      border-top: 6px solid var(--navy) !important;
     }
-    .cover-title { font-size: 36pt !important; }
-    .toc-grid { margin-top: 32px !important; }
-    .toc-item { background: #F9F9F9 !important; color: #555 !important; padding: 8px 12px !important; }
-    .toc-section-break { color: #BBB !important; border-top-color: #EEE !important; }
+    .cover-eyebrow { color: var(--orange) !important; }
+    .cover-title { font-size: 36pt !important; color: var(--dark) !important; }
+    .cover-sub { color: #999 !important; }
+    .cover-purpose { color: #666 !important; border-left-color: var(--navy) !important; }
 
     /* Section pages — each starts on a new page */
     .section-page {
