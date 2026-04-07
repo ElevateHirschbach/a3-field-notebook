@@ -1602,6 +1602,7 @@
     <a class="nav-link" href="#drivers"><span class="num">17</span>Drivers</a>
     <a class="nav-link" href="#general"><span class="num">18</span>General / Scaling</a>
     <a class="nav-link" href="#driver-scheduling"><span class="num">19</span>Driver Scheduling</a>
+    <a class="nav-link" href="#staffing"><span class="num">20</span>Staffing</a>
   </div>
 
   <div class="nav-group-label" onclick="toggleNavGroup(this)">Gemba Walk <span class="nav-chevron">▾</span></div>
@@ -1696,20 +1697,30 @@
       .lane-del-btn:hover { background:var(--red-bg); color:var(--red-border); }
       #lane-table th { font-size:11px; }
       #lane-table td { padding:0; }
+      #lane-table th .sort-arrow { font-size:10px; opacity:0.4; margin-left:2px; }
+      #lane-table th:hover .sort-arrow { opacity:1; }
+      #lane-table th.sort-asc .sort-arrow::after { content:'↑'; }
+      #lane-table th.sort-desc .sort-arrow::after { content:'↓'; }
+      .util-status-select {
+        width:100%; border:none; background:transparent;
+        font-family:'Gilroy','Trebuchet MS',sans-serif; font-size:12px;
+        font-weight:600; padding:8px 10px; outline:none; cursor:pointer;
+        border-radius:3px;
+      }
     </style>
 
     <table class="lane-table" id="lane-table" style="font-size:12px;">
       <thead>
         <tr>
-          <th style="width:5%">CC</th>
-          <th style="width:8%">Lane</th>
-          <th style="width:14%">Point Type</th>
-          <th style="width:10%">HML Code</th>
-          <th style="width:22%">Address</th>
-          <th style="width:14%">City</th>
-          <th style="width:5%">State</th>
-          <th style="width:7%">Zip</th>
-          <th style="width:10%">Team</th>
+          <th style="width:5%;cursor:pointer;" onclick="sortLaneTable(0)" title="Sort by CC">CC <span class="sort-arrow">↕</span></th>
+          <th style="width:8%;cursor:pointer;" onclick="sortLaneTable(1)" title="Sort by Lane">Lane <span class="sort-arrow">↕</span></th>
+          <th style="width:14%;cursor:pointer;" onclick="sortLaneTable(2)" title="Sort by Point Type">Point Type <span class="sort-arrow">↕</span></th>
+          <th style="width:10%;cursor:pointer;" onclick="sortLaneTable(3)" title="Sort by HML Code">HML Code <span class="sort-arrow">↕</span></th>
+          <th style="width:22%;cursor:pointer;" onclick="sortLaneTable(4)" title="Sort by Address">Address <span class="sort-arrow">↕</span></th>
+          <th style="width:14%;cursor:pointer;" onclick="sortLaneTable(5)" title="Sort by City">City <span class="sort-arrow">↕</span></th>
+          <th style="width:5%;cursor:pointer;" onclick="sortLaneTable(6)" title="Sort by State">State <span class="sort-arrow">↕</span></th>
+          <th style="width:7%;cursor:pointer;" onclick="sortLaneTable(7)" title="Sort by Zip">Zip <span class="sort-arrow">↕</span></th>
+          <th style="width:10%;cursor:pointer;" onclick="sortLaneTable(8)" title="Sort by Team">Team <span class="sort-arrow">↕</span></th>
           <th style="width:5%;text-align:center;">Del</th>
         </tr>
       </thead>
@@ -1764,16 +1775,16 @@
 
     <div class="block-label" style="margin-top:20px;">Utilization by lane vs. 5,600 goal</div>
     <table class="lane-table">
-      <thead><tr><th>Lane</th><th>13-wk avg mi/truck/wk</th><th>Status</th></tr></thead>
+      <thead><tr><th>Lane</th><th>13-wk avg mi/truck/wk</th><th style="width:180px;">Status</th></tr></thead>
       <tbody>
-        <tr><td>147 — TX to CA</td><td>5,375</td><td><span class="status-pill status-near">Near goal</span></td></tr>
-        <tr><td>148 — IN to NC</td><td>5,774</td><td><span class="status-pill status-near">Near goal</span></td></tr>
-        <tr><td>149 — IN to PA</td><td>4,908</td><td><span class="status-pill status-below">Below goal</span></td></tr>
-        <tr><td>151 — KS to TX</td><td>5,926</td><td><span class="status-pill status-above">Above goal</span></td></tr>
-        <tr><td>152 — IN to KS</td><td>6,660</td><td><span class="status-pill status-above">Above goal</span></td></tr>
-        <tr><td>153 — Driscoll's</td><td>4,271</td><td><span class="status-pill status-sep">Tracked separately</span></td></tr>
-        <tr><td>154 — IN to Carlisle PA</td><td>4,116</td><td><span class="status-pill status-ramp">Ramping</span></td></tr>
-        <tr><td>155 — OK to TN</td><td>4,145</td><td><span class="status-pill status-ramp">Ramping</span></td></tr>
+        <tr><td>147 — TX to CA</td><td>5,375</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>148 — IN to NC</td><td>5,774</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option selected>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>149 — IN to PA</td><td>4,908</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option selected>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>151 — KS to TX</td><td>5,926</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>152 — IN to KS</td><td>6,660</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>153 — Driscoll's</td><td>4,271</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option selected>Tracked Separately</option></select></td></tr>
+        <tr><td>154 — IN to Carlisle PA</td><td>4,116</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option selected>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>155 — OK to TN</td><td>4,145</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option selected>Ramping</option><option>Tracked Separately</option></select></td></tr>
       </tbody>
     </table>
   </div>
@@ -2105,6 +2116,15 @@
   <div class="page-header"><div class="page-num">19</div><div><div class="page-title">Driver Scheduling</div><div class="page-subtitle">Prep questions — understand the scheduling process before going on-site</div></div></div>
   <ul class="question-list">
     <li>Walk me through what happens with driver scheduling and what takes up the majority of your time?</li>
+  </ul>
+  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="What did you hear? Answers, follow-ups, names..."></textarea></div>
+</div>
+
+<!-- STAFFING -->
+<div id="staffing" class="section-page">
+  <div class="page-header"><div class="page-num">20</div><div><div class="page-title">Staffing</div><div class="page-subtitle">Prep questions — understand the staffing process before going on-site</div></div></div>
+  <ul class="question-list">
+    <li>Walk me through how staffing decisions are made — who decides headcount, when, and what triggers a change?</li>
   </ul>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="What did you hear? Answers, follow-ups, names..."></textarea></div>
 </div>
@@ -3104,6 +3124,51 @@
       }
     }
   });
+
+  // ==============================================
+  // LANE TABLE — SORT
+  // ==============================================
+  let laneSortCol = -1, laneSortAsc = true;
+  function sortLaneTable(colIdx) {
+    const tbody = document.getElementById('lane-tbody');
+    const ths = document.querySelectorAll('#lane-table thead th');
+    ths.forEach((th, i) => { th.classList.remove('sort-asc','sort-desc'); th.querySelector('.sort-arrow').textContent = '↕'; });
+    if (laneSortCol === colIdx) { laneSortAsc = !laneSortAsc; } else { laneSortCol = colIdx; laneSortAsc = true; }
+    ths[colIdx].classList.add(laneSortAsc ? 'sort-asc' : 'sort-desc');
+    ths[colIdx].querySelector('.sort-arrow').textContent = laneSortAsc ? '↑' : '↓';
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort((a, b) => {
+      const aVal = a.querySelectorAll('input')[colIdx]?.value.trim() || '';
+      const bVal = b.querySelectorAll('input')[colIdx]?.value.trim() || '';
+      const aNum = parseFloat(aVal.replace(/[^0-9.]/g,'')), bNum = parseFloat(bVal.replace(/[^0-9.]/g,''));
+      if (!isNaN(aNum) && !isNaN(bNum)) return laneSortAsc ? aNum - bNum : bNum - aNum;
+      return laneSortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    });
+    rows.forEach(r => tbody.appendChild(r));
+    scheduleSave();
+  }
+
+  // ==============================================
+  // UTILIZATION STATUS DROPDOWNS
+  // ==============================================
+  function applyUtilColor(sel) {
+    const colors = {
+      'Above Goal':        { bg:'#E8F5E9', color:'#2E7D32' },
+      'At Goal':           { bg:'#E3F2FD', color:'#1565C0' },
+      'Below Goal':        { bg:'#FFEBEE', color:'#C62828' },
+      'N/A':               { bg:'#F5F5F5', color:'#757575' },
+      'Ramping':           { bg:'#E3F2FD', color:'#1565C0' },
+      'Tracked Separately':{ bg:'#F3E5F5', color:'#6A1B9A' },
+      '':                  { bg:'transparent', color:'var(--dark)' },
+    };
+    const c = colors[sel.value] || colors[''];
+    sel.style.background = c.bg;
+    sel.style.color = c.color;
+    scheduleSave();
+  }
+
+  // Apply colors on page load
+  document.querySelectorAll('.util-status-select').forEach(sel => applyUtilColor(sel));
 
   // ==============================================
   // LANE TABLE — ADD / REMOVE
