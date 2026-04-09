@@ -1565,12 +1565,11 @@
     <div id="save-dot"></div>
     <span id="save-label">All changes saved</span>
   </div>
-  <div style="display:flex;align-items:center;gap:0;">
+  <div style="display:flex;align-items:center;gap:8px;">
     <button id="clear-btn" onclick="clearSavedData()">Clear Saved Data</button>
-    <button id="publish-btn" onclick="publishNotebook()">⬇ Publish & Download</button>
+    <button id="publish-btn" onclick="publishNotebook()">⬇ Publish &amp; Download</button>
   </div>
 </div>
-
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
@@ -1586,18 +1585,18 @@
     <a class="nav-link" href="#contacts"><span class="num">03</span>Key Contacts</a>
   </div>
 
-  <div class="nav-group-label" onclick="toggleNavGroup(this)">Prep Questions <span class="nav-chevron">▾</span></div>
-  <div class="nav-group-links">
+  <div class="nav-group-label collapsed" onclick="toggleNavGroup(this)">Prep Questions <span class="nav-chevron">▾</span></div>
+  <div class="nav-group-links collapsed">
     <a class="nav-link" href="#sales"><span class="num">04</span>Sales</a>
-    <a class="nav-link" href="#fpa"><span class="num">05</span>FP&A</a>
+    <a class="nav-link" href="#fpa"><span class="num">05</span>FP&amp;A</a>
     <a class="nav-link" href="#ops-overview"><span class="num">06</span>Operational Overview</a>
     <a class="nav-link" href="#planning"><span class="num">07</span>Planning</a>
     <a class="nav-link" href="#leadership"><span class="num">08</span>Leadership Interviews</a>
-    <a class="nav-link" href="#recruiting"><span class="num">09</span>Recruiting & Retention</a>
+    <a class="nav-link" href="#recruiting"><span class="num">09</span>Recruiting &amp; Retention</a>
     <a class="nav-link" href="#comp"><span class="num">10</span>Driver Compensation</a>
     <a class="nav-link" href="#customer"><span class="num">11</span>Customer Service</a>
-    <a class="nav-link" href="#safety"><span class="num">12</span>Safety & Compliance</a>
-    <a class="nav-link" href="#network"><span class="num">13</span>Network & Lanes</a>
+    <a class="nav-link" href="#safety"><span class="num">12</span>Safety &amp; Compliance</a>
+    <a class="nav-link" href="#network"><span class="num">13</span>Network &amp; Lanes</a>
     <a class="nav-link" href="#equipment"><span class="num">14</span>Equipment</a>
     <a class="nav-link" href="#freight"><span class="num">15</span>Freight</a>
     <a class="nav-link" href="#technology"><span class="num">16</span>Technology</a>
@@ -1607,9 +1606,9 @@
     <a class="nav-link" href="#staffing"><span class="num">20</span>Staffing</a>
   </div>
 
-  <div class="nav-group-label" onclick="toggleNavGroup(this)">Gemba Walk <span class="nav-chevron">▾</span></div>
-  <div class="nav-group-links">
-    <a class="nav-link" href="#gemba-scope"><span class="num">G0</span>Scope & Rules</a>
+  <div class="nav-group-label collapsed" onclick="toggleNavGroup(this)">Gemba Walk <span class="nav-chevron">▾</span></div>
+  <div class="nav-group-links collapsed">
+    <a class="nav-link" href="#gemba-scope"><span class="num">G0</span>Scope &amp; Rules</a>
     <a class="nav-link" href="#day1"><span class="num">G1</span>Day 1 — Observe</a>
     <a class="nav-link" href="#day2"><span class="num">G2</span>Day 2 — Questions</a>
     <a class="nav-link" href="#day3"><span class="num">G3</span>Day 3 — Observe</a>
@@ -1661,13 +1660,13 @@
   <div class="content-block">
     <div class="block-label">What Expedited is supposed to be</div>
     <ul class="question-list">
-      <li>A slip-seat relay shuttle — two drivers meet in the middle, swap trucks, and each returns home the same day</li>
-      <li>Every driver starts and ends at their home yard. No one lives in the truck.</li>
-      <li>The truck never stops moving: AM and PM departure waves, two full round trips daily per truck</li>
-      <li>Designed to be 100% self-contained — no OTR support, no local truck feeding the shuttle, no borrowed freight</li>
-      <li>Financial thesis: drivers home nightly → lower turnover. Truck runs 2 shifts → 2× asset utilization vs. standard OTR</li>
-      <li>Long-term: relay model runs consistent routes, known lanes, fixed swap points — the exact profile needed for autonomous trucks when Aurora technology comes online</li>
-    </ul>
+      <li contenteditable="true" spellcheck="true">A slip-seat relay shuttle — two drivers meet in the middle, swap trucks, and each returns home the same day<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Every driver starts and ends at their home yard. No one lives in the truck.<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">The truck never stops moving: AM and PM departure waves, two full round trips daily per truck<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Designed to be 100% self-contained — no OTR support, no local truck feeding the shuttle, no borrowed freight<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Financial thesis: drivers home nightly → lower turnover. Truck runs 2 shifts → 2× asset utilization vs. standard OTR<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Long-term: relay model runs consistent routes, known lanes, fixed swap points — the exact profile needed for autonomous trucks when Aurora technology comes online<button class="del-item" title="Remove">×</button></li>
+    </ul><button class="add-item-btn">Add item</button>
   </div>
 
   <div class="content-block">
@@ -1677,11 +1676,11 @@
     </div>
 
     <datalist id="team-options">
-      <option value="DRI"><option value="EXPE1"><option value="EXPE2">
-      <option value="EXPE3"><option value="EXPE4"><option value="EXPE5">
-      <option value="EXPE6"><option value="EXPE7"><option value="EXPE8">
-      <option value="EXPE9"><option value="EXPE10">
-    </datalist>
+      <option value="DRI"></option><option value="EXPE1"></option><option value="EXPE2">
+      </option><option value="EXPE3"></option><option value="EXPE4"></option><option value="EXPE5">
+      </option><option value="EXPE6"></option><option value="EXPE7"></option><option value="EXPE8">
+      </option><option value="EXPE9"></option><option value="EXPE10">
+    </option></datalist>
 
     <style>
       .lane-input {
@@ -1779,14 +1778,14 @@
     <table class="lane-table">
       <thead><tr><th>Lane</th><th>13-wk avg mi/truck/wk</th><th style="width:180px;">Status</th></tr></thead>
       <tbody>
-        <tr><td>147 — TX to CA</td><td>5,375</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
-        <tr><td>148 — IN to NC</td><td>5,774</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option selected>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
-        <tr><td>149 — IN to PA</td><td>4,908</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option selected>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
-        <tr><td>151 — KS to TX</td><td>5,926</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
-        <tr><td>152 — IN to KS</td><td>6,660</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
-        <tr><td>153 — Driscoll's</td><td>4,271</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option selected>Tracked Separately</option></select></td></tr>
-        <tr><td>154 — IN to Carlisle PA</td><td>4,116</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option selected>Ramping</option><option>Tracked Separately</option></select></td></tr>
-        <tr><td>155 — OK to TN</td><td>4,145</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option selected>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>147 — TX to CA</td><td>5,375</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected="">Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>148 — IN to NC</td><td>5,774</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option selected="">At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>149 — IN to PA</td><td>4,908</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option selected="">Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>151 — KS to TX</td><td>5,926</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected="">Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>152 — IN to KS</td><td>6,660</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option selected="">Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>153 — Driscoll's</td><td>4,271</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option>Ramping</option><option selected="">Tracked Separately</option></select></td></tr>
+        <tr><td>154 — IN to Carlisle PA</td><td>4,116</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option selected="">Ramping</option><option>Tracked Separately</option></select></td></tr>
+        <tr><td>155 — OK to TN</td><td>4,145</td><td><select class="util-status-select" onchange="applyUtilColor(this)"><option value="">—</option><option>Above Goal</option><option>At Goal</option><option>Below Goal</option><option>N/A</option><option selected="">Ramping</option><option>Tracked Separately</option></select></td></tr>
       </tbody>
     </table>
   </div>
@@ -1805,25 +1804,25 @@
     <div class="vs-col vs-col-green">
       <div class="vs-col-label">What it was supposed to be</div>
       <ul class="vs-list">
-        <li>A slip-seat relay shuttle — two drivers meet in the middle, swap trucks, and each returns home the same day</li>
-        <li>Drop-and-hook. Take-or-pay freight.</li>
-        <li>100% self-contained — no OTR support</li>
-        <li>Consistent volume, both directions, 7 days a week</li>
-        <li>5,600 miles / truck / week</li>
-        <li>Plug-and-play ready for autonomous trucks</li>
-        <li>No "feeding the shuttle" from other divisions</li>
-      </ul>
+        <li contenteditable="true">A slip-seat relay shuttle — two drivers meet in the middle, swap trucks, and each returns home the same day</li>
+        <li contenteditable="true">Drop-and-hook. Take-or-pay freight.</li>
+        <li contenteditable="true">100% self-contained — no OTR support</li>
+        <li contenteditable="true">Consistent volume, both directions, 7 days a week</li>
+        <li contenteditable="true">5,600 miles / truck / week</li>
+        <li contenteditable="true">Plug-and-play ready for autonomous trucks</li>
+        <li contenteditable="true">No "feeding the shuttle" from other divisions</li>
+      </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button>
     </div>
     <div class="vs-col vs-col-red">
       <div class="vs-col-label">What it actually is</div>
       <ul class="vs-list">
-        <li>Mixed freight — dedicated + whatever fits</li>
-        <li>OTR trucks staging loads to feed the shuttle</li>
-        <li>Loads that don't fit the model forced in for utilization</li>
-        <li>5 of 9 lanes below or near the 5,600 goal</li>
-        <li>Technology incomplete after 18 months</li>
-        <li>Single decision-maker at ~400 dispatches/day</li>
-      </ul>
+        <li contenteditable="true">Mixed freight — dedicated + whatever fits</li>
+        <li contenteditable="true">OTR trucks staging loads to feed the shuttle</li>
+        <li contenteditable="true">Loads that don't fit the model forced in for utilization</li>
+        <li contenteditable="true">5 of 9 lanes below or near the 5,600 goal</li>
+        <li contenteditable="true">Technology incomplete after 18 months</li>
+        <li contenteditable="true">Single decision-maker at ~400 dispatches/day</li>
+      </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button>
     </div>
   </div>
   <div class="notes-area" style="margin-top:20px;">
@@ -1931,27 +1930,27 @@
 <div id="sales" class="section-page">
   <div class="page-header"><div class="page-num">04</div><div><div class="page-title">Sales</div><div class="page-subtitle">Prep questions — Week of March 30–April 10</div></div></div>
   <ul class="question-list">
-    <li>What does Expedited mean to our customers — are they buying reliability, speed, consistency, or just capacity?</li>
-    <li>How does sales actually sell this? What's the pitch and who's having those conversations?</li>
-    <li>What are the real constraints sales runs into when trying to grow this lane?</li>
-    <li>Is this operation delivering measurable value to the customer, or are we primarily serving our own utilization needs?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What does Expedited mean to our customers — are they buying reliability, speed, consistency, or just capacity?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">How does sales actually sell this? What's the pitch and who's having those conversations?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What are the real constraints sales runs into when trying to grow this lane?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Is this operation delivering measurable value to the customer, or are we primarily serving our own utilization needs?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="What did you hear? Answers, follow-ups, names..."></textarea></div>
 </div>
 
 <!-- FP&A -->
 <div id="fpa" class="section-page">
-  <div class="page-header"><div class="page-num">05</div><div><div class="page-title">FP&A</div><div class="page-subtitle">Financial review — pull before going on-site</div></div></div>
+  <div class="page-header"><div class="page-num">05</div><div><div class="page-title">FP&amp;A</div><div class="page-subtitle">Financial review — pull before going on-site</div></div></div>
   <ul class="question-list">
-    <li>Pull and walk through the P&L</li>
-    <li>Understand how driver comp is structured and what the average paycheck looks like</li>
-    <li>What numbers does leadership actually manage to day-to-day in Expedited?</li>
-    <li>Truck depreciation — are we calculating it at average fleet rates or at the actual miles these trucks are running? EXP trucks run roughly twice the miles of a standard OTR unit. If we're using average rates, the cost is understated.</li>
-    <li>When new trucks were going into these lanes, maintenance was minimal. Now that older equipment is being used, what does the cost-per-mile trend look like over time?</li>
-    <li>Can we restate the P&L using depreciation adjusted for actual EXP mileage?</li>
-    <li>Is there a true loaded cost-per-mile that captures road assist calls, third-party shop time, and downtime — not just fuel and driver pay?</li>
-    <li>How is Driscoll's (CC 153) tracked separately, and does that P&L actually include the Mexico-side costs — partner carrier fees, trailer integrity issues, cross-border delays?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">Pull and walk through the P&amp;L<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Understand how driver comp is structured and what the average paycheck looks like<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What numbers does leadership actually manage to day-to-day in Expedited?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Truck depreciation — are we calculating it at average fleet rates or at the actual miles these trucks are running? EXP trucks run roughly twice the miles of a standard OTR unit. If we're using average rates, the cost is understated.<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">When new trucks were going into these lanes, maintenance was minimal. Now that older equipment is being used, what does the cost-per-mile trend look like over time?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Can we restate the P&amp;L using depreciation adjusted for actual EXP mileage?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Is there a true loaded cost-per-mile that captures road assist calls, third-party shop time, and downtime — not just fuel and driver pay?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">How is Driscoll's (CC 153) tracked separately, and does that P&amp;L actually include the Mexico-side costs — partner carrier fees, trailer integrity issues, cross-border delays?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
@@ -1959,11 +1958,11 @@
 <div id="ops-overview" class="section-page">
   <div class="page-header"><div class="page-num">06</div><div><div class="page-title">Operational Overview</div></div></div>
   <ul class="question-list">
-    <li>What standard is this operation being held to, who set it, and is everyone on the team working from the same definition?</li>
-    <li>Do the drivers understand what role they play in this fleet and why the reliability bar is higher than standard OTR?</li>
-    <li>What does leadership say this business is supposed to be — and what does it actually look like today? Where are the gaps?</li>
-    <li>Driver call-ins are higher here than in other operations. Why? What lead time are we getting, and what happens operationally when we don't?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What standard is this operation being held to, who set it, and is everyone on the team working from the same definition?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Do the drivers understand what role they play in this fleet and why the reliability bar is higher than standard OTR?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What does leadership say this business is supposed to be — and what does it actually look like today? Where are the gaps?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Driver call-ins are higher here than in other operations. Why? What lead time are we getting, and what happens operationally when we don't?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
@@ -1982,21 +1981,27 @@
   <div class="content-block">
     <p style="color:var(--mid);font-size:13.5px;line-height:1.7;">What do they think the problems are? What numbers are they watching? What do they escalate versus just handle quietly? I want to understand their version of a normal day before I go watch one.</p>
   </div>
-  <div class="notes-area"><div class="notes-label">Notes by person</div><textarea class="notes-field" placeholder="Jason Aller —&#10;&#10;Lyndi Curry —&#10;&#10;Amye Alvarez —&#10;&#10;Nathan Kratz —" style="min-height:160px;"></textarea></div>
+  <div class="notes-area"><div class="notes-label">Notes by person</div><textarea class="notes-field" placeholder="Jason Aller —
+
+Lyndi Curry —
+
+Amye Alvarez —
+
+Nathan Kratz —" style="min-height:160px;"></textarea></div>
 </div>
 
 <!-- RECRUITING -->
 <div id="recruiting" class="section-page">
-  <div class="page-header"><div class="page-num">09</div><div><div class="page-title">Driver Recruiting & Retention</div></div></div>
+  <div class="page-header"><div class="page-num">09</div><div><div class="page-title">Driver Recruiting &amp; Retention</div></div></div>
   <ul class="question-list">
-    <li>What kind of driver are we hiring for? Is there an actual profile or are we taking anyone who passes the boxes?</li>
-    <li>What are we telling drivers during recruiting and orientation versus what the job actually looks like on day one?</li>
-    <li>What is turnover in Expedited compared to the rest of the company, and what does tenure look like?</li>
-    <li>If exit interviews exist, what are drivers saying when they leave?</li>
-    <li>Are they primarily company drivers or Lease Purchase?</li>
-    <li>Why would a driver want to be part of this operation?</li>
-    <li>Sit in on driver orientation if possible — hear what's actually being communicated about the attendance standard</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What kind of driver are we hiring for? Is there an actual profile or are we taking anyone who passes the boxes?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What are we telling drivers during recruiting and orientation versus what the job actually looks like on day one?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What is turnover in Expedited compared to the rest of the company, and what does tenure look like?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">If exit interviews exist, what are drivers saying when they leave?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are they primarily company drivers or Lease Purchase?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Why would a driver want to be part of this operation?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Sit in on driver orientation if possible — hear what's actually being communicated about the attendance standard<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
@@ -2004,38 +2009,40 @@
 <div id="comp" class="section-page">
   <div class="page-header"><div class="page-num">10</div><div><div class="page-title">Driver Compensation</div></div></div>
   <ul class="question-list">
-    <li>What is the average Expedited driver's weekly paycheck? How does that compare to what OTR drivers are taking home?</li>
-  </ul>
-  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="Average paycheck: &#10;OTR comparison: &#10;Pay structure (flat/mile/day):"></textarea></div>
+    <li contenteditable="true" spellcheck="true">What is the average Expedited driver's weekly paycheck? How does that compare to what OTR drivers are taking home?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
+  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="Average paycheck: 
+OTR comparison: 
+Pay structure (flat/mile/day):"></textarea></div>
 </div>
 
 <!-- CUSTOMER SERVICE -->
 <div id="customer" class="section-page">
   <div class="page-header"><div class="page-num">11</div><div><div class="page-title">Customer Service</div></div></div>
   <ul class="question-list">
-    <li>What kinds of failures are generating customer calls?</li>
-    <li>What service commitments exist on these lanes and how often are we missing them?</li>
-    <li>Are certain customers or lanes driving a disproportionate amount of the firefighting?</li>
-    <li>Is driver service failure data tracked consistently enough across lanes to identify patterns?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What kinds of failures are generating customer calls?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What service commitments exist on these lanes and how often are we missing them?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are certain customers or lanes driving a disproportionate amount of the firefighting?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Is driver service failure data tracked consistently enough across lanes to identify patterns?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
 <!-- SAFETY -->
 <div id="safety" class="section-page">
-  <div class="page-header"><div class="page-num">12</div><div><div class="page-title">Safety & Compliance</div></div></div>
+  <div class="page-header"><div class="page-num">12</div><div><div class="page-title">Safety &amp; Compliance</div></div></div>
   <ul class="question-list">
-    <li>What do HOS patterns look like specifically in Expedited? Are drivers routinely tight on their clock?</li>
-    <li>What is the incident rate on relay and swap runs compared to standard OTR?</li>
-    <li>Are there places where safety or compliance requirements bump up against how this operation is designed to work?</li>
-    <li>DOT threshold — we've crossed it. Every Hirschbach truck is being flagged. The fix is contesting claims to get below the threshold, not just fixing tires. Where are we on that?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What do HOS patterns look like specifically in Expedited? Are drivers routinely tight on their clock?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What is the incident rate on relay and swap runs compared to standard OTR?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are there places where safety or compliance requirements bump up against how this operation is designed to work?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">DOT threshold — we've crossed it. Every Hirschbach truck is being flagged. The fix is contesting claims to get below the threshold, not just fixing tires. Where are we on that?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
 <!-- NETWORK -->
 <div id="network" class="section-page">
-  <div class="page-header"><div class="page-num">13</div><div><div class="page-title">Network & Lane Information</div></div></div>
+  <div class="page-header"><div class="page-num">13</div><div><div class="page-title">Network &amp; Lane Information</div></div></div>
   <div class="content-block">
     <p style="color:var(--mid);font-size:13.5px;line-height:1.7;">Lane density by route, relay point locations, gaps in coverage, average legs per load, and on-time performance broken down by lane. This is the fact base for understanding whether the constraint is density, design, or execution.</p>
   </div>
@@ -2051,24 +2058,28 @@
     <p style="color:var(--mid);font-size:13.5px;line-height:1.7;">One idea worth evaluating: could we stock basic replacement parts inside each unit? Drivers are home nightly, which means trucks are accessible. If the most common roadside issues are small and fixable, a basic parts kit could cut road assist calls. But this only makes sense if the issues are actually that type — if it's primarily larger mechanical failures, the kit doesn't help. Need to understand the breakdown before going further.</p>
   </div>
   <ul class="question-list" style="margin-top:16px;">
-    <li>Are we tracking the most common failure types by lane or by truck?</li>
-    <li>Could we realistically resolve the most common breakdowns through on-site minor repairs?</li>
-    <li>What is the cost comparison between our internal shop and third-party shops for the issues we're seeing?</li>
-  </ul>
-  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="Most common failure types: &#10;&#10;Internal vs third-party shop split: &#10;&#10;In-truck parts kit feasibility:"></textarea></div>
+    <li contenteditable="true" spellcheck="true">Are we tracking the most common failure types by lane or by truck?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Could we realistically resolve the most common breakdowns through on-site minor repairs?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What is the cost comparison between our internal shop and third-party shops for the issues we're seeing?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
+  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="Most common failure types: 
+
+Internal vs third-party shop split: 
+
+In-truck parts kit feasibility:"></textarea></div>
 </div>
 
 <!-- FREIGHT -->
 <div id="freight" class="section-page">
   <div class="page-header"><div class="page-num">15</div><div><div class="page-title">Freight</div><div class="page-subtitle">The most critical missing piece</div></div></div>
   <ul class="question-list">
-    <li>What percentage of loads on each lane were actively sourced for Expedited versus placed there because a truck was open?</li>
-    <li>What are the actual contract terms with each customer — is anything take-or-pay, or is it all variable?</li>
-    <li>Who owns the freight decision for each lane — is it sales, Jason, or operations making those calls?</li>
-    <li>Are OTR or local trucks staging loads at home yards to feed the shuttle? Which lanes and how often?</li>
-    <li>Are loads being routed at a right angle across the network — for example, LA to Kansas running through the TX-CA shuttle to Dallas and then the KS-TX shuttle to KC instead of going direct? How many loads and what does the extra mileage add up to?</li>
-    <li>The freight master shows target customers for each lane. Which of those are actually running consistently versus which lanes are being filled with whatever is available?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What percentage of loads on each lane were actively sourced for Expedited versus placed there because a truck was open?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What are the actual contract terms with each customer — is anything take-or-pay, or is it all variable?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Who owns the freight decision for each lane — is it sales, Jason, or operations making those calls?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are OTR or local trucks staging loads at home yards to feed the shuttle? Which lanes and how often?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are loads being routed at a right angle across the network — for example, LA to Kansas running through the TX-CA shuttle to Dallas and then the KS-TX shuttle to KC instead of going direct? How many loads and what does the extra mileage add up to?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">The freight master shows target customers for each lane. Which of those are actually running consistently versus which lanes are being filled with whatever is available?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="" style="min-height:120px;"></textarea></div>
 </div>
 
@@ -2076,40 +2087,44 @@
 <div id="technology" class="section-page">
   <div class="page-header"><div class="page-num">16</div><div><div class="page-title">Technology</div></div></div>
   <ul class="question-list">
-    <li>What was the original scope and go-live date for the Expedited planning module, and where does it stand today?</li>
-    <li>The AS400 route line bug — loads dispatched through EPM are not updating route lines, which means drivers are being directed to the wrong fuel stops. This same bug is generating tickets in three separate places: Expedited ops, Solutions, and OS&D/claims. How long has this been known and what is blocking the fix?</li>
-    <li>EPM compliance on CC 147 was as low as 38% in recent weeks. What is driving manual dispatch on that lane specifically?</li>
-    <li>What manual workarounds have been built around technology gaps, and how much time per day is that consuming?</li>
-    <li>Pull a full count of open tickets touching Expedited from Mo's team before the on-site visit</li>
-    <li>What are the biggest constraints with EPM right now?</li>
-  </ul>
-  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="Open ticket count: &#10;&#10;EPM compliance by lane: &#10;&#10;Planning module status:"></textarea></div>
+    <li contenteditable="true" spellcheck="true">What was the original scope and go-live date for the Expedited planning module, and where does it stand today?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">The AS400 route line bug — loads dispatched through EPM are not updating route lines, which means drivers are being directed to the wrong fuel stops. This same bug is generating tickets in three separate places: Expedited ops, Solutions, and OS&amp;D/claims. How long has this been known and what is blocking the fix?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">EPM compliance on CC 147 was as low as 38% in recent weeks. What is driving manual dispatch on that lane specifically?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What manual workarounds have been built around technology gaps, and how much time per day is that consuming?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Pull a full count of open tickets touching Expedited from Mo's team before the on-site visit<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">What are the biggest constraints with EPM right now?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
+  <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="Open ticket count: 
+
+EPM compliance by lane: 
+
+Planning module status:"></textarea></div>
 </div>
 
 <!-- DRIVERS -->
 <div id="drivers" class="section-page">
   <div class="page-header"><div class="page-num">17</div><div><div class="page-title">Drivers</div><div class="page-subtitle">Actual experience — not the planned version</div></div></div>
   <ul class="question-list">
-    <li>What is the actual average shift length — wheels rolling to home — not the planned shift?</li>
-    <li>How often are drivers returning late, and what's causing it most often?</li>
-    <li>How much time does the tablet log-out process add at the swap point? Is this something drivers complain about?</li>
-    <li>When a driver calls in, what actually happens to that lane that day? How is coverage found and how often is it not found?</li>
-    <li>Are drivers getting their load assignment the day before as the SOP requires, or is same-day assignment common?</li>
-    <li>Are drivers actually getting home every night, or is that promise breaking down on certain lanes?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What is the actual average shift length — wheels rolling to home — not the planned shift?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">How often are drivers returning late, and what's causing it most often?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">How much time does the tablet log-out process add at the swap point? Is this something drivers complain about?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">When a driver calls in, what actually happens to that lane that day? How is coverage found and how often is it not found?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are drivers getting their load assignment the day before as the SOP requires, or is same-day assignment common?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Are drivers actually getting home every night, or is that promise breaking down on certain lanes?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
 <!-- GENERAL -->
 <!-- GENERAL -->
 <div id="general" class="section-page">
-  <div class="page-header"><div class="page-num">18</div><div><div class="page-title">General — Scaling & Targets</div></div></div>
+  <div class="page-header"><div class="page-num">18</div><div><div class="page-title">General — Scaling &amp; Targets</div></div></div>
   <ul class="question-list">
-    <li>What would it concretely take to run 200 trucks by September 30 — the freight, the technology, the people, the process maturity? Has anyone actually mapped that out?</li>
-    <li>At 100 trucks the operation runs at roughly 400 dispatches per day through one decision-maker. When the fleet doubles, what breaks first?</li>
-    <li>Is the September 30 date a hard commitment to an outside party — investor, lender, board — or is it an internal target that the assessment could influence?</li>
-    <li>Has anyone modeled what the operation actually looks like at 200 trucks, not just the revenue projection but the operational complexity?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">What would it concretely take to run 200 trucks by September 30 — the freight, the technology, the people, the process maturity? Has anyone actually mapped that out?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">At 100 trucks the operation runs at roughly 400 dispatches per day through one decision-maker. When the fleet doubles, what breaks first?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Is the September 30 date a hard commitment to an outside party — investor, lender, board — or is it an internal target that the assessment could influence?<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Has anyone modeled what the operation actually looks like at 200 trucks, not just the revenue projection but the operational complexity?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
@@ -2117,8 +2132,8 @@
 <div id="driver-scheduling" class="section-page">
   <div class="page-header"><div class="page-num">19</div><div><div class="page-title">Driver Scheduling</div><div class="page-subtitle">Prep questions — understand the scheduling process before going on-site</div></div></div>
   <ul class="question-list">
-    <li>Walk me through what happens with driver scheduling and what takes up the majority of your time?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">Walk me through what happens with driver scheduling and what takes up the majority of your time?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="What did you hear? Answers, follow-ups, names..."></textarea></div>
 </div>
 
@@ -2126,14 +2141,14 @@
 <div id="staffing" class="section-page">
   <div class="page-header"><div class="page-num">20</div><div><div class="page-title">Staffing</div><div class="page-subtitle">Prep questions — understand the staffing process before going on-site</div></div></div>
   <ul class="question-list">
-    <li>Walk me through how staffing decisions are made — who decides headcount, when, and what triggers a change?</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">Walk me through how staffing decisions are made — who decides headcount, when, and what triggers a change?<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area"><div class="notes-label">Notes</div><textarea class="notes-field" placeholder="What did you hear? Answers, follow-ups, names..."></textarea></div>
 </div>
 
 <!-- ══════════════════ GEMBA SCOPE ══════════════════ -->
 <div id="gemba-scope" class="section-page">
-  <div class="page-header"><div class="page-num">G0</div><div><div class="page-title">Gemba Walk — Scope & Rules</div><div class="page-subtitle">Week of April 13–18, 2026</div></div></div>
+  <div class="page-header"><div class="page-num">G0</div><div><div class="page-title">Gemba Walk — Scope &amp; Rules</div><div class="page-subtitle">Week of April 13–18, 2026</div></div></div>
 
   <div class="content-block">
     <div class="block-label">Objective</div>
@@ -2144,46 +2159,46 @@
     <div>
       <div class="obs-mini-label">✅ In Scope</div>
       <div class="obs-mini-content"><ul>
-        <li>Expedited driver support &amp; dispatch operations</li>
-        <li>End-to-end flow of a load within the relay model</li>
-        <li>Relay / swap execution and driver experience</li>
-        <li>AS400 / EPM screen usage and workarounds</li>
-        <li>Brief, debrief, and shift handoff mechanics</li>
-        <li>Information flow, interruptions, and rework cycles</li>
-      </ul></div>
+        <li contenteditable="true">Expedited driver support &amp; dispatch operations</li>
+        <li contenteditable="true">End-to-end flow of a load within the relay model</li>
+        <li contenteditable="true">Relay / swap execution and driver experience</li>
+        <li contenteditable="true">AS400 / EPM screen usage and workarounds</li>
+        <li contenteditable="true">Brief, debrief, and shift handoff mechanics</li>
+        <li contenteditable="true">Information flow, interruptions, and rework cycles</li>
+      </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div>
     </div>
     <div>
       <div class="obs-mini-label">🚫 Explicitly Out of Scope</div>
       <div class="obs-mini-content"><ul>
-        <li>Solution design</li>
-        <li>Technology requests or builds</li>
-        <li>Staffing decisions</li>
-        <li>Organizational changes</li>
-        <li>Any countermeasure commitments during the walk</li>
-      </ul></div>
+        <li contenteditable="true">Solution design</li>
+        <li contenteditable="true">Technology requests or builds</li>
+        <li contenteditable="true">Staffing decisions</li>
+        <li contenteditable="true">Organizational changes</li>
+        <li contenteditable="true">Any countermeasure commitments during the walk</li>
+      </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div>
     </div>
   </div>
 
   <div class="content-block" style="margin-top:24px;">
     <div class="block-label">Rules for the Walk — Own It</div>
     <ul class="question-list">
-      <li>No fixing during observation</li>
-      <li>No judging individuals — judge the system</li>
-      <li>Write down what you see, not what you think it means</li>
-      <li>Facts first. Interpretation later.</li>
-      <li>Every observation is a question, not a conclusion</li>
-      <li>Ask "why does this happen?" not "who made this happen?"</li>
-    </ul>
+      <li contenteditable="true" spellcheck="true">No fixing during observation<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">No judging individuals — judge the system<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Write down what you see, not what you think it means<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Facts first. Interpretation later.<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Every observation is a question, not a conclusion<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true">Ask "why does this happen?" not "who made this happen?"<button class="del-item" title="Remove">×</button></li>
+    </ul><button class="add-item-btn">Add item</button>
   </div>
 
   <div class="content-block">
     <div class="block-label">What to Track Every Day</div>
     <ul class="question-list">
-      <li><strong>Information Flow:</strong> Patterns, constraints, flow stoppage, rework cycles</li>
-      <li><strong>Load Lifecycle:</strong> Tender → assign → execute → complete → release</li>
-      <li><strong>Relay/Swap & Driver Experience:</strong> Swap timing, driver comms, tablet usability, workarounds</li>
-      <li><strong>AS400 Usage & Brief/Debrief:</strong> Screen usage, manual rework, handoff quality, status definitions</li>
-    </ul>
+      <li contenteditable="true" spellcheck="true"><strong>Information Flow:</strong> Patterns, constraints, flow stoppage, rework cycles<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true"><strong>Load Lifecycle:</strong> Tender → assign → execute → complete → release<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true"><strong>Relay/Swap &amp; Driver Experience:</strong> Swap timing, driver comms, tablet usability, workarounds<button class="del-item" title="Remove">×</button></li>
+      <li contenteditable="true" spellcheck="true"><strong>AS400 Usage &amp; Brief/Debrief:</strong> Screen usage, manual rework, handoff quality, status definitions<button class="del-item" title="Remove">×</button></li>
+    </ul><button class="add-item-btn">Add item</button>
   </div>
 </div>
 
@@ -2208,19 +2223,19 @@
           <div>
             <div class="obs-mini-label">Observe</div>
             <div class="obs-mini-content"><ul>
-              <li>Seating layout and physical proximity of roles</li>
-              <li>How information flows between people</li>
-              <li>Where people go when they need something</li>
-              <li>What triggers a phone call vs. a message</li>
-            </ul></div>
+              <li contenteditable="true">Seating layout and physical proximity of roles</li>
+              <li contenteditable="true">How information flows between people</li>
+              <li contenteditable="true">Where people go when they need something</li>
+              <li contenteditable="true">What triggers a phone call vs. a message</li>
+            </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div>
           </div>
           <div>
             <div class="obs-mini-label">Questions to hold (don't ask yet)</div>
             <div class="q-hold"><ul>
-              <li>Is work flowing or being reacted to?</li>
-              <li>Who is coordinating vs. firefighting?</li>
-              <li>What would this floor look like on a perfect day?</li>
-            </ul></div>
+              <li contenteditable="true">Is work flowing or being reacted to?</li>
+              <li contenteditable="true">Who is coordinating vs. firefighting?</li>
+              <li contenteditable="true">What would this floor look like on a perfect day?</li>
+            </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div>
           </div>
         </div>
         <div class="notes-area"><div class="notes-label">Observations — facts only</div><textarea class="notes-field" placeholder="What did you see? No interpretation yet." style="min-height:100px;"></textarea></div>
@@ -2273,18 +2288,18 @@
           <div>
             <div class="obs-mini-label">Observation focus</div>
             <div class="obs-mini-content"><ul>
-              <li>Where does the process shift from proactive → reactive?</li>
-              <li>What steps exist only because something upstream broke?</li>
-              <li>Where do people do the same work twice?</li>
-            </ul></div>
+              <li contenteditable="true">Where does the process shift from proactive → reactive?</li>
+              <li contenteditable="true">What steps exist only because something upstream broke?</li>
+              <li contenteditable="true">Where do people do the same work twice?</li>
+            </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div>
           </div>
           <div>
             <div class="obs-mini-label">Questions to hold</div>
             <div class="q-hold"><ul>
-              <li>Is work flowing or being reacted to?</li>
-              <li>What would a "clean" load look like vs. this one?</li>
-              <li>Who touches this load and why?</li>
-            </ul></div>
+              <li contenteditable="true">Is work flowing or being reacted to?</li>
+              <li contenteditable="true">What would a "clean" load look like vs. this one?</li>
+              <li contenteditable="true">Who touches this load and why?</li>
+            </ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div>
           </div>
         </div>
         <table class="obs-table" style="margin-top:12px;">
@@ -2305,8 +2320,8 @@
       <div class="obs-section-header" onclick="toggleSection(this)">Relay / Swap Execution</div>
       <div class="obs-section-body">
         <div class="obs-two-col">
-          <div><div class="obs-mini-label">Observe</div><div class="obs-mini-content"><ul><li>Where swaps occur</li><li>Driver arrival timing vs. plan</li><li>What gets communicated at the swap</li><li>Tablet / log-out process time</li></ul></div></div>
-          <div><div class="obs-mini-label">Questions to hold</div><div class="q-hold"><ul><li>Is there idle time caused by timing variance?</li><li>Who has decision authority at the swap point?</li><li>What happens when one driver is late?</li></ul></div></div>
+          <div><div class="obs-mini-label">Observe</div><div class="obs-mini-content"><ul><li contenteditable="true">Where swaps occur</li><li contenteditable="true">Driver arrival timing vs. plan</li><li contenteditable="true">What gets communicated at the swap</li><li contenteditable="true">Tablet / log-out process time</li></ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div></div>
+          <div><div class="obs-mini-label">Questions to hold</div><div class="q-hold"><ul><li contenteditable="true">Is there idle time caused by timing variance?</li><li contenteditable="true">Who has decision authority at the swap point?</li><li contenteditable="true">What happens when one driver is late?</li></ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div></div>
         </div>
         <table class="obs-table" style="margin-top:12px;">
           <thead><tr><th>Load #</th><th>Swap Location</th><th>Planned Time</th><th>Actual Time</th><th>Variance</th><th>Notes</th></tr></thead>
@@ -2324,8 +2339,8 @@
       <div class="obs-section-header" onclick="toggleSection(this)">Driver Interaction — Observed, Not Surveyed</div>
       <div class="obs-section-body">
         <div class="obs-two-col">
-          <div><div class="obs-mini-label">Observe</div><div class="obs-mini-content"><ul><li>How drivers receive assignments</li><li>Tablet usability in practice</li><li>Where drivers visibly struggle or work around</li></ul></div></div>
-          <div><div class="obs-mini-label">Questions to hold</div><div class="q-hold"><ul><li>Does the process expect drivers to "figure it out"?</li><li>Where do drivers add information that the system should carry?</li></ul></div></div>
+          <div><div class="obs-mini-label">Observe</div><div class="obs-mini-content"><ul><li contenteditable="true">How drivers receive assignments</li><li contenteditable="true">Tablet usability in practice</li><li contenteditable="true">Where drivers visibly struggle or work around</li></ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div></div>
+          <div><div class="obs-mini-label">Questions to hold</div><div class="q-hold"><ul><li contenteditable="true">Does the process expect drivers to "figure it out"?</li><li contenteditable="true">Where do drivers add information that the system should carry?</li></ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div></div>
         </div>
         <div class="notes-area" style="margin-top:12px;"><div class="notes-label">Driver interaction observations — facts only</div><textarea class="notes-field" placeholder="" style="min-height:100px;"></textarea></div>
       </div>
@@ -2359,8 +2374,8 @@
           </tbody>
         </table>
         <div class="obs-two-col" style="margin-top:14px;">
-          <div><div class="obs-mini-label">Green / Yellow / Red — observe how assigned</div><div class="obs-mini-content"><ul><li>What triggers a status change?</li><li>Is color assignment consistent across driver leaders?</li><li>Who decides and when?</li></ul></div></div>
-          <div><div class="obs-mini-label">Key validation questions</div><div class="q-hold"><ul><li>If everything is yellow or red, what does "green" mean?</li><li>Is color being used as a tool or as CYA?</li></ul></div></div>
+          <div><div class="obs-mini-label">Green / Yellow / Red — observe how assigned</div><div class="obs-mini-content"><ul><li contenteditable="true">What triggers a status change?</li><li contenteditable="true">Is color assignment consistent across driver leaders?</li><li contenteditable="true">Who decides and when?</li></ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div></div>
+          <div><div class="obs-mini-label">Key validation questions</div><div class="q-hold"><ul><li contenteditable="true">If everything is yellow or red, what does "green" mean?</li><li contenteditable="true">Is color being used as a tool or as CYA?</li></ul><button class="add-item-btn" style="font-size: 11px; padding: 3px 8px; margin-top: 4px;">Add</button></div></div>
         </div>
         <div class="notes-area" style="margin-top:12px;"><div class="notes-label">Brief / debrief observations — facts only</div><textarea class="notes-field" placeholder=""></textarea></div>
       </div>
@@ -2373,7 +2388,7 @@
 <div id="day2" class="section-page" style="padding:0;">
   <div class="day-header">
     <div class="day-badge">2</div>
-    <div class="day-info"><div class="day-title">Day 2 — Questions & Understanding</div><div class="day-desc">Now you can ask. Understand the workflow, not just watch it.</div></div>
+    <div class="day-info"><div class="day-title">Day 2 — Questions &amp; Understanding</div><div class="day-desc">Now you can ask. Understand the workflow, not just watch it.</div></div>
     <input class="day-date-field" placeholder="Date: ___________">
   </div>
   <div style="padding:32px 40px;">
@@ -2381,11 +2396,11 @@
       <div class="obs-section-header" onclick="toggleSection(this)">Dispatch Floor — Questions</div>
       <div class="obs-section-body">
         <ul class="question-list">
-          <li>Walk me through what you do from the time you sit down to the time you're in your rhythm</li>
-          <li>What's the hardest part of your day and when does it happen?</li>
-          <li>What do you wish the system did that it doesn't?</li>
-          <li>What's the thing that breaks most often that you've just learned to work around?</li>
-        </ul>
+          <li contenteditable="true" spellcheck="true">Walk me through what you do from the time you sit down to the time you're in your rhythm<button class="del-item" title="Remove">×</button></li>
+          <li contenteditable="true" spellcheck="true">What's the hardest part of your day and when does it happen?<button class="del-item" title="Remove">×</button></li>
+          <li contenteditable="true" spellcheck="true">What do you wish the system did that it doesn't?<button class="del-item" title="Remove">×</button></li>
+          <li contenteditable="true" spellcheck="true">What's the thing that breaks most often that you've just learned to work around?<button class="del-item" title="Remove">×</button></li>
+        </ul><button class="add-item-btn">Add item</button>
         <div class="notes-area"><div class="notes-label">Observations / answers</div><textarea class="notes-field" placeholder="" style="min-height:120px;"></textarea></div>
       </div>
     </div>
@@ -2420,7 +2435,10 @@
     <div class="obs-section">
       <div class="obs-section-header" onclick="toggleSection(this)">Key Questions Explored Today</div>
       <div class="obs-section-body">
-        <div class="notes-area"><div class="notes-label">Write each question as you observed it — never the answer yet</div><textarea class="notes-field" style="min-height:160px;" placeholder="Why does _______ happen at the tender stage?&#10;Why is _______ step required if the load is already assigned?&#10;Why is this information not available earlier in the process?&#10;What triggers the shift from planned → reactive?"></textarea></div>
+        <div class="notes-area"><div class="notes-label">Write each question as you observed it — never the answer yet</div><textarea class="notes-field" style="min-height:160px;" placeholder="Why does _______ happen at the tender stage?
+Why is _______ step required if the load is already assigned?
+Why is this information not available earlier in the process?
+What triggers the shift from planned → reactive?"></textarea></div>
       </div>
     </div>
   </div>
@@ -2444,11 +2462,15 @@
 </div>
 
 <div id="day4" class="section-page" style="padding:0;">
-  <div class="day-header"><div class="day-badge">4</div><div class="day-info"><div class="day-title">Day 4 — Questions & Understanding</div><div class="day-desc">Deeper follow-up. You've now seen two cycles.</div></div><input class="day-date-field" placeholder="Date: ___________"></div>
+  <div class="day-header"><div class="day-badge">4</div><div class="day-info"><div class="day-title">Day 4 — Questions &amp; Understanding</div><div class="day-desc">Deeper follow-up. You've now seen two cycles.</div></div><input class="day-date-field" placeholder="Date: ___________"></div>
   <div style="padding:32px 40px;">
-    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Follow-Up Questions — Based on Days 1–3</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Questions that came from watching — still no answers</div><textarea class="notes-field" style="min-height:200px;" placeholder="Why does _______ happen?&#10;&#10;Why does _______ exist if _______ is already done upstream?&#10;&#10;"></textarea></div></div></div>
+    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Follow-Up Questions — Based on Days 1–3</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Questions that came from watching — still no answers</div><textarea class="notes-field" style="min-height:200px;" placeholder="Why does _______ happen?
+
+Why does _______ exist if _______ is already done upstream?
+
+"></textarea></div></div></div>
     <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Single Worker Shift Timeline</div><div class="obs-section-body"><p style="color:var(--muted);font-size:12.5px;margin-bottom:12px;">Track one person's full shift — what they did, when, for how long.</p><table class="obs-table"><thead><tr><th>Time</th><th>Activity / Task</th><th>Proactive or Reactive</th><th>System Used</th><th>Duration</th><th>Notes</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr></tbody></table></div></div>
-    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Exception Log — What Happened & What Triggered It</div><div class="obs-section-body"><table class="obs-table"><thead><tr><th>Time</th><th>Exception Description</th><th>What Triggered It</th><th>How Resolved</th><th>Who Fixed It</th><th>Recurrence?</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr></tbody></table></div></div>
+    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Exception Log — What Happened &amp; What Triggered It</div><div class="obs-section-body"><table class="obs-table"><thead><tr><th>Time</th><th>Exception Description</th><th>What Triggered It</th><th>How Resolved</th><th>Who Fixed It</th><th>Recurrence?</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr></tbody></table></div></div>
     <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">All Other Observations — Day 4</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Load lifecycle, swap, driver, system, brief/debrief</div><textarea class="notes-field" style="min-height:160px;" placeholder=""></textarea></div></div></div>
   </div>
 </div>
@@ -2466,9 +2488,13 @@
 <div id="day6" class="section-page" style="padding:0;">
   <div class="day-header"><div class="day-badge">6</div><div class="day-info"><div class="day-title">Day 6 — Questions &amp; Understanding</div><div class="day-desc">Deeper follow-up. You've now seen three cycles.</div></div><input class="day-date-field" placeholder="Date: ___________"></div>
   <div style="padding:32px 40px;">
-    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Follow-Up Questions — Based on Previous Days</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Questions that came from watching — still no answers</div><textarea class="notes-field" style="min-height:200px;" placeholder="Why does _______ happen?&#10;&#10;Why does _______ exist if _______ is already done upstream?&#10;&#10;"></textarea></div></div></div>
+    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Follow-Up Questions — Based on Previous Days</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Questions that came from watching — still no answers</div><textarea class="notes-field" style="min-height:200px;" placeholder="Why does _______ happen?
+
+Why does _______ exist if _______ is already done upstream?
+
+"></textarea></div></div></div>
     <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Single Worker Shift Timeline</div><div class="obs-section-body"><p style="color:var(--muted);font-size:12.5px;margin-bottom:12px;">Track one person's full shift — what they did, when, for how long.</p><table class="obs-table"><thead><tr><th>Time</th><th>Activity / Task</th><th>Proactive or Reactive</th><th>System Used</th><th>Duration</th><th>Notes</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr></tbody></table></div></div>
-    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Exception Log — What Happened & What Triggered It</div><div class="obs-section-body"><table class="obs-table"><thead><tr><th>Time</th><th>Exception Description</th><th>What Triggered It</th><th>How Resolved</th><th>Who Fixed It</th><th>Recurrence?</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr></tbody></table></div></div>
+    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Exception Log — What Happened &amp; What Triggered It</div><div class="obs-section-body"><table class="obs-table"><thead><tr><th>Time</th><th>Exception Description</th><th>What Triggered It</th><th>How Resolved</th><th>Who Fixed It</th><th>Recurrence?</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr></tbody></table></div></div>
     <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">All Other Observations</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Load lifecycle, swap, driver, system, brief/debrief</div><textarea class="notes-field" style="min-height:160px;" placeholder=""></textarea></div></div></div>
   </div>
 </div>
@@ -2487,9 +2513,13 @@
 <div id="day8" class="section-page" style="padding:0;">
   <div class="day-header"><div class="day-badge">8</div><div class="day-info"><div class="day-title">Day 8 — Questions &amp; Understanding</div><div class="day-desc">Final round of questions before synthesis.</div></div><input class="day-date-field" placeholder="Date: ___________"></div>
   <div style="padding:32px 40px;">
-    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Follow-Up Questions — Based on Previous Days</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Questions that came from watching — still no answers</div><textarea class="notes-field" style="min-height:200px;" placeholder="Why does _______ happen?&#10;&#10;Why does _______ exist if _______ is already done upstream?&#10;&#10;"></textarea></div></div></div>
+    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Follow-Up Questions — Based on Previous Days</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Questions that came from watching — still no answers</div><textarea class="notes-field" style="min-height:200px;" placeholder="Why does _______ happen?
+
+Why does _______ exist if _______ is already done upstream?
+
+"></textarea></div></div></div>
     <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Single Worker Shift Timeline</div><div class="obs-section-body"><p style="color:var(--muted);font-size:12.5px;margin-bottom:12px;">Track one person's full shift — what they did, when, for how long.</p><table class="obs-table"><thead><tr><th>Time</th><th>Activity / Task</th><th>Proactive or Reactive</th><th>System Used</th><th>Duration</th><th>Notes</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><input type="text"></td><td><textarea></textarea></td></tr></tbody></table></div></div>
-    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Exception Log — What Happened & What Triggered It</div><div class="obs-section-body"><table class="obs-table"><thead><tr><th>Time</th><th>Exception Description</th><th>What Triggered It</th><th>How Resolved</th><th>Who Fixed It</th><th>Recurrence?</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr></tbody></table></div></div>
+    <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">Exception Log — What Happened &amp; What Triggered It</div><div class="obs-section-body"><table class="obs-table"><thead><tr><th>Time</th><th>Exception Description</th><th>What Triggered It</th><th>How Resolved</th><th>Who Fixed It</th><th>Recurrence?</th></tr></thead><tbody><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr><tr><td><input type="text"></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr></tbody></table></div></div>
     <div class="obs-section"><div class="obs-section-header" onclick="toggleSection(this)">All Other Observations</div><div class="obs-section-body"><div class="notes-area"><div class="notes-label">Load lifecycle, swap, driver, system, brief/debrief</div><textarea class="notes-field" style="min-height:160px;" placeholder=""></textarea></div></div></div>
   </div>
 </div>
@@ -2611,7 +2641,52 @@
         </thead>
         <tbody id="opp-tbody">
           <!-- Rows injected by JS -->
-        </tbody>
+        <tr>
+      <td class="cat-cell"><select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
+        <option value="Sales">Sales</option><option value="Customers">Customers</option><option value="FP&amp;A">FP&amp;A</option><option value="Operations">Operations</option><option value="Planning">Planning</option><option value="Safety and Compliance">Safety and Compliance</option><option value="People">People</option><option value="Recruiting">Recruiting</option><option value="Retention">Retention</option><option value="Orientation">Orientation</option><option value="Customer Service">Customer Service</option><option value="Network &amp; Lanes">Network &amp; Lanes</option><option value="Equipment">Equipment</option><option value="Freight">Freight</option><option value="Technology">Technology</option><option value="Drivers">Drivers</option><option value="General">General</option>
+      </select></td>
+      <td><textarea placeholder="Describe the opportunity..."></textarea></td>
+      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        <option value="">—</option><option value="P1">P1 — Mission Critical / Needed Now</option><option value="P2">P2 — High Impact / Need Soon</option><option value="P3">P3 — Important / Not Urgent</option><option value="P4">P4 — Nice-to-have / Low Priority</option>
+      </select></td>
+      <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
+      <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td></tr><tr>
+      <td class="cat-cell"><select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
+        <option value="Sales">Sales</option><option value="Customers">Customers</option><option value="FP&amp;A">FP&amp;A</option><option value="Operations">Operations</option><option value="Planning">Planning</option><option value="Safety and Compliance">Safety and Compliance</option><option value="People">People</option><option value="Recruiting">Recruiting</option><option value="Retention">Retention</option><option value="Orientation">Orientation</option><option value="Customer Service">Customer Service</option><option value="Network &amp; Lanes">Network &amp; Lanes</option><option value="Equipment">Equipment</option><option value="Freight">Freight</option><option value="Technology">Technology</option><option value="Drivers">Drivers</option><option value="General">General</option>
+      </select></td>
+      <td><textarea placeholder="Describe the opportunity..."></textarea></td>
+      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        <option value="">—</option><option value="P1">P1 — Mission Critical / Needed Now</option><option value="P2">P2 — High Impact / Need Soon</option><option value="P3">P3 — Important / Not Urgent</option><option value="P4">P4 — Nice-to-have / Low Priority</option>
+      </select></td>
+      <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
+      <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td></tr><tr>
+      <td class="cat-cell"><select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
+        <option value="Sales">Sales</option><option value="Customers">Customers</option><option value="FP&amp;A">FP&amp;A</option><option value="Operations">Operations</option><option value="Planning">Planning</option><option value="Safety and Compliance">Safety and Compliance</option><option value="People">People</option><option value="Recruiting">Recruiting</option><option value="Retention">Retention</option><option value="Orientation">Orientation</option><option value="Customer Service">Customer Service</option><option value="Network &amp; Lanes">Network &amp; Lanes</option><option value="Equipment">Equipment</option><option value="Freight">Freight</option><option value="Technology">Technology</option><option value="Drivers">Drivers</option><option value="General">General</option>
+      </select></td>
+      <td><textarea placeholder="Describe the opportunity..."></textarea></td>
+      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        <option value="">—</option><option value="P1">P1 — Mission Critical / Needed Now</option><option value="P2">P2 — High Impact / Need Soon</option><option value="P3">P3 — Important / Not Urgent</option><option value="P4">P4 — Nice-to-have / Low Priority</option>
+      </select></td>
+      <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
+      <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td></tr><tr>
+      <td class="cat-cell"><select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
+        <option value="Sales">Sales</option><option value="Customers">Customers</option><option value="FP&amp;A">FP&amp;A</option><option value="Operations">Operations</option><option value="Planning">Planning</option><option value="Safety and Compliance">Safety and Compliance</option><option value="People">People</option><option value="Recruiting">Recruiting</option><option value="Retention">Retention</option><option value="Orientation">Orientation</option><option value="Customer Service">Customer Service</option><option value="Network &amp; Lanes">Network &amp; Lanes</option><option value="Equipment">Equipment</option><option value="Freight">Freight</option><option value="Technology">Technology</option><option value="Drivers">Drivers</option><option value="General">General</option>
+      </select></td>
+      <td><textarea placeholder="Describe the opportunity..."></textarea></td>
+      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        <option value="">—</option><option value="P1">P1 — Mission Critical / Needed Now</option><option value="P2">P2 — High Impact / Need Soon</option><option value="P3">P3 — Important / Not Urgent</option><option value="P4">P4 — Nice-to-have / Low Priority</option>
+      </select></td>
+      <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
+      <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td></tr><tr>
+      <td class="cat-cell"><select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
+        <option value="Sales">Sales</option><option value="Customers">Customers</option><option value="FP&amp;A">FP&amp;A</option><option value="Operations">Operations</option><option value="Planning">Planning</option><option value="Safety and Compliance">Safety and Compliance</option><option value="People">People</option><option value="Recruiting">Recruiting</option><option value="Retention">Retention</option><option value="Orientation">Orientation</option><option value="Customer Service">Customer Service</option><option value="Network &amp; Lanes">Network &amp; Lanes</option><option value="Equipment">Equipment</option><option value="Freight">Freight</option><option value="Technology">Technology</option><option value="Drivers">Drivers</option><option value="General">General</option>
+      </select></td>
+      <td><textarea placeholder="Describe the opportunity..."></textarea></td>
+      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        <option value="">—</option><option value="P1">P1 — Mission Critical / Needed Now</option><option value="P2">P2 — High Impact / Need Soon</option><option value="P3">P3 — Important / Not Urgent</option><option value="P4">P4 — Nice-to-have / Low Priority</option>
+      </select></td>
+      <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
+      <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td></tr></tbody>
       </table>
     </div>
     <button class="add-opp-btn" id="add-opp-btn">Add Opportunity</button>
@@ -2639,7 +2714,355 @@
   </div>
 
   <!-- Groups render here -->
-  <div id="attach-groups-container"></div>
+  <div id="attach-groups-container"><div class="attach-group" data-gid="ag_1">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="General">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_1">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_1')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_1" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_1" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_1')">Add Link</button>
+        </div>
+        <div id="items_ag_1" style="margin-top:12px;"><div class="attach-item" data-type="file" data-name-html="Expedited Miles, Trucks, Utilization.xlsb" data-meta="1.7 MB">
+      <div class="attach-item-icon ">XLSB</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Expedited Miles, Trucks, Utilization.xlsb</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..." style="height: 20px;"></textarea>
+      </div>
+      <div class="attach-item-meta">1.7 MB</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_2">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_2">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_2')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_2" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_2" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_2')">Add Link</button>
+        </div>
+        <div id="items_ag_2" style="margin-top:12px;"><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQCosqVzLaUzQIF6MOBPT_GkAQwC0b1RvGTNxruW7J332Zg?e=OVe5Gf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hiring Needs by Cost Center&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQCosqVzLaUzQIF6MOBPT_GkAQwC0b1RvGTNxruW7J332Zg?e=OVe5Gf" data-link-label="Hiring Needs by Cost Center" data-link-url="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQCosqVzLaUzQIF6MOBPT_GkAQwC0b1RvGTNxruW7J332Zg?e=OVe5Gf">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQCosqVzLaUzQIF6MOBPT_GkAQwC0b1RvGTNxruW7J332Zg?e=OVe5Gf" target="_blank" rel="noopener">Hiring Needs by Cost Center</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQCosqVzLaUzQIF6MOBPT_GkAQwC0b1RvGTNxruW7J332Zg?e=OVe5Gf</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_3">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_3">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_3')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_3" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_3" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_3')">Add Link</button>
+        </div>
+        <div id="items_ag_3" style="margin-top:12px;"><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://app.powerbi.com/links/YFsroooBqJ?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;pbi_source=linkShare&amp;bookmarkGuid=b31c5ad9-d300-4be1-b543-0dab1341bb4a&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Driver Profile report link&lt;/a&gt;" data-meta="https://app.powerbi.com/links/YFsroooBqJ?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;pbi_source=linkShare&amp;bookmarkGuid=b31c5ad9-d300-4be1-b543-0dab1341bb4a" data-link-label="Driver Profile report link" data-link-url="https://app.powerbi.com/links/YFsroooBqJ?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;pbi_source=linkShare&amp;bookmarkGuid=b31c5ad9-d300-4be1-b543-0dab1341bb4a">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://app.powerbi.com/links/YFsroooBqJ?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;pbi_source=linkShare&amp;bookmarkGuid=b31c5ad9-d300-4be1-b543-0dab1341bb4a" target="_blank" rel="noopener">Driver Profile report link</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://app.powerbi.com/links/YFsroooBqJ?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;pbi_source=linkShare&amp;bookmarkGuid=b31c5ad9-d300-4be1-b543-0dab1341bb4a</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="data - 2026-04-03T120845.527.xlsx" data-meta="25 KB">
+      <div class="attach-item-icon ">XLSX</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">data - 2026-04-03T120845.527.xlsx</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">25 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_4">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_4">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_4')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_4" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_4" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_4')">Add Link</button>
+        </div>
+        <div id="items_ag_4" style="margin-top:12px;"><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=dFbVAW&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swap Points - tab on the link “EXP LANES ST END SWAP&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=dFbVAW" data-link-label="Swap Points - tab on the link “EXP LANES ST END SWAP" data-link-url="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=dFbVAW">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=dFbVAW" target="_blank" rel="noopener">Swap Points - tab on the link “EXP LANES ST END SWAP</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=dFbVAW</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_5">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_5">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_5')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_5" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_5" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_5')">Add Link</button>
+        </div>
+        <div id="items_ag_5" style="margin-top:12px;"><div class="attach-item" data-type="file" data-name-html="ONBOARDING CHECKLIST REVISED 4.3.pdf" data-meta="282 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">ONBOARDING CHECKLIST REVISED 4.3.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">282 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach.sharepoint.com/:w:/s/Expedited/IQCHhSHVcpWZTYnadA6UR_HJAeiyINvs-nJ5AUIPV4PCS7c?e=api3os&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Welcome Letter&lt;/a&gt;" data-meta="https://hirschbach.sharepoint.com/:w:/s/Expedited/IQCHhSHVcpWZTYnadA6UR_HJAeiyINvs-nJ5AUIPV4PCS7c?e=api3os" data-link-label="Welcome Letter" data-link-url="https://hirschbach.sharepoint.com/:w:/s/Expedited/IQCHhSHVcpWZTYnadA6UR_HJAeiyINvs-nJ5AUIPV4PCS7c?e=api3os">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach.sharepoint.com/:w:/s/Expedited/IQCHhSHVcpWZTYnadA6UR_HJAeiyINvs-nJ5AUIPV4PCS7c?e=api3os" target="_blank" rel="noopener">Welcome Letter</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach.sharepoint.com/:w:/s/Expedited/IQCHhSHVcpWZTYnadA6UR_HJAeiyINvs-nJ5AUIPV4PCS7c?e=api3os</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_6">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_6">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_6')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_6" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_6" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_6')">Add Link</button>
+        </div>
+        <div id="items_ag_6" style="margin-top:12px;"><div class="attach-item" data-type="file" data-name-html="EXP Office Staff.pdf" data-meta="41 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">EXP Office Staff.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">41 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_7">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_7">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_7')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_7" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_7" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_7')">Add Link</button>
+        </div>
+        <div id="items_ag_7" style="margin-top:12px;"><div class="attach-item" data-type="file" data-name-html="EXP Sailing Schedule - Daily Departs.pdf" data-meta="34 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">EXP Sailing Schedule - Daily Departs.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">34 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_8">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_8">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_8')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_8" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_8" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_8')">Add Link</button>
+        </div>
+        <div id="items_ag_8" style="margin-top:12px;"><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQD7IGWapiugRaCOUYo6Jd_pAaxgaXaQkhdmeus8auX3aSA?e=sjWqtI&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Exp Implementation Plan Master&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQD7IGWapiugRaCOUYo6Jd_pAaxgaXaQkhdmeus8auX3aSA?e=sjWqtI" data-link-label="Exp Implementation Plan Master" data-link-url="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQD7IGWapiugRaCOUYo6Jd_pAaxgaXaQkhdmeus8auX3aSA?e=sjWqtI">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQD7IGWapiugRaCOUYo6Jd_pAaxgaXaQkhdmeus8auX3aSA?e=sjWqtI" target="_blank" rel="noopener">Exp Implementation Plan Master</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQD7IGWapiugRaCOUYo6Jd_pAaxgaXaQkhdmeus8auX3aSA?e=sjWqtI</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQBldUmykWfETId0e30yj8KWAfb8YKhRYdAvcGnOL7tNGEw?e=7IAiSy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Exp Freight Master&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQBldUmykWfETId0e30yj8KWAfb8YKhRYdAvcGnOL7tNGEw?e=7IAiSy" data-link-label="Exp Freight Master" data-link-url="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQBldUmykWfETId0e30yj8KWAfb8YKhRYdAvcGnOL7tNGEw?e=7IAiSy">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQBldUmykWfETId0e30yj8KWAfb8YKhRYdAvcGnOL7tNGEw?e=7IAiSy" target="_blank" rel="noopener">Exp Freight Master</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..." style="height: 20px;"></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQBldUmykWfETId0e30yj8KWAfb8YKhRYdAvcGnOL7tNGEw?e=7IAiSy</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=Whp8yK&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Daily Load List - Northern Exp Lanes&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=Whp8yK" data-link-label="Daily Load List - Northern Exp Lanes" data-link-url="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=Whp8yK">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=Whp8yK" target="_blank" rel="noopener">Daily Load List - Northern Exp Lanes</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/p/lyndi_curry/IQDg8qP8WdAzQre5choqPZsyAYIiAf5mPbRw8_QNISoCQbk?e=Whp8yK</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/p/amye_alvarez/IQDhEydgNkpfSpKx2Ey7Ol2sAQlk7E91_8x_beqzoFExlAg?e=sUGQKZ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Exp CA TX 147&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/p/amye_alvarez/IQDhEydgNkpfSpKx2Ey7Ol2sAQlk7E91_8x_beqzoFExlAg?e=sUGQKZ" data-link-label="Exp CA TX 147" data-link-url="https://hirschbach-my.sharepoint.com/:x:/p/amye_alvarez/IQDhEydgNkpfSpKx2Ey7Ol2sAQlk7E91_8x_beqzoFExlAg?e=sUGQKZ">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/p/amye_alvarez/IQDhEydgNkpfSpKx2Ey7Ol2sAQlk7E91_8x_beqzoFExlAg?e=sUGQKZ" target="_blank" rel="noopener">Exp CA TX 147</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/p/amye_alvarez/IQDhEydgNkpfSpKx2Ey7Ol2sAQlk7E91_8x_beqzoFExlAg?e=sUGQKZ</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_9">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_9">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_9')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_9" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_9" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_9')">Add Link</button>
+        </div>
+        <div id="items_ag_9" style="margin-top:12px;"><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://app.powerbi.com/groups/me/reports/3e27aee4-2baa-46e1-996e-51c7ec13673e/e6f2cd3d257e91c1026c?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;experience=power-bi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Summary Stats&lt;/a&gt;" data-meta="https://app.powerbi.com/groups/me/reports/3e27aee4-2baa-46e1-996e-51c7ec13673e/e6f2cd3d257e91c1026c?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;experience=power-bi" data-link-label="Summary Stats" data-link-url="https://app.powerbi.com/groups/me/reports/3e27aee4-2baa-46e1-996e-51c7ec13673e/e6f2cd3d257e91c1026c?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;experience=power-bi">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://app.powerbi.com/groups/me/reports/3e27aee4-2baa-46e1-996e-51c7ec13673e/e6f2cd3d257e91c1026c?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;experience=power-bi" target="_blank" rel="noopener">Summary Stats</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://app.powerbi.com/groups/me/reports/3e27aee4-2baa-46e1-996e-51c7ec13673e/e6f2cd3d257e91c1026c?ctid=33a0f4d4-f8f3-481c-bdeb-9868b68e1596&amp;experience=power-bi</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="link" data-name-html="&lt;a href=&quot;https://hirschbach-my.sharepoint.com/:x:/r/personal/jason_aller_hirschbach_com/Documents/EXP Growth Schedule 2026.xlsx?d=wa82c0db0cbd64385af88fe84e23f8df6&amp;csf=1&amp;web=1&amp;e=7t98b2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Growth Schedule for 2026&lt;/a&gt;" data-meta="https://hirschbach-my.sharepoint.com/:x:/r/personal/jason_aller_hirschbach_com/Documents/EXP Growth Schedule 2026.xlsx?d=wa82c0db0cbd64385af88fe84e23f8df6&amp;csf=1&amp;web=1&amp;e=7t98b2" data-link-label="Growth Schedule for 2026" data-link-url="https://hirschbach-my.sharepoint.com/:x:/r/personal/jason_aller_hirschbach_com/Documents/EXP Growth Schedule 2026.xlsx?d=wa82c0db0cbd64385af88fe84e23f8df6&amp;csf=1&amp;web=1&amp;e=7t98b2">
+      <div class="attach-item-icon link-icon">🔗</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name"><a href="https://hirschbach-my.sharepoint.com/:x:/r/personal/jason_aller_hirschbach_com/Documents/EXP Growth Schedule 2026.xlsx?d=wa82c0db0cbd64385af88fe84e23f8df6&amp;csf=1&amp;web=1&amp;e=7t98b2" target="_blank" rel="noopener">Growth Schedule for 2026</a></div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">https://hirschbach-my.sharepoint.com/:x:/r/personal/jason_aller_hirschbach_com/Documents/EXP Growth Schedule 2026.xlsx?d=wa82c0db0cbd64385af88fe84e23f8df6&amp;csf=1&amp;web=1&amp;e=7t98b2</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="EXP Crash_Cargo Details_Last_Week.xlsm" data-meta="55 KB">
+      <div class="attach-item-icon ">XLSM</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">EXP Crash_Cargo Details_Last_Week.xlsm</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">55 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="Weekly EXP KPI Summary.xlsm" data-meta="16.0 MB">
+      <div class="attach-item-icon ">XLSM</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Weekly EXP KPI Summary.xlsm</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">16.0 MB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="Active Trucks in EXP Cost Centers 3.xlsm" data-meta="53 KB">
+      <div class="attach-item-icon ">XLSM</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Active Trucks in EXP Cost Centers 3.xlsm</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">53 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="Expedited Asset Maintenance Notification - H40139 INDI YARD NEED REPAIRED by or before .msg" data-meta="61 KB">
+      <div class="attach-item-icon ">MSG</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Expedited Asset Maintenance Notification - H40139 INDI YARD NEED REPAIRED by or before .msg</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">61 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="SOP 086 Expedited Commuincation ROAD.pdf" data-meta="245 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">SOP 086 Expedited Commuincation ROAD.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">245 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div><div class="attach-group" data-gid="ag_10">
+      <div class="attach-group-header">
+        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="">
+        <div class="attach-group-actions">
+          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
+        </div>
+      </div>
+      <div class="attach-group-body">
+        <div class="attach-group-drop" id="drop_ag_10">
+          <input type="file" multiple="" onchange="handleGroupFiles(this.files,'ag_10')">
+          📎 &nbsp;Drop files or click to upload
+        </div>
+        <div class="attach-link-row-group">
+          <input class="attach-link-input" id="ll_ag_10" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
+          <input class="attach-link-input" id="lu_ag_10" placeholder="URL" style="flex:1.5;">
+          <button class="attach-link-btn" onclick="addGroupLink('ag_10')">Add Link</button>
+        </div>
+        <div id="items_ag_10" style="margin-top:12px;"><div class="attach-item" data-type="file" data-name-html="Expedited 147 SOP Effective 12.18.25.pdf" data-meta="131 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Expedited 147 SOP Effective 12.18.25.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">131 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="Expedited Slip Seat SOP Effective 8 20 25.pdf" data-meta="123 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Expedited Slip Seat SOP Effective 8 20 25.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">123 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="Expedited Operation Driver Expectations.pdf" data-meta="84 KB">
+      <div class="attach-item-icon ">PDF</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Expedited Operation Driver Expectations.pdf</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">84 KB</div>
+      <button class="attach-item-del" title="Remove">×</button></div><div class="attach-item" data-type="file" data-name-html="Expedited Log Out Process.docx" data-meta="1.3 MB">
+      <div class="attach-item-icon ">DOCX</div>
+      <div class="attach-item-main">
+        <div class="attach-item-name">Expedited Log Out Process.docx</div>
+        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..."></textarea>
+      </div>
+      <div class="attach-item-meta">1.3 MB</div>
+      <button class="attach-item-del" title="Remove">×</button></div></div>
+      </div></div></div>
 
   <!-- Add Group button -->
   <button class="attach-add-group-btn" onclick="addAttachGroup()">+ Add Group</button>
@@ -2680,878 +3103,893 @@
 </div>
 
 <div id="artifacts" class="section-page">
-  <div class="page-header"><div class="page-num">S3</div><div><div class="page-title">Key Documents & References</div></div></div>
+  <div class="page-header"><div class="page-num">S3</div><div><div class="page-title">Key Documents &amp; References</div></div></div>
   <ul class="question-list">
-    <li>EXP Freight Master.xlsx — lane-by-lane freight sourcing guide; customer and PU/DELV locations per lane</li>
-    <li>Weekly EXP KPI Summary.xlsm — utilization, turnover, crash, DH, broker freight data (13-wk rolling)</li>
-    <li>Expedited Miles, Trucks, Utilization.xlsm — daily/weekly pivot data; seated vs. unseated trucks</li>
-    <li>Northern EXP Lanes Daily Load List.xlsx — manual daily tracking spreadsheet; one tab per lane</li>
-    <li>Active Trucks in EXP Cost Centers.xlsm — current truck assignment and status</li>
-    <li>SOP 147 — Expedited Southern Lane Relay Operations (trailer swap protocol, cleanliness, scale tickets)</li>
-    <li>SOP 8.20.25 — Full Truck Swap Slip Seat Relay Operations</li>
-    <li>SOP 086 — Expedited Communication ROAD (breakdown escalation; Road Assist: 402-404-2035)</li>
-    <li>Expedited Operation Driver Expectations (service failure framework; scale ticket policy)</li>
-    <li>Expedited Tablet Log-Out Process.docx</li>
-    <li>EXP Crash / Cargo Details Last Week.xlsm</li>
-    <li>Expedited Daily Briefing and Debriefing.xlsx</li>
-    <li>Expedited Implementation Plan Master.xlsb — WIP, working document</li>
-    <li>EXP Growth Schedule 2026.xlsx</li>
-    <li>Power BI dashboards (I and II)</li>
-  </ul>
+    <li contenteditable="true" spellcheck="true">EXP Freight Master.xlsx — lane-by-lane freight sourcing guide; customer and PU/DELV locations per lane<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Weekly EXP KPI Summary.xlsm — utilization, turnover, crash, DH, broker freight data (13-wk rolling)<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Expedited Miles, Trucks, Utilization.xlsm — daily/weekly pivot data; seated vs. unseated trucks<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Northern EXP Lanes Daily Load List.xlsx — manual daily tracking spreadsheet; one tab per lane<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Active Trucks in EXP Cost Centers.xlsm — current truck assignment and status<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">SOP 147 — Expedited Southern Lane Relay Operations (trailer swap protocol, cleanliness, scale tickets)<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">SOP 8.20.25 — Full Truck Swap Slip Seat Relay Operations<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">SOP 086 — Expedited Communication ROAD (breakdown escalation; Road Assist: 402-404-2035)<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Expedited Operation Driver Expectations (service failure framework; scale ticket policy)<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Expedited Tablet Log-Out Process.docx<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">EXP Crash / Cargo Details Last Week.xlsm<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Expedited Daily Briefing and Debriefing.xlsx<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Expedited Implementation Plan Master.xlsb — WIP, working document<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">EXP Growth Schedule 2026.xlsx<button class="del-item" title="Remove">×</button></li>
+    <li contenteditable="true" spellcheck="true">Power BI dashboards (I and II)<button class="del-item" title="Remove">×</button></li>
+  </ul><button class="add-item-btn">Add item</button>
   <div class="notes-area" style="margin-top:20px;"><div class="notes-label">Additional documents or references found on-site</div><textarea class="notes-field" placeholder=""></textarea></div>
 </div>
 
 </div><!-- /main -->
 
-<button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+
+
+
+
+
 
 <script>
-  // -- COLLAPSE TOGGLE --
-  function toggleSection(header) {
-    header.parentElement.classList.toggle('collapsed');
-  }
+'use strict';
 
-  // -- ACTIVE NAV --
+// ═══════════════════════════════════════════════════════════════
+// CONSTANTS
+// ═══════════════════════════════════════════════════════════════
+const SAVE_KEY   = 'a3_notebook_v2';
+const ATTACH_KEY = 'a3_attach_v2';
+let saveTimer = null;
+let attachGroupCounter = 11; // incremented beyond highest existing ag_N
+
+// ═══════════════════════════════════════════════════════════════
+// NAV GROUP COLLAPSE
+// ═══════════════════════════════════════════════════════════════
+function toggleNavGroup(el) {
+  el.classList.toggle('collapsed');
+  const links = el.nextElementSibling;
+  if (links) links.classList.toggle('collapsed');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// OBS SECTION COLLAPSE
+// ═══════════════════════════════════════════════════════════════
+function toggleSection(header) {
+  header.parentElement.classList.toggle('collapsed');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ACTIVE NAV HIGHLIGHT ON SCROLL
+// ═══════════════════════════════════════════════════════════════
+(function() {
   const sections = document.querySelectorAll('[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   function updateNav() {
     let current = '';
-    sections.forEach(s => {
-      if (s.getBoundingClientRect().top <= 80) current = s.id;
-    });
+    sections.forEach(s => { if (s.getBoundingClientRect().top <= 90) current = s.id; });
     navLinks.forEach(l => {
       l.classList.remove('active');
       if (l.getAttribute('href') === '#' + current) l.classList.add('active');
     });
   }
-  window.addEventListener('scroll', updateNav);
+  window.addEventListener('scroll', updateNav, { passive: true });
+})();
 
-  // -- AUTO-RESIZE TEXTAREAS --
-  document.querySelectorAll('textarea').forEach(ta => {
-    ta.addEventListener('input', function() {
-      this.style.height = 'auto';
-      this.style.height = Math.max(36, this.scrollHeight) + 'px';
-    });
-  });
+// ═══════════════════════════════════════════════════════════════
+// AUTO-RESIZE TEXTAREAS
+// ═══════════════════════════════════════════════════════════════
+function autoResize(ta) {
+  if (!ta || ta.tagName !== 'TEXTAREA') return;
+  ta.style.height = 'auto';
+  ta.style.height = Math.max(36, ta.scrollHeight) + 'px';
+}
+document.querySelectorAll('textarea').forEach(ta => {
+  ta.addEventListener('input', () => autoResize(ta));
+  autoResize(ta);
+});
 
-  // -- MAKE EXISTING LIST ITEMS EDITABLE --
-  function makeEditable(li) {
+// ═══════════════════════════════════════════════════════════════
+// EDITABLE LIST ITEMS
+// ═══════════════════════════════════════════════════════════════
+function makeEditable(li) {
+  li.setAttribute('contenteditable', 'true');
+  li.setAttribute('spellcheck', 'true');
+  if (li.closest('.question-list') && !li.querySelector('.del-item')) {
+    const del = document.createElement('button');
+    del.className = 'del-item';
+    del.title = 'Remove';
+    del.innerHTML = '&times;';
+    del.onclick = e => { e.stopPropagation(); li.remove(); scheduleSave(); };
+    li.appendChild(del);
+  }
+}
+
+function placeCaretAtEnd(el) {
+  const range = document.createRange();
+  const sel   = window.getSelection();
+  range.selectNodeContents(el);
+  range.collapse(false);
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+
+// Make existing list items editable
+document.querySelectorAll(
+  '.question-list li, .obs-mini-content ul li, .q-hold ul li, .vs-list li'
+).forEach(li => makeEditable(li));
+
+// Insert Add buttons after question lists that don't already have one
+document.querySelectorAll('.question-list').forEach(list => {
+  const next = list.nextElementSibling;
+  if (next && next.classList.contains('add-item-btn')) return;
+  const btn = document.createElement('button');
+  btn.className = 'add-item-btn';
+  btn.textContent = 'Add item';
+  btn.onclick = () => {
+    const li = document.createElement('li');
+    li.textContent = '';
+    makeEditable(li);
+    list.appendChild(li);
+    li.focus();
+    scheduleSave();
+  };
+  list.insertAdjacentElement('afterend', btn);
+});
+
+// Insert Add buttons after mini lists
+document.querySelectorAll('.obs-mini-content ul, .q-hold ul, .vs-list').forEach(list => {
+  list.querySelectorAll('li').forEach(li => li.setAttribute('contenteditable', 'true'));
+  const next = list.nextElementSibling;
+  if (next && next.classList.contains('add-item-btn')) return;
+  const btn = document.createElement('button');
+  btn.className = 'add-item-btn';
+  btn.style.cssText = 'font-size:11px;padding:3px 8px;margin-top:4px;';
+  btn.textContent = 'Add';
+  btn.onclick = () => {
+    const li = document.createElement('li');
     li.setAttribute('contenteditable', 'true');
-    li.setAttribute('spellcheck', 'true');
-    // Add delete button if it's a question-list item
-    if (li.closest('.question-list')) {
-      if (!li.querySelector('.del-item')) {
-        const del = document.createElement('button');
-        del.className = 'del-item';
-        del.title = 'Remove';
-        del.innerHTML = '&times;';
-        del.onclick = (e) => { e.stopPropagation(); li.remove(); };
-        li.appendChild(del);
-      }
-    }
-  }
+    list.appendChild(li);
+    li.focus();
+    scheduleSave();
+  };
+  list.insertAdjacentElement('afterend', btn);
+});
 
-  // -- ADD ITEM BUTTON FACTORY --
-  function createAddBtn(list, placeholder) {
-    const btn = document.createElement('button');
-    btn.className = 'add-item-btn';
-    btn.textContent = 'Add item';
-    btn.onclick = () => {
-      const li = document.createElement('li');
-      li.textContent = placeholder || '';
-      makeEditable(li);
-      list.appendChild(li);
-      li.focus();
-      // Place cursor at end
-      const range = document.createRange();
-      const sel = window.getSelection();
-      range.selectNodeContents(li);
-      range.collapse(false);
-      sel.removeAllRanges();
-      sel.addRange(range);
-    };
-    return btn;
+// Keyboard shortcuts for contenteditable list items
+document.addEventListener('keydown', e => {
+  const el = document.activeElement;
+  if (!el || el.tagName !== 'LI' || el.contentEditable !== 'true') return;
+  if (e.key === 'Backspace' && el.textContent.trim() === '') {
+    e.preventDefault();
+    const prev = el.previousElementSibling;
+    el.remove();
+    if (prev) { prev.focus(); placeCaretAtEnd(prev); }
+    scheduleSave();
   }
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const li = document.createElement('li');
+    li.setAttribute('contenteditable', 'true');
+    if (el.closest('.question-list')) makeEditable(li);
+    el.insertAdjacentElement('afterend', li);
+    li.focus();
+  }
+});
 
-  // -- INJECT ADD BUTTONS AFTER EVERY QUESTION LIST --
-  document.querySelectorAll('.question-list').forEach(list => {
-    // Make existing items editable
-    list.querySelectorAll('li').forEach(li => makeEditable(li));
-    // Insert add button after the list
-    const btn = createAddBtn(list, 'New item');
-    list.insertAdjacentElement('afterend', btn);
+// ═══════════════════════════════════════════════════════════════
+// LANE TABLE
+// ═══════════════════════════════════════════════════════════════
+function addLaneRow() {
+  const tbody = document.getElementById('lane-tbody');
+  if (!tbody) return;
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><input type="text" class="lane-input lane-team" list="team-options" placeholder="CC #"></td>
+    <td><input type="text" class="lane-input" placeholder="Lane name"></td>
+    <td><input type="text" class="lane-input" placeholder="Point Type"></td>
+    <td><input type="text" class="lane-input" placeholder="HML Code"></td>
+    <td><input type="text" class="lane-input" placeholder="Address"></td>
+    <td><input type="text" class="lane-input" placeholder="City"></td>
+    <td><input type="text" class="lane-input" placeholder="ST"></td>
+    <td><input type="text" class="lane-input" placeholder="Zip"></td>
+    <td><input type="text" class="lane-input" list="team-options" placeholder="Team"></td>
+    <td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)" title="Remove row">&times;</button></td>
+  `;
+  tbody.appendChild(tr);
+  tr.querySelectorAll('input').forEach(inp => inp.addEventListener('input', scheduleSave));
+  tr.querySelector('input').focus();
+  scheduleSave();
+}
+
+function removeLaneRow(btn) {
+  btn.closest('tr').remove();
+  scheduleSave();
+}
+
+let _laneSort = {};
+function sortLaneTable(colIndex) {
+  const tbody = document.getElementById('lane-tbody');
+  if (!tbody) return;
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const dir = _laneSort[colIndex] === 'asc' ? 'desc' : 'asc';
+  _laneSort = {};
+  _laneSort[colIndex] = dir;
+  rows.sort((a, b) => {
+    const aVal = (a.cells[colIndex]?.querySelector('input,select')?.value || a.cells[colIndex]?.textContent || '').trim();
+    const bVal = (b.cells[colIndex]?.querySelector('input,select')?.value || b.cells[colIndex]?.textContent || '').trim();
+    return dir === 'asc' ? aVal.localeCompare(bVal, undefined, { numeric: true }) : bVal.localeCompare(aVal, undefined, { numeric: true });
+  });
+  rows.forEach(r => tbody.appendChild(r));
+  document.querySelectorAll('#lane-table th').forEach((th, i) => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (i === colIndex) th.classList.add('sort-' + dir);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CONTACTS TABLE
+// ═══════════════════════════════════════════════════════════════
+function addContactRow() {
+  const tbody = document.getElementById('contacts-tbody');
+  if (!tbody) return;
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><input type="text" class="contact-input" placeholder="Name"></td>
+    <td><input type="text" class="contact-input" placeholder="Role"></td>
+    <td><input type="text" class="contact-input" placeholder="Relevance to A3"></td>
+    <td><input type="text" class="contact-input" placeholder="Location"></td>
+    <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">&times;</button></td>
+  `;
+  tbody.appendChild(tr);
+  tr.querySelectorAll('input').forEach(inp => inp.addEventListener('input', scheduleSave));
+  tr.querySelector('input').focus();
+  scheduleSave();
+}
+
+function removeContactRow(btn) {
+  btn.closest('tr').remove();
+  scheduleSave();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UTILIZATION STATUS COLOR
+// ═══════════════════════════════════════════════════════════════
+function applyUtilColor(sel) {
+  const colors = {
+    'Above Goal': '#2E7D32', 'At Goal': '#1565C0',
+    'Below Goal': '#C62828', 'N/A': '#888',
+    'Ramping': '#E65100', 'Tracked Separately': '#6A1B9A'
+  };
+  sel.style.color = colors[sel.value] || 'var(--dark)';
+}
+document.querySelectorAll('.util-status-select').forEach(applyUtilColor);
+
+// ═══════════════════════════════════════════════════════════════
+// OPPORTUNITY TRACKER
+// ═══════════════════════════════════════════════════════════════
+const CATEGORIES = ['Sales','Customers','FP&A','Operations','Planning','Safety and Compliance','People','Recruiting','Retention','Orientation','Customer Service','Network & Lanes','Equipment','Freight','Technology','Drivers','General'];
+const PRIORITIES = [
+  ['', '—'],
+  ['P1', 'P1 — Mission Critical / Needed Now'],
+  ['P2', 'P2 — High Impact / Need Soon'],
+  ['P3', 'P3 — Important / Not Urgent'],
+  ['P4', 'P4 — Nice-to-have / Low Priority']
+];
+
+function createOppRow(data) {
+  const tr = document.createElement('tr');
+  const catOpts = CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join('');
+  const priOpts = PRIORITIES.map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
+  tr.innerHTML = `
+    <td class="cat-cell">
+      <select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
+        ${catOpts}
+      </select>
+    </td>
+    <td><textarea placeholder="Describe the opportunity..."></textarea></td>
+    <td class="priority-cell">
+      <select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
+        ${priOpts}
+      </select>
+    </td>
+    <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
+    <td class="del-cell"><button class="opp-del-btn" title="Remove row">&times;</button></td>
+  `;
+
+  tr.querySelector('.opp-del-btn').onclick = () => { tr.remove(); scheduleSave(); };
+  tr.querySelectorAll('textarea').forEach(ta => {
+    ta.addEventListener('input', () => { autoResize(ta); scheduleSave(); });
   });
 
-  // -- INJECT ADD BUTTONS AFTER OBS-MINI LISTS --
-  document.querySelectorAll('.obs-mini-content ul, .q-hold ul, .vs-list').forEach(list => {
-    list.querySelectorAll('li').forEach(li => {
-      li.setAttribute('contenteditable', 'true');
-    });
-    const btn = document.createElement('button');
-    btn.className = 'add-item-btn';
-    btn.style.cssText = 'font-size:11px;padding:3px 8px;margin-top:4px;';
-    btn.textContent = 'Add';
-    btn.onclick = () => {
-      const li = document.createElement('li');
-      li.textContent = '';
-      li.setAttribute('contenteditable', 'true');
-      list.appendChild(li);
-      li.focus();
-    };
-    list.insertAdjacentElement('afterend', btn);
-  });
+  const priSel = tr.querySelectorAll('select')[1];
+  const priColors = { P1:'#C62828', P2:'#E65100', P3:'#F57F17', P4:'#2E7D32', '':'var(--dark)' };
+  const colorPri = () => { priSel.style.color = priColors[priSel.value] || 'var(--dark)'; };
+  priSel.addEventListener('change', () => { colorPri(); scheduleSave(); });
 
-  // -- OPPORTUNITY TRACKER --
-  const CATEGORIES = ['Sales','Customers','FP&A','Operations','Planning','Safety and Compliance','People','Recruiting','Retention','Orientation','Customer Service','Network & Lanes','Equipment','Freight','Technology','Drivers','General'];
-  const PRIORITIES = [
-    { value: '',   label: '—' },
-    { value: 'P1', label: 'P1 — Mission Critical / Needed Now' },
-    { value: 'P2', label: 'P2 — High Impact / Need Soon' },
-    { value: 'P3', label: 'P3 — Important / Not Urgent' },
-    { value: 'P4', label: 'P4 — Nice-to-have / Low Priority' },
-  ];
-
-  function createOppRow() {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td class="cat-cell"><select style="width:100%;padding:8px 10px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:13px;color:var(--dark);outline:none;cursor:pointer;">
-        ${CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join('')}
-      </select></td>
-      <td><textarea placeholder="Describe the opportunity..."></textarea></td>
-      <td class="priority-cell"><select style="width:100%;padding:8px 6px;border:none;background:transparent;font-family:'Gilroy','Trebuchet MS',sans-serif;font-size:12px;font-weight:700;outline:none;cursor:pointer;">
-        ${PRIORITIES.map(p => `<option value="${p.value}">${p.label}</option>`).join('')}
-      </select></td>
-      <td class="roi-cell"><textarea placeholder="e.g. ~$50k/yr or 'significant'"></textarea></td>
-      <td class="del-cell"><button class="opp-del-btn" title="Remove row">×</button></td>`;
-    tr.querySelector('.opp-del-btn').onclick = () => tr.remove();
-    tr.querySelectorAll('textarea').forEach(ta => {
-      ta.addEventListener('input', function() {
-        this.style.height = 'auto';
-        this.style.height = Math.max(36, this.scrollHeight) + 'px';
-      });
-    });
-    // Color priority select on change
-    const priSel = tr.querySelectorAll('select')[1];
-    priSel.addEventListener('change', () => {
-      const colors = {P1:'#C62828',P2:'#E65100',P3:'#F57F17',P4:'#2E7D32','':''};
-      priSel.style.color = colors[priSel.value] || 'var(--dark)';
-    });
-    return tr;
+  if (data) {
+    const sels = tr.querySelectorAll('select');
+    const tas  = tr.querySelectorAll('textarea');
+    if (sels[0]) sels[0].value = data.cat || '';
+    if (tas[0])  { tas[0].value = data.desc || ''; autoResize(tas[0]); }
+    if (sels[1]) { sels[1].value = data.pri || ''; colorPri(); }
+    if (tas[1])  { tas[1].value = data.roi || '';  autoResize(tas[1]); }
   }
+  return tr;
+}
 
-  // Seed 5 empty rows
-  const oppTbody = document.getElementById('opp-tbody');
-  for (let i = 0; i < 5; i++) oppTbody.appendChild(createOppRow());
-
-  document.getElementById('add-opp-btn').addEventListener('click', () => {
+// Wire the Add Opportunity button
+(function() {
+  const btn = document.getElementById('add-opp-btn');
+  if (btn) btn.addEventListener('click', () => {
     const row = createOppRow();
-    oppTbody.appendChild(row);
+    document.getElementById('opp-tbody').appendChild(row);
     row.querySelector('textarea').focus();
-    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    scheduleSave();
   });
+})();
 
-  // -- OPPORTUNITY GROUPING --
-  function setOppView(mode) {
-    const flat = document.getElementById('opp-flat-view');
-    const grouped = document.getElementById('opp-grouped-view');
-    document.getElementById('view-flat').classList.toggle('active', mode === 'flat');
-    document.getElementById('view-grouped').classList.toggle('active', mode === 'grouped');
-    if (mode === 'flat') {
-      flat.style.display = 'block';
-      grouped.style.display = 'none';
-    } else {
-      flat.style.display = 'none';
-      grouped.style.display = 'block';
-      renderGrouped();
-    }
-  }
+function setOppView(mode) {
+  const flat    = document.getElementById('opp-flat-view');
+  const grouped = document.getElementById('opp-grouped-view');
+  if (!flat || !grouped) return;
+  document.getElementById('view-flat').classList.toggle('active', mode === 'flat');
+  document.getElementById('view-grouped').classList.toggle('active', mode === 'grouped');
+  flat.style.display    = mode === 'flat'    ? 'block' : 'none';
+  grouped.style.display = mode === 'grouped' ? 'block' : 'none';
+  if (mode === 'grouped') renderGrouped();
+}
 
-  function renderGrouped() {
-    const container = document.getElementById('opp-groups-container');
-    container.innerHTML = '';
-    const rows = Array.from(document.querySelectorAll('#opp-tbody tr'));
-
-    // Build data from rows
-    const data = rows.map(tr => {
-      const selects = tr.querySelectorAll('select');
-      const textareas = tr.querySelectorAll('textarea');
-      return {
-        category: selects[0]?.value || 'Uncategorized',
-        description: textareas[0]?.value || '',
-        priority: selects[1]?.value || '',
-        roi: textareas[1]?.value || '',
-      };
-    }).filter(d => d.description.trim());
-
-    if (data.length === 0) {
-      container.innerHTML = '<p style="color:var(--muted);font-size:13px;padding:20px 0;">No opportunities entered yet. Switch to Flat List to add them.</p>';
-      return;
-    }
-
-    // Group by category — preserve CATEGORIES order
-    const grouped = {};
-    CATEGORIES.forEach(c => { grouped[c] = []; });
-    grouped['Uncategorized'] = [];
-    data.forEach(d => {
-      const key = CATEGORIES.includes(d.category) ? d.category : 'Uncategorized';
-      grouped[key].push(d);
-    });
-
-    const priOrder  = { P1: 0, P2: 1, P3: 2, P4: 3, '': 4 };
-    const priColors = { P1: '#C62828', P2: '#E65100', P3: '#F57F17', P4: '#2E7D32', '': 'var(--muted)' };
-    const priBg     = { P1: '#FFEBEE', P2: '#FFF3E0', P3: '#FFF8E1', P4: '#E8F5E9', '': 'transparent' };
-    const priLabels = { P1: 'Mission Critical / Needed Now', P2: 'High Impact / Need Soon', P3: 'Important / Not Urgent', P4: 'Nice-to-have / Low Priority', '': '—' };
-
-    Object.entries(grouped).forEach(([cat, items]) => {
-      if (items.length === 0) return;
-      // Sort by priority within group
-      items.sort((a,b) => (priOrder[a.priority]||4) - (priOrder[b.priority]||4));
-
-      const div = document.createElement('div');
-      div.className = 'opp-group';
-      div.innerHTML = `
-        <div class="opp-group-header">
-          <span class="opp-group-title">${cat}</span>
-          <span class="opp-group-count">${items.length} item${items.length!==1?'s':''}</span>
-        </div>
-        <div class="opp-group-body">
-          <table>
-            <thead><tr><th style="width:200px">Priority</th><th>Opportunity</th><th style="width:200px">Associated ROI</th></tr></thead>
-            <tbody>
-              ${items.map(item => `
-                <tr>
-                  <td>
-                    ${item.priority
-                      ? `<span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;background:${priBg[item.priority]};color:${priColors[item.priority]};margin-right:6px;">${item.priority}</span><span style="font-size:11px;color:${priColors[item.priority]}">${priLabels[item.priority]}</span>`
-                      : '<span style="color:#CCC">—</span>'}
-                  </td>
-                  <td>${item.description.replace(/\n/g,'<br>')}</td>
-                  <td style="color:${priColors[item.priority]||'var(--muted)'};">${item.roi || '<span style="color:#CCC">—</span>'}</td>
-                </tr>`).join('')}
-            </tbody>
-          </table>
-        </div>`;
-      container.appendChild(div);
-    });
-  }
-
-  // -- ATTACHMENTS --
-  // ==============================================
-  // ATTACHMENTS — GROUPED SYSTEM
-  // ==============================================
-  const attachContainer = document.getElementById('attach-groups-container');
-  let attachGroupCounter = 0;
-
-  function addAttachGroup(name = '') {
-    const gid = 'ag_' + (++attachGroupCounter);
-    const div = document.createElement('div');
-    div.className = 'attach-group';
-    div.dataset.gid = gid;
-    div.innerHTML = `
-      <div class="attach-group-header">
-        <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="${name.replace(/"/g,'&quot;')}">
-        <div class="attach-group-actions">
-          <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">× Remove Group</button>
-        </div>
-      </div>
-      <div class="attach-group-body">
-        <div class="attach-group-drop" id="drop_${gid}">
-          <input type="file" multiple onchange="handleGroupFiles(this.files,'${gid}')">
-          📎 &nbsp;Drop files or click to upload
-        </div>
-        <div class="attach-link-row-group">
-          <input class="attach-link-input" id="ll_${gid}" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;">
-          <input class="attach-link-input" id="lu_${gid}" placeholder="URL" style="flex:1.5;">
-          <button class="attach-link-btn" onclick="addGroupLink('${gid}')">Add Link</button>
-        </div>
-        <div id="items_${gid}" style="margin-top:12px;"></div>
-      </div>`;
-
-    // Wire drag-drop
-    const dz = div.querySelector(`#drop_${gid}`);
-    dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('dragover'); });
-    dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
-    dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('dragover'); handleGroupFiles(e.dataTransfer.files, gid); });
-
-    // Wire Enter on link URL
-    div.querySelector(`#lu_${gid}`).addEventListener('keydown', e => {
-      if (e.key === 'Enter') { e.preventDefault(); addGroupLink(gid); }
-    });
-
-    // Wire name change to save
-    div.querySelector('.attach-group-name').addEventListener('input', scheduleSave);
-
-    attachContainer.appendChild(div);
-    scheduleSave();
-    return gid;
-  }
-
-  function removeAttachGroup(btn) {
-    if (!confirm('Remove this group and all its items?')) return;
-    btn.closest('.attach-group').remove();
-    scheduleSave();
-  }
-
-  function createAttachItem(icon, isLink, nameHTML, meta, desc = '') {
-    const item = document.createElement('div');
-    item.className = 'attach-item';
-    item.dataset.type = isLink ? 'link' : 'file';
-    item.dataset.nameHtml = nameHTML;
-    item.dataset.meta = meta;
-    item.innerHTML = `
-      <div class="attach-item-icon ${isLink ? 'link-icon' : ''}">${icon}</div>
-      <div class="attach-item-main">
-        <div class="attach-item-name">${nameHTML}</div>
-        <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item...">${desc}</textarea>
-      </div>
-      <div class="attach-item-meta">${meta}</div>
-      <button class="attach-item-del" title="Remove">×</button>`;
-    item.querySelector('.attach-item-del').onclick = () => { item.remove(); scheduleSave(); };
-    item.querySelector('.attach-item-desc').addEventListener('input', function() {
-      this.style.height = 'auto';
-      this.style.height = Math.max(20, this.scrollHeight) + 'px';
-      scheduleSave();
-    });
-    return item;
-  }
-
-  function handleGroupFiles(files, gid) {
-    const container = document.getElementById('items_' + gid);
-    Array.from(files).forEach(file => {
-      const ext = file.name.split('.').pop().toUpperCase().slice(0,4);
-      const size = file.size > 1024*1024
-        ? (file.size/1024/1024).toFixed(1)+' MB'
-        : (file.size/1024).toFixed(0)+' KB';
-      const item = createAttachItem(ext, false, file.name, size);
-      container.appendChild(item);
-    });
-    scheduleSave();
-  }
-
-  function addGroupLink(gid) {
-    const label = document.getElementById('ll_' + gid).value.trim();
-    const url   = document.getElementById('lu_' + gid).value.trim();
-    if (!url) return;
-    const displayLabel = label || url;
-    const container = document.getElementById('items_' + gid);
-    const item = createAttachItem('🔗', true, `<a href="${url}" target="_blank" rel="noopener">${displayLabel}</a>`, url);
-    item.dataset.linkLabel = displayLabel;
-    item.dataset.linkUrl = url;
-    container.appendChild(item);
-    document.getElementById('ll_' + gid).value = '';
-    document.getElementById('lu_' + gid).value = '';
-    scheduleSave();
-  }
-
-  // Seed one default group on first load
-  function initAttachGroups() {
-    const saved = localStorage.getItem('attach_groups_v1');
-    if (saved) {
-      try {
-        const groups = JSON.parse(saved);
-        groups.forEach(g => {
-          const gid = addAttachGroup(g.name);
-          const container = document.getElementById('items_' + gid);
-          (g.items || []).forEach(item => {
-            const el = createAttachItem(item.icon, item.isLink, item.nameHtml, item.meta, item.desc || '');
-            if (item.isLink) {
-              el.dataset.linkLabel = item.linkLabel || '';
-              el.dataset.linkUrl   = item.linkUrl || '';
-            }
-            container.appendChild(el);
-            // Restore textarea height
-            const ta = el.querySelector('.attach-item-desc');
-            if (ta) { ta.style.height = 'auto'; ta.style.height = Math.max(20, ta.scrollHeight) + 'px'; }
-          });
-        });
-        return;
-      } catch(e) { console.warn('Could not restore attach groups', e); }
-    }
-    // Default: one empty group
-    addAttachGroup('General');
-  }
-
-  function saveAttachGroups() {
-    const groups = [];
-    document.querySelectorAll('.attach-group').forEach(g => {
-      const gid = g.dataset.gid;
-      const name = g.querySelector('.attach-group-name')?.value || '';
-      const items = [];
-      g.querySelectorAll('.attach-item').forEach(item => {
-        items.push({
-          icon:      item.querySelector('.attach-item-icon')?.textContent || '',
-          isLink:    item.dataset.type === 'link',
-          nameHtml:  item.dataset.nameHtml || item.querySelector('.attach-item-name')?.innerHTML || '',
-          meta:      item.dataset.meta || item.querySelector('.attach-item-meta')?.textContent || '',
-          desc:      item.querySelector('.attach-item-desc')?.value || '',
-          linkLabel: item.dataset.linkLabel || '',
-          linkUrl:   item.dataset.linkUrl || '',
-        });
-      });
-      groups.push({ name, items });
-    });
-    localStorage.setItem('attach_groups_v1', JSON.stringify(groups));
-  }
-
-  initAttachGroups();
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Backspace') {
-      const el = document.activeElement;
-      if (el && el.contentEditable === 'true' && el.tagName === 'LI' && el.textContent.trim() === '') {
-        e.preventDefault();
-        const prev = el.previousElementSibling;
-        el.remove();
-        if (prev) {
-          prev.focus();
-          const range = document.createRange();
-          const sel = window.getSelection();
-          range.selectNodeContents(prev);
-          range.collapse(false);
-          sel.removeAllRanges();
-          sel.addRange(range);
-        }
-      }
-    }
-    // Enter key on contenteditable li = add new item
-    if (e.key === 'Enter') {
-      const el = document.activeElement;
-      if (el && el.contentEditable === 'true' && el.tagName === 'LI') {
-        e.preventDefault();
-        const li = document.createElement('li');
-        li.textContent = '';
-        li.setAttribute('contenteditable', 'true');
-        if (el.closest('.question-list')) makeEditable(li);
-        el.insertAdjacentElement('afterend', li);
-        li.focus();
-      }
-    }
-  });
-
-  // ==============================================
-  // LANE TABLE — SORT
-  // ==============================================
-  let laneSortCol = -1, laneSortAsc = true;
-  function sortLaneTable(colIdx) {
-    const tbody = document.getElementById('lane-tbody');
-    const ths = document.querySelectorAll('#lane-table thead th');
-    ths.forEach((th, i) => { th.classList.remove('sort-asc','sort-desc'); th.querySelector('.sort-arrow').textContent = '↕'; });
-    if (laneSortCol === colIdx) { laneSortAsc = !laneSortAsc; } else { laneSortCol = colIdx; laneSortAsc = true; }
-    ths[colIdx].classList.add(laneSortAsc ? 'sort-asc' : 'sort-desc');
-    ths[colIdx].querySelector('.sort-arrow').textContent = laneSortAsc ? '↑' : '↓';
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    rows.sort((a, b) => {
-      const aVal = a.querySelectorAll('input')[colIdx]?.value.trim() || '';
-      const bVal = b.querySelectorAll('input')[colIdx]?.value.trim() || '';
-      const aNum = parseFloat(aVal.replace(/[^0-9.]/g,'')), bNum = parseFloat(bVal.replace(/[^0-9.]/g,''));
-      if (!isNaN(aNum) && !isNaN(bNum)) return laneSortAsc ? aNum - bNum : bNum - aNum;
-      return laneSortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-    });
-    rows.forEach(r => tbody.appendChild(r));
-    scheduleSave();
-  }
-
-  // ==============================================
-  // UTILIZATION STATUS DROPDOWNS
-  // ==============================================
-  function applyUtilColor(sel) {
-    const colors = {
-      'Above Goal':        { bg:'#E8F5E9', color:'#2E7D32' },
-      'At Goal':           { bg:'#E3F2FD', color:'#1565C0' },
-      'Below Goal':        { bg:'#FFEBEE', color:'#C62828' },
-      'N/A':               { bg:'#F5F5F5', color:'#757575' },
-      'Ramping':           { bg:'#E3F2FD', color:'#1565C0' },
-      'Tracked Separately':{ bg:'#F3E5F5', color:'#6A1B9A' },
-      '':                  { bg:'transparent', color:'var(--dark)' },
+function renderGrouped() {
+  const container = document.getElementById('opp-groups-container');
+  if (!container) return;
+  container.innerHTML = '';
+  const data = Array.from(document.querySelectorAll('#opp-tbody tr')).map(tr => {
+    const sels = tr.querySelectorAll('select');
+    const tas  = tr.querySelectorAll('textarea');
+    return {
+      category:    sels[0]?.value || 'Uncategorized',
+      description: tas[0]?.value  || '',
+      priority:    sels[1]?.value || '',
+      roi:         tas[1]?.value  || ''
     };
-    const c = colors[sel.value] || colors[''];
-    sel.style.background = c.bg;
-    sel.style.color = c.color;
-    scheduleSave();
+  }).filter(d => d.description.trim());
+
+  if (!data.length) {
+    container.innerHTML = '<p style="color:var(--muted);font-size:13px;padding:20px 0;">No opportunities yet. Switch to Flat List to add them.</p>';
+    return;
   }
 
-  // Apply colors on page load
-  document.querySelectorAll('.util-status-select').forEach(sel => applyUtilColor(sel));
+  const grouped = {};
+  CATEGORIES.forEach(c => { grouped[c] = []; });
+  grouped['Uncategorized'] = [];
+  data.forEach(d => { (grouped[CATEGORIES.includes(d.category) ? d.category : 'Uncategorized']).push(d); });
 
-  // ==============================================
-  // LANE TABLE — ADD / REMOVE
-  // ==============================================
-  function addLaneRow() {
-    const tbody = document.getElementById('lane-tbody');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><input class="lane-input" placeholder="CC"></td>
-      <td><input class="lane-input" placeholder="Lane"></td>
-      <td><input class="lane-input" placeholder="Type"></td>
-      <td><input class="lane-input" placeholder="HML Code"></td>
-      <td><input class="lane-input" placeholder="Address"></td>
-      <td><input class="lane-input" placeholder="City"></td>
-      <td><input class="lane-input" placeholder="ST"></td>
-      <td><input class="lane-input" placeholder="Zip"></td>
-      <td><input class="lane-input lane-team" list="team-options" placeholder="Team"></td>
-      <td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td>`;
-    tbody.appendChild(tr);
-    tr.querySelector('.lane-input').focus();
-    scheduleSave();
+  const priOrder  = { P1:0, P2:1, P3:2, P4:3, '':4 };
+  const priColors = { P1:'#C62828', P2:'#E65100', P3:'#F57F17', P4:'#2E7D32', '':'var(--muted)' };
+  const priBg     = { P1:'#FFEBEE', P2:'#FFF3E0', P3:'#FFF8E1', P4:'#E8F5E9', '':'transparent' };
+
+  Object.entries(grouped).forEach(([cat, items]) => {
+    if (!items.length) return;
+    items.sort((a, b) => (priOrder[a.priority] ?? 4) - (priOrder[b.priority] ?? 4));
+    const div = document.createElement('div');
+    div.className = 'opp-group';
+    div.innerHTML = `
+      <div class="opp-group-header">
+        <span class="opp-group-title">${cat}</span>
+        <span class="opp-group-count">${items.length} item${items.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="opp-group-body">
+        <table>
+          <thead><tr><th style="width:80px">Priority</th><th>Opportunity</th><th style="width:160px">ROI</th></tr></thead>
+          <tbody>
+            ${items.map(item => `<tr>
+              <td style="text-align:center;">${item.priority
+                ? `<span style="display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700;background:${priBg[item.priority]};color:${priColors[item.priority]}">${item.priority}</span>`
+                : '<span style="color:#CCC">—</span>'}</td>
+              <td>${item.description.replace(/\n/g, '<br>')}</td>
+              <td style="color:${priColors[item.priority] || 'var(--muted)'};">${item.roi || '<span style="color:#CCC">—</span>'}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ATTACHMENT GROUPS — HELPERS
+// ═══════════════════════════════════════════════════════════════
+function getExt(name) { return (name.split('.').pop() || '').toUpperCase().slice(0, 4); }
+function fmtSize(bytes) {
+  return bytes > 1048576 ? (bytes / 1048576).toFixed(1) + ' MB' : Math.round(bytes / 1024) + ' KB';
+}
+
+function buildAttachItem(data) {
+  const div = document.createElement('div');
+  div.className = 'attach-item';
+  div.dataset.type     = data.type    || 'file';
+  div.dataset.nameHtml = data.nameHtml || '';
+  div.dataset.meta     = data.meta    || '';
+  if (data.linkLabel) div.dataset.linkLabel = data.linkLabel;
+  if (data.linkUrl)   div.dataset.linkUrl   = data.linkUrl;
+
+  const isLink = data.type === 'link';
+  const iconHtml = isLink
+    ? '<div class="attach-item-icon link-icon">🔗</div>'
+    : `<div class="attach-item-icon">${getExt(data.nameHtml)}</div>`;
+  const nameHtml = isLink
+    ? `<div class="attach-item-name"><a href="${escHtml(data.linkUrl)}" target="_blank" rel="noopener">${escHtml(data.linkLabel || data.linkUrl)}</a></div>`
+    : `<div class="attach-item-name">${escHtml(data.nameHtml)}</div>`;
+
+  div.innerHTML = `
+    ${iconHtml}
+    <div class="attach-item-main">
+      ${nameHtml}
+      <textarea class="attach-item-desc" rows="1" placeholder="Brief description of this item..." data-no-main-save="1"></textarea>
+    </div>
+    <div class="attach-item-meta">${escHtml(data.meta || '')}</div>
+    <button class="attach-item-del" title="Remove">&times;</button>
+  `;
+
+  const ta = div.querySelector('.attach-item-desc');
+  ta.value = data.desc || '';
+  ta.addEventListener('input', () => { autoResize(ta); saveAttachGroups(); });
+  autoResize(ta);
+
+  return div;
+}
+
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ATTACHMENT GROUPS — PUBLIC API
+// ═══════════════════════════════════════════════════════════════
+function handleGroupFiles(files, gid) {
+  const container = document.getElementById('items_' + gid);
+  if (!container) return;
+  Array.from(files).forEach(file => {
+    container.appendChild(buildAttachItem({ type: 'file', nameHtml: file.name, meta: fmtSize(file.size), desc: '' }));
+  });
+  // Reset file input
+  const fi = document.querySelector(`#drop_${gid} input[type=file]`);
+  if (fi) fi.value = '';
+  saveAttachGroups();
+}
+
+function addGroupLink(gid) {
+  const labelEl = document.getElementById('ll_' + gid);
+  const urlEl   = document.getElementById('lu_' + gid);
+  const url     = urlEl?.value.trim();
+  if (!url) return;
+  const label = labelEl?.value.trim() || url;
+  const container = document.getElementById('items_' + gid);
+  if (!container) return;
+  container.appendChild(buildAttachItem({ type: 'link', nameHtml: label, meta: url, linkLabel: label, linkUrl: url, desc: '' }));
+  if (labelEl) labelEl.value = '';
+  if (urlEl)   urlEl.value   = '';
+  saveAttachGroups();
+}
+
+function addAttachGroup() {
+  const gid = 'ag_' + attachGroupCounter++;
+  const el  = buildGroupElement(gid, '', []);
+  const addBtn = document.querySelector('.attach-add-group-btn');
+  const container = document.getElementById('attach-groups-container');
+  container.insertBefore(el, addBtn);
+  el.querySelector('.attach-group-name').focus();
+  saveAttachGroups();
+}
+
+function removeAttachGroup(btn) {
+  btn.closest('.attach-group').remove();
+  saveAttachGroups();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ATTACHMENT GROUPS — GROUP ELEMENT BUILDER
+// ═══════════════════════════════════════════════════════════════
+function buildGroupElement(gid, name, items) {
+  const div = document.createElement('div');
+  div.className  = 'attach-group';
+  div.dataset.gid = gid;
+  div.innerHTML = `
+    <div class="attach-group-header">
+      <input class="attach-group-name" placeholder="Group name (e.g. Gemba Photos, SOPs, Financial Reports)" value="${escHtml(name)}" data-no-main-save="1">
+      <div class="attach-group-actions">
+        <button class="attach-group-del" title="Remove group" onclick="removeAttachGroup(this)">&times; Remove Group</button>
+      </div>
+    </div>
+    <div class="attach-group-body">
+      <div class="attach-group-drop" id="drop_${gid}">
+        <input type="file" multiple onchange="handleGroupFiles(this.files,'${gid}')">
+        📎 &nbsp;Drop files or click to upload
+      </div>
+      <div class="attach-link-row-group">
+        <input class="attach-link-input" id="ll_${gid}" placeholder="Link label (e.g. Power BI Dashboard)" style="flex:1;" data-no-main-save="1">
+        <input class="attach-link-input" id="lu_${gid}" placeholder="URL" style="flex:1.5;" data-no-main-save="1">
+        <button class="attach-link-btn" onclick="addGroupLink('${gid}')">Add Link</button>
+      </div>
+      <div id="items_${gid}" style="margin-top:12px;"></div>
+    </div>
+  `;
+
+  // Wire group name save
+  div.querySelector('.attach-group-name').addEventListener('input', saveAttachGroups);
+
+  // Drag-and-drop on drop zone
+  const dz = div.querySelector('.attach-group-drop');
+  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+  dz.addEventListener('drop', e => {
+    e.preventDefault();
+    dz.classList.remove('dragover');
+    handleGroupFiles(e.dataTransfer.files, gid);
+  });
+
+  // Populate items
+  const ic = div.querySelector('#items_' + gid);
+  items.forEach(item => ic.appendChild(buildAttachItem(item)));
+
+  return div;
+}
+
+// Wire up pre-existing (baked) groups so drag-drop and name-save work
+function wireExistingGroup(groupEl) {
+  const gid = groupEl.dataset.gid;
+  if (!gid) return;
+  const nameInput = groupEl.querySelector('.attach-group-name');
+  if (nameInput && !nameInput.dataset.wiredAttach) {
+    nameInput.dataset.wiredAttach = '1';
+    nameInput.addEventListener('input', saveAttachGroups);
+  }
+  const dz = groupEl.querySelector('.attach-group-drop');
+  if (dz && !dz.dataset.wiredAttach) {
+    dz.dataset.wiredAttach = '1';
+    dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('dragover'); });
+    dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+    dz.addEventListener('drop', e => {
+      e.preventDefault();
+      dz.classList.remove('dragover');
+      handleGroupFiles(e.dataTransfer.files, gid);
+    });
+  }
+  groupEl.querySelectorAll('.attach-item-desc').forEach(ta => {
+    if (!ta.dataset.wiredAttach) {
+      ta.dataset.wiredAttach = '1';
+      ta.addEventListener('input', () => { autoResize(ta); saveAttachGroups(); });
+      autoResize(ta);
+    }
+  });
+}
+
+// Event delegation — delete buttons inside attach container
+document.getElementById('attach-groups-container').addEventListener('click', e => {
+  const delBtn = e.target.closest('.attach-item-del');
+  if (delBtn) { delBtn.closest('.attach-item').remove(); saveAttachGroups(); }
+});
+
+// ═══════════════════════════════════════════════════════════════
+// ATTACHMENT PERSISTENCE (localStorage)
+// ═══════════════════════════════════════════════════════════════
+function collectAttachGroups() {
+  return Array.from(document.querySelectorAll('#attach-groups-container .attach-group')).map(g => {
+    const gid  = g.dataset.gid;
+    const name = g.querySelector('.attach-group-name')?.value || '';
+    const items = Array.from(g.querySelectorAll('.attach-item')).map(item => ({
+      type:      item.dataset.type      || 'file',
+      nameHtml:  item.dataset.nameHtml  || '',
+      meta:      item.dataset.meta      || '',
+      desc:      item.querySelector('.attach-item-desc')?.value || '',
+      linkLabel: item.dataset.linkLabel || '',
+      linkUrl:   item.dataset.linkUrl   || ''
+    }));
+    return { gid, name, items };
+  });
+}
+
+function saveAttachGroups() {
+  try { localStorage.setItem(ATTACH_KEY, JSON.stringify(collectAttachGroups())); } catch(e) {}
+  scheduleSave();
+}
+
+function initAttachCounter() {
+  document.querySelectorAll('#attach-groups-container .attach-group[data-gid]').forEach(g => {
+    const n = parseInt((g.dataset.gid || '').replace('ag_', ''));
+    if (!isNaN(n) && n >= attachGroupCounter) attachGroupCounter = n + 1;
+  });
+}
+
+function restoreAttachGroups() {
+  const raw = localStorage.getItem(ATTACH_KEY);
+
+  // First wire existing (baked) groups regardless
+  document.querySelectorAll('#attach-groups-container .attach-group').forEach(wireExistingGroup);
+  initAttachCounter();
+
+  if (!raw) {
+    // No saved state yet — persist the baked HTML state now
+    saveAttachGroups();
+    return;
   }
 
-  function removeLaneRow(btn) {
-    btn.closest('tr').remove();
-    scheduleSave();
-  }
+  let saved;
+  try { saved = JSON.parse(raw); } catch(e) { saveAttachGroups(); return; }
 
-  // ==============================================
-  // COLLAPSIBLE NAV GROUPS
-  // ==============================================
-  function toggleNavGroup(label) {
-    const links = label.nextElementSibling;
-    const isCollapsed = links.classList.toggle('collapsed');
-    label.classList.toggle('collapsed', isCollapsed);
-    const groupName = label.textContent.trim().replace(/[▾]/g,'').trim();
-    const navState = JSON.parse(localStorage.getItem('nav_group_state') || '{}');
-    navState[groupName] = isCollapsed; // true = collapsed, false = open
-    localStorage.setItem('nav_group_state', JSON.stringify(navState));
-  }
+  const container   = document.getElementById('attach-groups-container');
+  const bakedGids   = new Set(Array.from(container.querySelectorAll('.attach-group[data-gid]')).map(g => g.dataset.gid));
+  const savedGids   = new Set(saved.map(g => g.gid));
 
-  // Restore nav group collapse state on load
-  (function restoreNavGroups() {
-    const navState = JSON.parse(localStorage.getItem('nav_group_state') || '{}');
-    document.querySelectorAll('.nav-group-label').forEach(label => {
-      const groupName = label.textContent.trim().replace(/[▾]/g,'').trim();
-      // Default is collapsed — only expand if user has explicitly opened it
-      if (navState[groupName] !== false) {
-        label.classList.add('collapsed');
-        label.nextElementSibling.classList.add('collapsed');
+  // Remove baked groups the user deleted in a previous session
+  bakedGids.forEach(gid => {
+    if (!savedGids.has(gid)) {
+      const el = container.querySelector(`.attach-group[data-gid="${gid}"]`);
+      if (el) el.remove();
+    }
+  });
+
+  // Add / update saved groups
+  const addBtn = document.querySelector('.attach-add-group-btn');
+  saved.forEach(({ gid, name, items }) => {
+    let domGroup = container.querySelector(`.attach-group[data-gid="${gid}"]`);
+
+    if (!domGroup) {
+      // Group exists in localStorage but not in baked HTML — create it
+      const el = buildGroupElement(gid, name, items);
+      container.insertBefore(el, addBtn);
+    } else {
+      // Update group name
+      const ni = domGroup.querySelector('.attach-group-name');
+      if (ni) ni.value = name;
+      // Replace items with saved state
+      const ic = domGroup.querySelector('#items_' + gid);
+      if (ic) {
+        ic.innerHTML = '';
+        items.forEach(item => ic.appendChild(buildAttachItem(item)));
       }
-    });
-  })();
-
-  // ==============================================
-  // KEY CONTACTS — ADD / REMOVE
-  // ==============================================
-  function addContactRow() {
-    const tbody = document.getElementById('contacts-tbody');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><input type="text" class="contact-input" placeholder="Name"></td>
-      <td><input type="text" class="contact-input" placeholder="Role"></td>
-      <td><input type="text" class="contact-input" placeholder="Relevance to A3"></td>
-      <td><input type="text" class="contact-input" placeholder="Location"></td>
-      <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>`;
-    tbody.appendChild(tr);
-    tr.querySelector('.contact-input').focus();
-    scheduleSave();
-  }
-
-  function removeContactRow(btn) {
-    const tbody = document.getElementById('contacts-tbody');
-    if (tbody.rows.length <= 1) return; // always keep at least one row
-    btn.closest('tr').remove();
-    scheduleSave();
-  }
-
-  // ==============================================
-  // AUTO-SAVE TO LOCALSTORAGE
-  // ==============================================
-  const SAVE_KEY = 'a3_notebook_v1';
-  let saveTimer = null;
-
-  function setSaveStatus(state) {
-    const dot = document.getElementById('save-dot');
-    const label = document.getElementById('save-label');
-    if (state === 'saving') {
-      dot.className = 'saving';
-      label.textContent = 'Saving...';
-    } else if (state === 'saved') {
-      dot.className = '';
-      label.textContent = 'All changes saved  -  ' + new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
-    } else if (state === 'unsaved') {
-      dot.className = 'unsaved';
-      label.textContent = 'Unsaved changes';
-    }
-  }
-
-  function collectState() {
-    const state = {};
-
-    // textareas & inputs
-    document.querySelectorAll('textarea, input[type="text"], input:not([type])').forEach((el, i) => {
-      const key = el.id || el.name || el.dataset.saveKey || ('field_' + i);
-      el.dataset.saveKey = key;
-      state['ta_' + key] = el.value;
-    });
-
-    // selects
-    document.querySelectorAll('select').forEach((el, i) => {
-      const key = el.id || el.name || el.dataset.saveKey || ('sel_' + i);
-      el.dataset.saveKey = key;
-      state['sel_' + key] = el.value;
-    });
-
-    // contenteditable elements
-    document.querySelectorAll('[contenteditable="true"]').forEach((el, i) => {
-      const key = el.id || el.dataset.saveKey || ('ce_' + i);
-      el.dataset.saveKey = key;
-      state['ce_' + key] = el.innerHTML;
-    });
-
-    // question-list items (dynamic lists)
-    document.querySelectorAll('.question-list').forEach((list, li) => {
-      const items = [];
-      list.querySelectorAll('li').forEach(item => items.push(item.textContent));
-      state['ql_' + li] = JSON.stringify(items);
-    });
-
-    // lane rows
-    const laneRows = [];
-    document.querySelectorAll('#lane-tbody tr').forEach(tr => {
-      const inputs = tr.querySelectorAll('.lane-input');
-      laneRows.push({
-        cc: inputs[0]?.value||'', lane: inputs[1]?.value||'', type: inputs[2]?.value||'',
-        hml: inputs[3]?.value||'', addr: inputs[4]?.value||'', city: inputs[5]?.value||'',
-        state: inputs[6]?.value||'', zip: inputs[7]?.value||'', team: inputs[8]?.value||''
-      });
-    });
-    state['lane_rows'] = JSON.stringify(laneRows);
-
-    // key contacts rows
-    const contactRows = [];
-    document.querySelectorAll('#contacts-tbody tr').forEach(tr => {
-      const inputs = tr.querySelectorAll('.contact-input');
-      contactRows.push({
-        name:      inputs[0]?.value || '',
-        role:      inputs[1]?.value || '',
-        relevance: inputs[2]?.value || '',
-        location:  inputs[3]?.value || ''
-      });
-    });
-    state['contact_rows'] = JSON.stringify(contactRows);
-
-    // opportunity tracker rows
-    const oppRows = [];
-    document.querySelectorAll('#opp-tbody tr').forEach(tr => {
-      const sels = tr.querySelectorAll('select');
-      const tas = tr.querySelectorAll('textarea');
-      oppRows.push({
-        cat: sels[0]?.value || '',
-        desc: tas[0]?.value || '',
-        pri: sels[1]?.value || '',
-        roi: tas[1]?.value || ''
-      });
-    });
-    state['opp_rows'] = JSON.stringify(oppRows);
-
-    return state;
-  }
-
-  function saveState() {
-    setSaveStatus('saving');
-    const state = collectState();
-    try {
-      localStorage.setItem(SAVE_KEY, JSON.stringify(state));
-      saveAttachGroups();
-      setSaveStatus('saved');
-    } catch(e) {
-      setSaveStatus('unsaved');
-      console.warn('Save failed:', e);
-    }
-  }
-
-  function scheduleSave() {
-    setSaveStatus('unsaved');
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(saveState, 800);
-  }
-
-  function restoreState() {
-    const raw = localStorage.getItem(SAVE_KEY);
-    if (!raw) return;
-    let state;
-    try { state = JSON.parse(raw); } catch(e) { return; }
-
-    // textareas & inputs
-    document.querySelectorAll('textarea, input[type="text"], input:not([type])').forEach((el, i) => {
-      const key = el.id || el.name || el.dataset.saveKey || ('field_' + i);
-      el.dataset.saveKey = key;
-      if (state['ta_' + key] !== undefined) el.value = state['ta_' + key];
-    });
-
-    // selects
-    document.querySelectorAll('select').forEach((el, i) => {
-      const key = el.id || el.name || el.dataset.saveKey || ('sel_' + i);
-      el.dataset.saveKey = key;
-      if (state['sel_' + key] !== undefined) el.value = state['sel_' + key];
-    });
-
-    // contenteditable
-    document.querySelectorAll('[contenteditable="true"]').forEach((el, i) => {
-      const key = el.id || el.dataset.saveKey || ('ce_' + i);
-      el.dataset.saveKey = key;
-      if (state['ce_' + key] !== undefined) el.innerHTML = state['ce_' + key];
-    });
-
-    // lane rows
-    if (state['lane_rows']) {
-      try {
-        const rows = JSON.parse(state['lane_rows']);
-        const tbody = document.getElementById('lane-tbody');
-        if (tbody && rows.length > 0) {
-          tbody.innerHTML = '';
-          rows.forEach(r => {
-            const tr = document.createElement('tr');
-            const v = (s) => (s||'').replace(/"/g,'&quot;');
-            tr.innerHTML = `
-              <td><input class="lane-input" value="${v(r.cc)}" placeholder="CC"></td>
-              <td><input class="lane-input" value="${v(r.lane)}" placeholder="Lane"></td>
-              <td><input class="lane-input" value="${v(r.type)}" placeholder="Type"></td>
-              <td><input class="lane-input" value="${v(r.hml)}" placeholder="HML Code"></td>
-              <td><input class="lane-input" value="${v(r.addr)}" placeholder="Address"></td>
-              <td><input class="lane-input" value="${v(r.city)}" placeholder="City"></td>
-              <td><input class="lane-input" value="${v(r.state)}" placeholder="ST"></td>
-              <td><input class="lane-input" value="${v(r.zip)}" placeholder="Zip"></td>
-              <td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team"></td>
-              <td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td>`;
-            tbody.appendChild(tr);
-          });
-        }
-      } catch(e) { console.warn('Could not restore lane rows', e); }
+      wireExistingGroup(domGroup);
     }
 
-    // key contacts rows
-    if (state['contact_rows']) {
-      try {
-        const rows = JSON.parse(state['contact_rows']);
-        const tbody = document.getElementById('contacts-tbody');
-        if (tbody && rows.length > 0) {
-          tbody.innerHTML = '';
-          rows.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-              <td><input type="text" class="contact-input" placeholder="Name" value="${row.name.replace(/"/g,'&quot;')}"></td>
-              <td><input type="text" class="contact-input" placeholder="Role" value="${row.role.replace(/"/g,'&quot;')}"></td>
-              <td><input type="text" class="contact-input" placeholder="Relevance to A3" value="${row.relevance.replace(/"/g,'&quot;')}"></td>
-              <td><input type="text" class="contact-input" placeholder="Location" value="${(row.location||'').replace(/"/g,'&quot;')}"></td>
-              <td style="text-align:center;"><button class="contact-del-btn" onclick="removeContactRow(this)" title="Remove">×</button></td>`;
-            tbody.appendChild(tr);
-          });
-        }
-      } catch(e) { console.warn('Could not restore contact rows', e); }
-    }
+    // Keep counter ahead
+    const n = parseInt((gid || '').replace('ag_', ''));
+    if (!isNaN(n) && n >= attachGroupCounter) attachGroupCounter = n + 1;
+  });
+}
 
-    // opportunity rows
-    if (state['opp_rows']) {
-      try {
-        const rows = JSON.parse(state['opp_rows']);
-        const tbody = document.getElementById('opp-tbody');
-        if (tbody && rows.length > 0) {
-          tbody.innerHTML = '';
-          rows.forEach(row => {
-            const tr = createOppRow();
-            const sels = tr.querySelectorAll('select');
-            const tas = tr.querySelectorAll('textarea');
-            if (sels[0]) sels[0].value = row.cat;
-            if (tas[0]) tas[0].value = row.desc;
-            if (sels[1]) { sels[1].value = row.pri; sels[1].dispatchEvent(new Event('change')); }
-            if (tas[1]) tas[1].value = row.roi;
-            tbody.appendChild(tr);
-          });
-        }
-      } catch(e) { console.warn('Could not restore opp rows', e); }
-    }
+// ═══════════════════════════════════════════════════════════════
+// SAVE BAR STATUS
+// ═══════════════════════════════════════════════════════════════
+function setSaveStatus(state) {
+  const dot   = document.getElementById('save-dot');
+  const label = document.getElementById('save-label');
+  if (!dot || !label) return;
+  const map = {
+    saving:  ['saving',  'Saving...'],
+    saved:   ['',        'All changes saved  ·  ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })],
+    unsaved: ['unsaved', 'Unsaved changes']
+  };
+  const [cls, txt] = map[state] || map.saved;
+  dot.className    = cls;
+  label.textContent = txt;
+}
 
+// ═══════════════════════════════════════════════════════════════
+// MAIN STATE — COLLECT & SAVE
+// ═══════════════════════════════════════════════════════════════
+function inAttachContainer(el) {
+  return !!el.closest('#attach-groups-container');
+}
+
+function collectState() {
+  const state = {};
+
+  document.querySelectorAll('textarea, input[type="text"], input:not([type])').forEach((el, i) => {
+    if (inAttachContainer(el) || el.dataset.noMainSave) return;
+    const key = el.id || el.name || el.dataset.saveKey || ('field_' + i);
+    el.dataset.saveKey = key;
+    state['ta_' + key] = el.value;
+  });
+
+  document.querySelectorAll('select').forEach((el, i) => {
+    if (inAttachContainer(el)) return;
+    const key = el.id || el.name || el.dataset.saveKey || ('sel_' + i);
+    el.dataset.saveKey = key;
+    state['sel_' + key] = el.value;
+  });
+
+  document.querySelectorAll('[contenteditable="true"]').forEach((el, i) => {
+    if (inAttachContainer(el)) return;
+    const key = el.id || el.dataset.saveKey || ('ce_' + i);
+    el.dataset.saveKey = key;
+    state['ce_' + key] = el.innerHTML;
+  });
+
+  // Opportunity rows (serialised separately for robustness)
+  const oppRows = [];
+  document.querySelectorAll('#opp-tbody tr').forEach(tr => {
+    const sels = tr.querySelectorAll('select');
+    const tas  = tr.querySelectorAll('textarea');
+    oppRows.push({ cat: sels[0]?.value||'', desc: tas[0]?.value||'', pri: sels[1]?.value||'', roi: tas[1]?.value||'' });
+  });
+  state['opp_rows'] = JSON.stringify(oppRows);
+
+  return state;
+}
+
+function saveState() {
+  setSaveStatus('saving');
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify(collectState()));
     setSaveStatus('saved');
+  } catch(e) {
+    setSaveStatus('unsaved');
+    console.warn('Save failed (storage full?):', e);
+  }
+}
+
+function scheduleSave() {
+  setSaveStatus('unsaved');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveState, 800);
+}
+
+function restoreState() {
+  const raw = localStorage.getItem(SAVE_KEY);
+  if (!raw) return;
+  let state;
+  try { state = JSON.parse(raw); } catch(e) { return; }
+
+  document.querySelectorAll('textarea, input[type="text"], input:not([type])').forEach((el, i) => {
+    if (inAttachContainer(el) || el.dataset.noMainSave) return;
+    const key = el.id || el.name || el.dataset.saveKey || ('field_' + i);
+    el.dataset.saveKey = key;
+    if (state['ta_' + key] !== undefined) { el.value = state['ta_' + key]; if (el.tagName==='TEXTAREA') autoResize(el); }
+  });
+
+  document.querySelectorAll('select').forEach((el, i) => {
+    if (inAttachContainer(el)) return;
+    const key = el.id || el.name || el.dataset.saveKey || ('sel_' + i);
+    el.dataset.saveKey = key;
+    if (state['sel_' + key] !== undefined) el.value = state['sel_' + key];
+  });
+
+  document.querySelectorAll('[contenteditable="true"]').forEach((el, i) => {
+    if (inAttachContainer(el)) return;
+    const key = el.id || el.dataset.saveKey || ('ce_' + i);
+    el.dataset.saveKey = key;
+    if (state['ce_' + key] !== undefined) el.innerHTML = state['ce_' + key];
+  });
+
+  // Opportunity rows
+  if (state['opp_rows']) {
+    try {
+      const rows = JSON.parse(state['opp_rows']);
+      const tbody = document.getElementById('opp-tbody');
+      if (tbody && rows.length) {
+        tbody.innerHTML = '';
+        rows.forEach(row => tbody.appendChild(createOppRow(row)));
+      }
+    } catch(e) { console.warn('Could not restore opp rows', e); }
   }
 
-  function clearSavedData() {
-    if (!confirm('Clear all saved data? This cannot be undone.')) return;
-    localStorage.removeItem(SAVE_KEY);
-    location.reload();
-  }
+  // Re-apply util colours
+  document.querySelectorAll('.util-status-select').forEach(applyUtilColor);
 
-  // -- PUBLISH & DOWNLOAD --
-  function publishNotebook() {
-    const btn = document.getElementById('publish-btn');
-    btn.textContent = 'Preparing...';
-    btn.disabled = true;
+  setSaveStatus('saved');
+}
 
-    setTimeout(() => {
+function clearSavedData() {
+  if (!confirm('Clear all saved data and reload? This cannot be undone.')) return;
+  localStorage.removeItem(SAVE_KEY);
+  localStorage.removeItem(ATTACH_KEY);
+  location.reload();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PUBLISH & DOWNLOAD
+// ═══════════════════════════════════════════════════════════════
+function publishNotebook() {
+  const btn = document.getElementById('publish-btn');
+  if (!btn) return;
+  btn.textContent = 'Preparing...';
+  btn.disabled = true;
+
+  // Flush saves
+  clearTimeout(saveTimer);
+  saveState();
+  saveAttachGroups();
+
+  setTimeout(() => {
+    try {
       const clone = document.documentElement.cloneNode(true);
 
-      // Remove the save bar from the download
-      const saveBar = clone.querySelector('#save-bar');
-      if (saveBar) saveBar.remove();
-
-      // Remove print-btn
-      const printBtn = clone.querySelector('.print-btn');
-      if (printBtn) printBtn.remove();
-
-      // Bake current field values into the clone
-      const liveInputs = document.querySelectorAll('textarea, input');
+      // ── Bake live field values into clone ──
+      const liveInputs  = document.querySelectorAll('textarea, input');
       const cloneInputs = clone.querySelectorAll('textarea, input');
-      liveInputs.forEach((el, i) => {
-        if (cloneInputs[i]) cloneInputs[i].value = el.value;
-      });
+      liveInputs.forEach((el, i) => { if (cloneInputs[i]) cloneInputs[i].value = el.value; });
 
-      const liveSels = document.querySelectorAll('select');
+      const liveSels  = document.querySelectorAll('select');
       const cloneSels = clone.querySelectorAll('select');
-      liveSels.forEach((el, i) => {
-        if (cloneSels[i]) cloneSels[i].value = el.value;
-      });
+      liveSels.forEach((el, i) => { if (cloneSels[i]) cloneSels[i].value = el.value; });
 
-      const liveCE = document.querySelectorAll('[contenteditable="true"]');
+      const liveCE  = document.querySelectorAll('[contenteditable="true"]');
       const cloneCE = clone.querySelectorAll('[contenteditable="true"]');
-      liveCE.forEach((el, i) => {
-        if (cloneCE[i]) cloneCE[i].innerHTML = el.innerHTML;
-      });
+      liveCE.forEach((el, i) => { if (cloneCE[i]) cloneCE[i].innerHTML = el.innerHTML; });
 
-      // Remove the autosave scripts from the download (not needed in static copy)
-      clone.querySelectorAll('script').forEach(s => {
-        if (s.textContent.includes('AUTO-SAVE TO LOCALSTORAGE')) s.remove();
-      });
+      // ── Bake attachment groups (including any added since last publish) ──
+      const liveAC  = document.getElementById('attach-groups-container');
+      const cloneAC = clone.querySelector('#attach-groups-container');
+      if (liveAC && cloneAC) cloneAC.innerHTML = liveAC.innerHTML;
+
+      // ── Remove browser extension artifacts ──
+      clone.querySelectorAll('scribe-shadow, [data-crx]').forEach(el => el.remove());
+
+      // ── Hide save bar in published file (but KEEP the scripts) ──
+      const saveBar = clone.querySelector('#save-bar');
+      if (saveBar) saveBar.style.display = 'none';
 
       const html = '<!DOCTYPE html>\n<html lang="en">\n' + clone.innerHTML + '\n</html>';
       const blob = new Blob([html], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      const now = new Date();
-      const stamp = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
-      a.href = url;
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      const now  = new Date();
+      const stamp = now.getFullYear() + '-'
+        + String(now.getMonth() + 1).padStart(2, '0') + '-'
+        + String(now.getDate()).padStart(2, '0');
+      a.href     = url;
       a.download = 'Expedited_A3_Field_Notebook_' + stamp + '.html';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+    } catch(e) {
+      console.error('Publish failed:', e);
+      alert('Publish failed — see console for details.');
+    }
 
-      btn.textContent = '⬇ Publish & Download';
-      btn.disabled = false;
-    }, 200);
-  }
+    btn.textContent = '⬇ Publish & Download';
+    btn.disabled = false;
+  }, 200);
+}
 
-  // -- WIRE UP ALL CHANGE LISTENERS --
-  function wireListeners() {
-    document.querySelectorAll('textarea, input, select').forEach(el => {
-      el.addEventListener('input', scheduleSave);
+// ═══════════════════════════════════════════════════════════════
+// WIRE ALL CHANGE LISTENERS
+// ═══════════════════════════════════════════════════════════════
+function wireListeners() {
+  document.querySelectorAll('textarea, input, select').forEach(el => {
+    if (!el.dataset.wired) {
+      el.dataset.wired = '1';
+      el.addEventListener('input',  scheduleSave);
       el.addEventListener('change', scheduleSave);
-    });
-    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+    }
+  });
+  document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+    if (!el.dataset.wired) {
+      el.dataset.wired = '1';
       el.addEventListener('input', scheduleSave);
+    }
+  });
+  // Watch for dynamically added elements
+  new MutationObserver(() => {
+    document.querySelectorAll('textarea, input, select, [contenteditable="true"]').forEach(el => {
+      if (!el.dataset.wired) {
+        el.dataset.wired = '1';
+        el.addEventListener('input',  scheduleSave);
+        el.addEventListener('change', scheduleSave);
+      }
     });
-    // Watch for dynamically added elements
-    const observer = new MutationObserver(() => {
-      document.querySelectorAll('textarea, input, select, [contenteditable="true"]').forEach(el => {
-        if (!el.dataset.wired) {
-          el.dataset.wired = '1';
-          el.addEventListener('input', scheduleSave);
-          el.addEventListener('change', scheduleSave);
-        }
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-  }
+  }).observe(document.body, { childList: true, subtree: true });
+}
 
-  // -- INIT --
-  restoreState();
-  wireListeners();
-  setSaveStatus('saved');
+// ═══════════════════════════════════════════════════════════════
+// INIT — order matters
+// ═══════════════════════════════════════════════════════════════
+restoreAttachGroups();  // 1. Rebuild attachment section from localStorage (or init from baked HTML)
+restoreState();         // 2. Restore all other fields from localStorage
+wireListeners();        // 3. Wire change listeners for future edits
+setSaveStatus('saved'); // 4. Set initial status indicator
 
 </script>
 </body>
