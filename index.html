@@ -1557,6 +1557,41 @@
     li.q-item .del-item, .add-q-btn { display: none !important; }
   }
 
+  /* ═════════════════ Broad editable-content affordance ═════════════════ */
+  /* Applies to text regions flagged with data-editable="1" — excludes q-items
+     and question-list (which have their own stronger focus treatment). */
+  [data-editable="1"][contenteditable="true"] {
+    cursor: text;
+    transition: background 0.12s, box-shadow 0.12s, outline 0.12s;
+    border-radius: 2px;
+    padding: 1px 2px;
+    margin: -1px -2px;
+  }
+  [data-editable="1"][contenteditable="true"]:hover {
+    background: #FFFBEF;
+    box-shadow: inset 0 0 0 1px rgba(232, 119, 34, 0.25);
+  }
+  [data-editable="1"][contenteditable="true"]:focus {
+    background: #FFF9E6;
+    box-shadow: inset 0 0 0 1px #E8A800;
+    outline: none;
+  }
+  [data-editable="1"][contenteditable="true"]:empty::before {
+    content: attr(data-placeholder);
+    color: var(--muted);
+    font-style: italic;
+    opacity: 0.6;
+  }
+  @media print {
+    [data-editable="1"][contenteditable="true"] {
+      background: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+
 
   /* collapse toggle */
   .obs-section-body { display: block; }
@@ -2267,6 +2302,251 @@
         <tr><td><input class="lane-input" value="156" placeholder="CC" data-save-key="field_270" data-wired="1"></td><td><input class="lane-input" value="KS/TX" placeholder="Lane" data-save-key="field_271" data-wired="1"></td><td><input class="lane-input" value="START POINT" placeholder="Type" data-save-key="field_272" data-wired="1"></td><td><input class="lane-input" value="HDYHU" placeholder="HML Code" data-save-key="field_273" data-wired="1"></td><td><input class="lane-input" value="1511 Fulghum Rd." placeholder="Address" data-save-key="field_274" data-wired="1"></td><td><input class="lane-input" value="Hutchins" placeholder="City" data-save-key="field_275" data-wired="1"></td><td><input class="lane-input" value="TX" placeholder="ST" data-save-key="field_276" data-wired="1"></td><td><input class="lane-input" value="75172" placeholder="Zip" data-save-key="field_277" data-wired="1"></td><td><input class="lane-input lane-team" value="" list="team-options" placeholder="Team" data-save-key="field_278" data-wired="1"></td><td style="text-align:center;"><button class="lane-del-btn" onclick="removeLaneRow(this)">×</button></td></tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- ─── DEDICATED CIRCUIT ROUTES — INTERACTIVE NETWORK MAP ─── -->
+  <div id="route-map" class="content-block" style="page-break-before: always; break-before: page;">
+    <div class="block-label">Dedicated Circuit Routes — Network Map</div>
+    <p style="font-size:13px;color:var(--muted);margin:0 0 14px;font-style:italic;">Geographic view of all nine CC freight lanes. Hover any route line or marker for details on swap points, home yards, and operating model. The map distinguishes slip-seat relays, drop-and-hook relays (CC 147), and dedicated team operations (CC 153).</p>
+
+    <div id="ccmap-wrapper" style="
+      --color-text-primary: var(--dark);
+      --color-text-secondary: var(--muted);
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #fafbfc;
+      --color-border-tertiary: var(--rule);
+      --color-border-secondary: var(--rule);
+      --border-radius-lg: 6px;
+      --border-radius-md: 4px;
+      font-family: 'Barlow', 'Segoe UI', Arial, sans-serif;
+    ">
+
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding:6px 0 8px;">
+        <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);letter-spacing:.05em;text-transform:uppercase;">Dedicated circuit routes</div>
+        <div style="font-size:10px;color:var(--color-text-secondary);letter-spacing:.04em;text-transform:uppercase;">Hover any route or marker for details</div>
+      </div>
+
+      <div id="mc" style="position:relative;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);">
+        <svg id="ccmap" width="100%" viewBox="0 0 900 530" style="display:block;border-radius:var(--border-radius-lg);"></svg>
+        <div id="tip" style="position:absolute;display:none;background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:8px 12px;font-size:11px;line-height:1.7;pointer-events:none;z-index:10;max-width:240px;box-shadow:0 2px 8px rgba(0,0,0,.08);"></div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px 18px;padding:10px 0 2px;align-items:center;">
+        <span style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-secondary);">Legend</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary);">
+          <svg width="12" height="12" style="overflow:visible"><circle cx="6" cy="6" r="5" fill="#888" stroke="white" stroke-width="1.5"/></svg> Start / end point
+        </span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary);">
+          <svg width="22" height="12" viewBox="0 0 22 12"><line x1="1" y1="3.5" x2="14" y2="3.5" stroke="#888" stroke-width="2" stroke-linecap="round"/><polygon points="13,0.5 19,3.5 13,6.5" fill="#888"/><line x1="21" y1="8.5" x2="8" y2="8.5" stroke="#888" stroke-width="2" stroke-linecap="round"/><polygon points="9,5.5 3,8.5 9,11.5" fill="#888"/></svg> Live swap (slip-seat)
+        </span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary);">
+          <svg width="22" height="12" viewBox="0 0 22 12"><line x1="1" y1="3.5" x2="14" y2="3.5" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2"/><polygon points="13,0.5 19,3.5 13,6.5" fill="#888"/><line x1="21" y1="8.5" x2="8" y2="8.5" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2"/><polygon points="9,5.5 3,8.5 9,11.5" fill="#888"/></svg> Drop &amp; hook relay (CC 147)
+        </span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary);">
+          <svg width="22" height="12" viewBox="0 0 22 12"><line x1="1" y1="6" x2="21" y2="6" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 2"/></svg> Teams running (CC 153)
+        </span>
+      </div>
+
+      <div id="leg" style="display:flex;flex-wrap:wrap;gap:6px 14px;padding:4px 0 6px;"></div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+    <script>
+    (function(){
+    const ROUTES = [
+      {cc:147, color:'#EC7806', lane:'CA/TX', team:'EXPE3', model:'drop-hook',
+       note:'Drop-and-hook relay chain. Only Toyah (VTTTO) is a live swap. All other stops are previously dropped trailer pickups.',
+       stops:[
+        {lat:34.108,lng:-117.289,type:'START',name:'San Bernardino, CA',code:'JCTSB'},
+        {lat:33.659,lng:-114.228,type:'START/SWAP',name:'Quartzsite, AZ',code:'A2ZAZ'},
+        {lat:32.120,lng:-110.826,type:'START/SWAP',name:'Tucson, AZ',code:'VPTU'},
+        {lat:32.310,lng:-106.779,type:'START/SWAP',name:'Las Cruces, NM',code:'TALCNM'},
+        {lat:31.327,lng:-103.795,type:'SWAP',name:'Toyah, TX — live swap',code:'VTTTO',live:true},
+        {lat:32.470,lng:-99.877,type:'START/SWAP',name:'Tye, TX',code:'WESTGO'},
+        {lat:32.697,lng:-97.595,type:'START',name:'Aledo, TX',code:'AURAL'},
+      ]},
+      {cc:148, color:'#196B24', lane:'IN/NC', team:'EXPE1', model:'slip-seat',
+       note:'Pepsi — reliable committed-volume slip-seat lane. Drivers swap trucks at Jackson OH and return home.',
+       stops:[
+        {lat:39.769,lng:-86.158,type:'START',name:'Indianapolis, IN',code:'HIRIN'},
+        {lat:39.053,lng:-82.640,type:'SWAP',name:'Jackson, OH',code:'AATJA'},
+        {lat:36.499,lng:-80.607,type:'START',name:'Mount Airy, NC',code:'MADMT'},
+      ]},
+      {cc:149, color:'#156082', lane:'IN/PA', team:'EXPE4', model:'slip-seat',
+       note:'Standard slip-seat relay. Two swap points between Indianapolis and Bedford PA.',
+       stops:[
+        {lat:39.769,lng:-86.158,type:'START',name:'Indianapolis, IN',code:'HIRIN'},
+        {lat:39.940,lng:-82.013,type:'SWAP',name:'Zanesville, OH',code:'LTZZA'},
+        {lat:39.955,lng:-82.683,type:'SWAP',name:'Etna, OH',code:'L8ET'},
+        {lat:40.015,lng:-78.503,type:'START',name:'Bedford, PA',code:'FEBE3'},
+      ]},
+      {cc:151, color:'#81351D', lane:'KS/TX', team:'EXPE2', model:'slip-seat',
+       note:'Slip-seat relay Kansas City to Denton TX via Sapulpa OK.',
+       stops:[
+        {lat:39.115,lng:-94.627,type:'START',name:'Kansas City, KS',code:'HMLKC'},
+        {lat:35.998,lng:-96.115,type:'SWAP',name:'Sapulpa, OK',code:'JLSA'},
+        {lat:33.215,lng:-97.133,type:'START',name:'Denton, TX',code:'GRDE'},
+      ]},
+      {cc:152, color:'#C53C11', lane:'IN/KC', team:'EXPE6', model:'slip-seat',
+       note:'Slip-seat relay Indianapolis to Kansas City via Bridgeton MO.',
+       stops:[
+        {lat:39.769,lng:-86.158,type:'START',name:'Indianapolis, IN',code:'HIRIN'},
+        {lat:38.774,lng:-90.415,type:'SWAP',name:'Bridgeton, MO',code:'LBBR2'},
+        {lat:39.115,lng:-94.627,type:'START',name:'Kansas City, KS',code:'HMLKC'},
+      ]},
+      {cc:154, color:'#55616A', lane:'IN/PA', team:'EXPE4', model:'slip-seat',
+       note:'Slip-seat relay Indianapolis to Carlisle PA via Lore City OH.',
+       stops:[
+        {lat:39.769,lng:-86.158,type:'START',name:'Indianapolis, IN',code:'HIRIN'},
+        {lat:40.055,lng:-81.467,type:'SWAP',name:'Lore City, OH',code:'GMLCF'},
+        {lat:40.201,lng:-77.186,type:'START',name:'Carlisle, PA',code:'CEYCA'},
+      ]},
+      {cc:155, color:'#E1251B', lane:'OK/TN', team:'EXPE5', model:'slip-seat',
+       note:'Slip-seat relay Sapulpa OK to Memphis TN via Russellville AR.',
+       stops:[
+        {lat:35.998,lng:-96.115,type:'START',name:'Sapulpa, OK',code:'JLSA'},
+        {lat:35.278,lng:-93.134,type:'SWAP',name:'Russellville, AR',code:'FJRU'},
+        {lat:35.149,lng:-90.049,type:'START',name:'Memphis, TN',code:'MYME'},
+      ]},
+      {cc:156, color:'#4a4a4a', lane:'KS/TX', team:'EXPE2', model:'slip-seat',
+       note:'Slip-seat relay Kansas City to Hutchins TX via Sapulpa OK.',
+       stops:[
+        {lat:39.115,lng:-94.627,type:'START',name:'Kansas City, KS',code:'HMLKC'},
+        {lat:35.998,lng:-96.115,type:'SWAP',name:'Sapulpa, OK',code:'JLSA'},
+        {lat:32.648,lng:-96.733,type:'START',name:'Hutchins, TX',code:'HDYHU'},
+      ]},
+      {cc:153, color:'#C8874A', lane:'TX/TX', team:'DRI', model:'dedicated',
+       note:"Driscoll's dedicated operation. Teams running between Hutchins and Laredo — not a relay swap model.",
+       stops:[
+        {lat:32.648,lng:-96.733,type:'START',name:'Hutchins, TX',code:'DRIHUT'},
+        {lat:27.506,lng:-99.507,type:'START',name:'Laredo, TX',code:'CCSLA3'},
+      ]},
+    ];
+
+    const tip=document.getElementById('tip');
+    const mc=document.getElementById('mc');
+    const bg='#ffffff';
+
+    function showTip(evt,html){tip.innerHTML=html;tip.style.display='block';moveTip(evt);}
+    function moveTip(evt){
+      const r=mc.getBoundingClientRect();
+      let lx=evt.clientX-r.left+14, ly=evt.clientY-r.top-10;
+      if(lx+240>r.width) lx=evt.clientX-r.left-250;
+      tip.style.left=lx+'px'; tip.style.top=ly+'px';
+    }
+    function hideTip(){tip.style.display='none';}
+
+    function swapIcon(g,color,isLive,hasCircle){
+      const s=8;
+      const sa=isLive?'none':'4 3';
+      g.append('rect').attr('x',-s-2).attr('y',-s).attr('width',(s+2)*2).attr('height',s*2)
+        .attr('fill',bg).attr('rx',2).attr('opacity',0.9);
+      g.append('line').attr('x1',-s+1).attr('y1',-3.5).attr('x2',s-3).attr('y2',-3.5)
+        .attr('stroke',color).attr('stroke-width',2.2).attr('stroke-linecap','round').attr('stroke-dasharray',sa);
+      g.append('polygon').attr('points',`${s-4},-6.5 ${s+1},-3.5 ${s-4},-0.5`).attr('fill',color);
+      g.append('line').attr('x1',s-1).attr('y1',3.5).attr('x2',-s+3).attr('y2',3.5)
+        .attr('stroke',color).attr('stroke-width',2.2).attr('stroke-linecap','round').attr('stroke-dasharray',sa);
+      g.append('polygon').attr('points',`${-s+4},0.5 ${-s-1},3.5 ${-s+4},6.5`).attr('fill',color);
+      if(hasCircle) g.append('circle').attr('r',2.5).attr('fill',color).attr('stroke',bg).attr('stroke-width',1);
+    }
+
+    function modelLabel(m){return m==='slip-seat'?'Slip-seat relay':m==='drop-hook'?'Drop-and-hook relay':m==='dedicated'?'Dedicated (teams)':m;}
+    function typeLabel(t){return t==='START'?'Start / end':t==='START/SWAP'?'Start + relay point':'Relay swap';}
+
+    async function buildMap(){
+      const us=await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+      const svg=d3.select('#ccmap');
+      const proj=d3.geoAlbersUsa().scale(1150).translate([450,270]);
+      const pfn=d3.geoPath().projection(proj);
+      const sf='#efefef';
+      const sb='#ffffff';
+      const ob='#c0c0c0';
+
+      svg.append('g').selectAll('path')
+        .data(topojson.feature(us,us.objects.states).features)
+        .join('path').attr('d',pfn).attr('fill',sf).attr('stroke',sb).attr('stroke-width',0.6);
+      svg.append('path')
+        .datum(topojson.mesh(us,us.objects.states,(a,b)=>a===b))
+        .attr('d',pfn).attr('fill','none').attr('stroke',ob).attr('stroke-width',0.8);
+
+      ROUTES.forEach(r=>{
+        const pts=r.stops.map(s=>proj([s.lng,s.lat])).filter(Boolean);
+        if(pts.length<2)return;
+        const isDedi=r.model==='dedicated';
+        const isDropHook=r.model==='drop-hook';
+        svg.append('path').attr('d',d3.line()(pts)).attr('fill','none')
+          .attr('stroke',r.color).attr('stroke-width',2.6)
+          .attr('stroke-linecap','round').attr('stroke-linejoin','round')
+          .attr('stroke-dasharray',isDedi?'5 4':isDropHook?'0':'0')
+          .attr('opacity',0.85)
+          .style('cursor','pointer')
+          .on('mouseover',evt=>showTip(evt,
+            `<div style="font-weight:600;color:${r.color};margin-bottom:2px">CC ${r.cc} &nbsp;·&nbsp; ${r.lane}</div>`+
+            `<div style="opacity:.65;font-size:10px;margin-bottom:4px">${modelLabel(r.model)} &nbsp;·&nbsp; ${r.team}</div>`+
+            `<div style="font-size:10.5px;line-height:1.55;max-width:220px">${r.note}</div>`))
+          .on('mousemove',moveTip).on('mouseout',hideTip);
+      });
+
+      ROUTES.forEach(r=>{
+        r.stops.forEach(s=>{
+          if(!s.type.includes('SWAP'))return;
+          const pos=proj([s.lng,s.lat]);if(!pos)return;
+          const isLive=r.model==='slip-seat'||s.live===true;
+          const hasCircle=s.type.includes('START');
+          const g=svg.append('g').attr('transform',`translate(${pos})`).style('cursor','pointer')
+            .on('mouseover',evt=>showTip(evt,
+              `<div style="font-weight:600;color:${r.color};margin-bottom:2px">CC ${r.cc} &nbsp;·&nbsp; ${r.lane}</div>`+
+              `<div style="font-family:monospace;font-size:10px;opacity:.7;margin-bottom:2px">${s.code}</div>`+
+              `<div style="margin-bottom:2px">${s.name}</div>`+
+              `<div style="opacity:.6;font-size:10px">${typeLabel(s.type)}${s.live?' — <strong>live swap</strong>':''}</div>`))
+            .on('mousemove',moveTip).on('mouseout',hideTip);
+          swapIcon(g,r.color,isLive,hasCircle);
+        });
+      });
+
+      ROUTES.forEach(r=>{
+        r.stops.forEach(s=>{
+          if(s.type!=='START')return;
+          const pos=proj([s.lng,s.lat]);if(!pos)return;
+          svg.append('g').attr('transform',`translate(${pos})`).style('cursor','pointer')
+            .on('mouseover',evt=>showTip(evt,
+              `<div style="font-weight:600;color:${r.color};margin-bottom:2px">CC ${r.cc} &nbsp;·&nbsp; ${r.lane}</div>`+
+              `<div style="font-family:monospace;font-size:10px;opacity:.7;margin-bottom:2px">${s.code}</div>`+
+              `<div style="margin-bottom:2px">${s.name}</div>`+
+              `<div style="opacity:.6;font-size:10px">Start / end point &nbsp;·&nbsp; ${r.team}</div>`))
+            .on('mousemove',moveTip).on('mouseout',hideTip)
+            .append('circle').attr('r',6).attr('fill',r.color).attr('stroke',bg).attr('stroke-width',2);
+        });
+      });
+
+      const leg=document.getElementById('leg');
+      ROUTES.forEach(r=>{
+        const d=document.createElement('span');
+        d.style.cssText='display:flex;align-items:center;gap:5px;font-size:11px;cursor:default;';
+        const isDedi=r.model==='dedicated';
+        let lineStyle=`width:18px;height:3px;background:${r.color};border-radius:2px;flex-shrink:0`;
+        if(isDedi) lineStyle=`width:18px;height:3px;background:repeating-linear-gradient(90deg,${r.color} 0,${r.color} 4px,transparent 4px,transparent 7px);flex-shrink:0`;
+        d.innerHTML=`<span style="${lineStyle}"></span>`+
+          `<span style="font-weight:500;color:var(--color-text-primary)">CC ${r.cc}</span>`+
+          `<span style="opacity:.6;color:var(--color-text-secondary)">${r.lane}</span>`+
+          `<span style="opacity:.45;font-size:9.5px;letter-spacing:.03em;text-transform:uppercase">${r.team}</span>`;
+        leg.appendChild(d);
+      });
+    }
+
+    if (typeof d3 !== 'undefined' && typeof topojson !== 'undefined') {
+      buildMap().catch(e=>{
+        document.getElementById('ccmap').insertAdjacentHTML('afterend',
+          `<p style="padding:16px;font-size:12px;color:var(--muted);">Map failed to load: ${e.message}. Ensure internet access for D3 and US atlas data.</p>`);
+      });
+    } else {
+      document.getElementById('ccmap').insertAdjacentHTML('afterend',
+        `<p style="padding:16px;font-size:12px;color:var(--muted);">Map libraries did not load. Ensure internet access to cdnjs.cloudflare.com for D3 and topojson.</p>`);
+    }
+    })();
+    </script>
   </div>
 
   <div class="content-block">
@@ -5580,6 +5860,68 @@ document.querySelectorAll('.obs-panel').forEach(panel => {
   if (!qItems.length) return;
   qItems.forEach(makeQItemEditable);
 });
+
+// ═══════════════════════════════════════════════════════════════
+// BROAD EDITABLE-CONTENT — make observation bullets, paragraphs,
+// callouts, table cells, theme titles all clickable-to-edit.
+// ═══════════════════════════════════════════════════════════════
+function enableAllTextEditing() {
+  // Target selectors — content the user writes/edits.
+  const selectors = [
+    // Observation bullets (but leave q-items alone — they already have their own setup)
+    '.obs-fact-list > li',
+    // Paragraphs inside observation sections, content blocks, obs-panels
+    '.obs-section-body p',
+    '.obs-section-body > ul > li',
+    '.content-block > p',
+    '.obs-panel p',
+    '.obs-panel .obs-panel-label',
+    // Observation table body cells (not th headers)
+    '.obs-table tbody td',
+    // Callout text (orange flag + navy star boxes)
+    '.callout-flag .cf-label',
+    '.callout-flag .cf-title',
+    '.callout-flag p',
+    '.callout-star .cs-label',
+    '.callout-star .cs-title',
+    '.callout-star p',
+    // Theme headers — titles and descriptions (so themes can be renamed)
+    '.day-title',
+    '.day-desc',
+    // Content block labels
+    '.content-block > .block-label'
+  ];
+
+  const nodes = document.querySelectorAll(selectors.join(','));
+  nodes.forEach(el => {
+    // Skip if already editable (q-items, question-list lis, already-wired elements)
+    if (el.getAttribute('contenteditable') === 'true') return;
+    // Skip q-items specifically — they have their own editor via makeQItemEditable
+    if (el.classList && el.classList.contains('q-item')) return;
+    // Skip elements that contain interactive controls
+    if (el.querySelector('button, input, select, textarea, .del-item, .lane-input')) return;
+    // Skip if inside a nav / sidebar / attachment container
+    if (el.closest('.nav-link, .nav-group-label, .nav-group-links a, .attach-container, .attach-group, .save-status-bar')) return;
+    // Skip the question-flag span and similar inline non-editable decorators
+    if (el.classList && (el.classList.contains('question-flag') || el.classList.contains('add-item-btn'))) return;
+
+    el.setAttribute('contenteditable', 'true');
+    el.setAttribute('spellcheck', 'true');
+    el.dataset.editable = '1';
+
+    // Assign a stable save key based on section-id + DOM-position within section.
+    if (!el.dataset.saveKey) {
+      const section = el.closest('[id]');
+      const sid = section ? section.id : 'root';
+      const same = section ? section.querySelectorAll(el.tagName.toLowerCase() + (el.className ? '.' + el.className.split(/\s+/).filter(Boolean).join('.') : '')) : [el];
+      let idx = 0;
+      for (let i = 0; i < same.length; i++) { if (same[i] === el) { idx = i; break; } }
+      el.dataset.saveKey = 'txt_' + sid + '_' + el.tagName.toLowerCase() + '_' + idx;
+    }
+  });
+}
+
+enableAllTextEditing();
 
 // ═══════════════════════════════════════════════════════════════
 // INIT — order matters
