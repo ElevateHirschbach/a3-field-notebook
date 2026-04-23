@@ -3547,13 +3547,16 @@ document.querySelectorAll('textarea').forEach(ta => {
 function makeEditable(li) {
   li.setAttribute('contenteditable', 'true');
   li.setAttribute('spellcheck', 'true');
-  if (li.closest('.question-list') && !li.querySelector('.del-item')) {
-    const del = document.createElement('button');
-    del.className = 'del-item';
-    del.title = 'Remove';
-    del.innerHTML = '&times;';
+  if (li.closest('.question-list')) {
+    let del = li.querySelector('.del-item');
+    if (!del) {
+      del = document.createElement('button');
+      del.className = 'del-item';
+      del.title = 'Remove';
+      del.innerHTML = '&times;';
+      li.appendChild(del);
+    }
     del.onclick = e => { e.stopPropagation(); li.remove(); scheduleSave(); };
-    li.appendChild(del);
   }
 }
 
