@@ -1208,6 +1208,54 @@
     .page-header, .obs-section-header, .day-header,
     .opp-group-header { page-break-after: avoid; break-after: avoid; }
 
+    /* Strengthened: keep tables, callouts, panels, list items, figures, and stat-card grids together */
+    .obs-data-table, .obs-table, .lane-table, .opp-table,
+    .obs-fact-list li,
+    .obs-two-panel, .obs-panel,
+    figure,
+    /* The 4-card stat grids (ALOH stats etc.) and the 3-col freight classification grid */
+    .ffcl-grid, .ffcl-card,
+    /* Callout / contextual boxes that are sized small enough to fit on one page */
+    .callout-flag,
+    /* Pay schedule table, exec metadata cards */
+    .exec-meta-card, .exec-meta-grid,
+    /* Mgmt band */
+    .mgmt-band {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Inline sub-headers inside obs-sections (navy bold text labels like "Work environment & knowledge flow"
+       or "EPM &mdash; Original intent vs. current reality"). These are sub-header DIVs styled with
+       font-weight:700;color:var(--navy);font-size:13.5px. We can't class-target them, but we use a
+       structural rule: any direct-child sub-header DIV followed by a list — keep them together. */
+    .obs-section-body > div[style*="font-weight:700"][style*="navy"],
+    .obs-section-body > div[style*="font-weight: 700"][style*="navy"] {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    /* Tables wrapped in overflow-x:auto (e.g., wide month-by-month exhibits, incentive-pay tables):
+       in print, allow them to render full-width without horizontal clipping */
+    div[style*="overflow-x:auto"], div[style*="overflow-x: auto"] {
+      overflow: visible !important;
+    }
+
+    /* Allow wide tables to break BETWEEN rows if they truly don't fit on one page,
+       but never break a single row in half */
+    .obs-data-table, .obs-table { page-break-inside: auto; break-inside: auto; }
+    .obs-data-table tr, .obs-table tr,
+    .obs-data-table thead, .obs-table thead {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .obs-data-table thead, .obs-table thead {
+      display: table-header-group;  /* Repeat headers on each page when a table breaks */
+    }
+
+    /* Avoid orphaning a section header at the bottom of a page */
+    .obs-section-header { page-break-after: avoid !important; break-after: avoid !important; }
+
     #file-input { display: none !important; }
   }
 
