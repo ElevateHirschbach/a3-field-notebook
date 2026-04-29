@@ -1024,6 +1024,53 @@
     .print-btn { display: none !important; }
     #save-bar { display: none !important; }
 
+    /* PRESERVE WHITE TEXT ON DARK BACKGROUNDS IN PRINT
+       The body { color:#111 } rule above cascades down to every text node.
+       Inline color:#fff on dark-bg cells is at the same specificity as a class
+       rule, so the body color wins on some browsers' print engines, leaving
+       white text invisible on a (briefly-rendered) white surface. The rules
+       below explicitly preserve white text wherever a dark background is set,
+       and explicitly preserve the dark background itself. */
+
+    /* Any element with inline style background:var(--navy) should keep navy bg + white text */
+    [style*="background:var(--navy)"],
+    [style*="background: var(--navy)"] {
+      background: var(--navy) !important;
+      color: #fff !important;
+    }
+    /* Same for dark grey / black inline backgrounds (used in TOTAL row banners) */
+    [style*="background:#1C1C1C"],
+    [style*="background: #1C1C1C"],
+    [style*="background:#1c1c1c"],
+    [style*="background: #1c1c1c"] {
+      background: #1C1C1C !important;
+      color: #fff !important;
+    }
+    /* Red banner cells (Dispatched Outside EXP rowspan label) */
+    [style*="background:var(--red-border)"][style*="color:#fff"],
+    [style*="background: var(--red-border)"][style*="color:#fff"],
+    [style*="background:var(--red-border)"][style*="color: #fff"] {
+      background: var(--red-border) !important;
+      color: #fff !important;
+    }
+    /* Make sure any descendant of a dark-bg cell also stays white,
+       in case nested <strong>/<span> inherits body color */
+    [style*="background:var(--navy)"] *,
+    [style*="background: var(--navy)"] *,
+    [style*="background:#1C1C1C"] *,
+    [style*="background: #1C1C1C"] *,
+    [style*="background:#1c1c1c"] *,
+    [style*="background: #1c1c1c"] *,
+    [style*="background:var(--red-border)"][style*="color:#fff"] *,
+    [style*="background: var(--red-border)"][style*="color:#fff"] * {
+      color: #fff !important;
+    }
+
+    /* Explicit safety on the banner styles used in Out of Route navy strip and similar */
+    .day-header, .day-badge, .day-title, .day-desc {
+      color: #fff !important;
+    }
+
     .add-item-btn, .del-item, .add-opp-btn, .opp-del-btn,
     .attach-del, .attach-drop-zone, .attach-link-row,
     .view-toggle-btn, .obs-section-header::after { display: none !important; }
@@ -1256,8 +1303,37 @@
     /* Avoid orphaning a section header at the bottom of a page */
     .obs-section-header { page-break-after: avoid !important; break-after: avoid !important; }
 
+    /* Continuation headers — injected by JS before printing, removed after.
+       These are clones of the section header that start each overflow page so the reader
+       always knows which sub-section they're reading. */
+    .continued-header {
+      display: block !important;
+      page-break-before: always !important;
+      break-before: page !important;
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+      background: #EEEEEE !important;
+      color: #111 !important;
+      font-size: 10.5pt !important;
+      font-weight: 700 !important;
+      padding: 8px 14px !important;
+      margin-top: 0 !important;
+      border-left: 3px solid var(--orange) !important;
+    }
+    .continued-header::after {
+      content: " (continued)";
+      font-weight: 400;
+      font-style: italic;
+      color: #666;
+      margin-left: 6px;
+      font-size: 9.5pt;
+    }
+
     #file-input { display: none !important; }
   }
+
+  /* On-screen: continuation headers must NEVER be visible */
+  .continued-header { display: none; }
 
   .opp-table-wrap {
     overflow-x: auto;
@@ -3883,12 +3959,12 @@
   </div>
 </div>
 
-<!-- ─── THEME 3: WORKSPACE & ENVIRONMENT ─── -->
+<!-- ─── THEME 3: WORKSPACE, WFH, LEADERSHIP ─── -->
 <div id="day2" class="section-page gemba-theme-page" style="padding:0;">
   <div class="day-header">
     <div class="day-badge" style="background:var(--navy);font-size:11px;">T3</div>
     <div class="day-info">
-      <div class="day-title">Workspace, Environment &amp; Work-From-Home Policy</div>
+      <div class="day-title">Workspace, WFH, Leadership</div>
       <div class="day-desc">Physical setup, ergonomics, leadership presence, and the team impact of the updated on-site policy</div>
     </div>
   </div>
@@ -5137,7 +5213,7 @@
   <div class="exec-meta-grid">
     <div class="exec-meta-card">
       <div class="exec-meta-label">Assessment Lead</div>
-      <input class="exec-meta-input" placeholder="Name" data-save-key="field_684" data-wired="1">
+      <input class="exec-meta-input" value="Kristi Noland" placeholder="Name" data-save-key="field_684" data-wired="1">
     </div>
     <div class="exec-meta-card">
       <div class="exec-meta-label">On-Site Dates</div>
@@ -6603,6 +6679,81 @@ restoreAttachGroups();  // 1. Rebuild attachment section from localStorage (or i
 restoreState();         // 2. Restore all other fields from localStorage
 wireListeners();        // 3. Wire change listeners for future edits
 setSaveStatus('saved'); // 4. Set initial status indicator
+
+// ═══════════════════════════════════════════════════════════════
+// PRINT — Inject continuation headers when sections span page breaks
+// ═══════════════════════════════════════════════════════════════
+//
+// When an obs-section is taller than one printed page, the reader loses the
+// section header on the overflow page(s). We solve this by:
+//   1. Measuring each section's rendered height before print
+//   2. If it exceeds the print page content area, walking the children and
+//      injecting clones of the section header at calculated break points
+//   3. Removing the injected clones after print so the on-screen view is clean
+//
+// Tuning: PAGE_HEIGHT_PX is the approximate usable content height of a US-Letter
+// page at 100% scale (~11" page - ~0.5" top/bottom margin = ~10" content @ 96dpi).
+// Browsers vary slightly; this is a best-effort estimate.
+// ═══════════════════════════════════════════════════════════════
+const PRINT_PAGE_HEIGHT_PX = 960;   // ~10 inches of content
+const SECTION_HEADER_HEIGHT_PX = 36; // continuation header takes ~36px
+
+function injectContinuationHeaders() {
+  removeContinuationHeaders(); // safety: never stack on a previous run
+  const sections = document.querySelectorAll('.obs-section');
+  sections.forEach(section => {
+    const header = section.querySelector(':scope > .obs-section-header');
+    const body = section.querySelector(':scope > .obs-section-body');
+    if (!header || !body) return;
+
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    const sectionHeight = section.offsetHeight;
+    if (sectionHeight <= PRINT_PAGE_HEIGHT_PX) return; // fits on one page, skip
+
+    // Find which page (relative to start of section) we're on for each child
+    // and inject a continuation header at the start of any page after the first
+    // that the section bleeds into. We anchor to direct children of body.
+    const headerText = header.textContent.trim();
+    const children = Array.from(body.children);
+
+    // Cumulative top offset measured from section start
+    let lastInjectedAtPage = 0;
+    children.forEach(child => {
+      const childTopRelToSection = (child.getBoundingClientRect().top + window.scrollY) - sectionTop;
+      const pageNumberWithinSection = Math.floor(childTopRelToSection / PRINT_PAGE_HEIGHT_PX);
+      if (pageNumberWithinSection > lastInjectedAtPage) {
+        // This child starts on a new page within the section — inject a continuation header
+        const cont = document.createElement('div');
+        cont.className = 'continued-header';
+        cont.textContent = headerText;
+        cont.setAttribute('data-injected', '1');
+        body.insertBefore(cont, child);
+        lastInjectedAtPage = pageNumberWithinSection;
+      }
+    });
+  });
+}
+
+function removeContinuationHeaders() {
+  document.querySelectorAll('.continued-header[data-injected="1"]').forEach(el => el.remove());
+}
+
+// Hook print events. Both window.matchMedia('print') (modern) and
+// onbeforeprint/onafterprint (legacy + Edge/Safari) are supported.
+window.addEventListener('beforeprint', injectContinuationHeaders);
+window.addEventListener('afterprint',  removeContinuationHeaders);
+
+// matchMedia variant — fires for Cmd+P initiated print on Chrome/Firefox.
+if (window.matchMedia) {
+  const mqList = window.matchMedia('print');
+  // .addEventListener('change') is preferred; fall back to addListener for older browsers
+  const handler = (mq) => {
+    if (mq.matches) injectContinuationHeaders();
+    else removeContinuationHeaders();
+  };
+  if (mqList.addEventListener) mqList.addEventListener('change', handler);
+  else if (mqList.addListener) mqList.addListener(handler);
+}
 
 </script>
 
